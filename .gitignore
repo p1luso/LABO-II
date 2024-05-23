@@ -1,0 +1,11 @@
+# Ignora la configuracion de vscode
+.vscode/
+maini.dSYM/
+
+# Ignora los archivos de configuracion de git
+.gitignore
+
+
+
+# Ignora el ejecutable de la aplicacion
+*.exe
