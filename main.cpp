@@ -27,24 +27,24 @@ int main()
         rlutil::locate(menuX, menuY);
         rlutil::setBackgroundColor(rlutil::CYAN);
         rlutil::setColor(rlutil::BLACK);
-        std::cout << "Sistema de personas  " << std::endl;
+        cout << "Sistema de personas  " << endl;
         rlutil::locate(menuX, menuY + 1);
-        std::cout << "  Menu de opciones   " << std::endl;
+        cout << "  Menu de opciones   " << endl;
 
         // Imprimir las opciones del menú
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
         rlutil::locate(menuX, menuY + 3);
-        std::cout << "1. Ingresar persona  " << std::endl;
+        cout << "1. Ingresar persona  " << endl;
         rlutil::locate(menuX, menuY + 4);
-        std::cout << "2. Listar personas   " << std::endl;
+        cout << "2. Listar personas   " << endl;
         rlutil::locate(menuX, menuY + 5);
-        std::cout << "3. Modificar persona " << std::endl;
+        cout << "3. Modificar persona " << endl;
         rlutil::locate(menuX, menuY + 6);
-        std::cout << "0. Salir" << std::endl;
+        cout << "0. Salir" << endl;
         rlutil::locate(menuX, menuY + 8);
-        std::cout << "Ingrese una opcion:  ";
-        std::cin >> opc;
+        cout << "Ingrese una opcion:  ";
+        cin >> opc;
 
         // Restaurar el color de fondo a negro
         rlutil::setBackgroundColor(rlutil::BLACK);
@@ -53,20 +53,20 @@ int main()
         {
         case 1:
             // Código para ingresar persona
-            std::cout << "Opción 1 seleccionada: Ingresar persona" << std::endl;
+            cout << "Opción 1 seleccionada: Ingresar persona" << endl;
             break;
         case 2:
             // Código para listar personas
-            std::cout << "Opción 2 seleccionada: Listar personas" << std::endl;
+            cout << "Opción 2 seleccionada: Listar personas" << endl;
             break;
         case 3:
             // Código para modificar persona
-            std::cout << "Opción 3 seleccionada: Modificar persona" << std::endl;
+            cout << "Opción 3 seleccionada: Modificar persona" << endl;
             break;
         case 0:
             return 0; // Salir del programa
         default:
-            std::cout << "Opción no válida" << std::endl;
+            cout << "Opción no válida" << endl;
         }
     }
 
