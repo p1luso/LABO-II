@@ -59,10 +59,7 @@ int main()
             // Código para listar personas
             cout << "Opción 2 seleccionada: Listar personas" << endl;
             break;
-        case 3:
-            // Código para modificar persona
-            cout << "Opción 3 seleccionada: Modificar persona" << endl;
-            break;
+
         case 0:
             return 0; // Salir del programa
         default:
