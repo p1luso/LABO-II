@@ -8,7 +8,7 @@ private:
    char _nombreNivel[30];
 
 public:
-   Nivel(int idRol, std::string nombrenivel);
+   Nivel(int idNivel, std::string nombreNivel);
 
    void setIdNivel(int id);
    int getIdNivel();

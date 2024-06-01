@@ -10,7 +10,7 @@ Persona::Persona()
     _dni = 0;
     _nombre = "";
     _apellido = "";
-    _edad = 0;
+    Fecha _fechaNacimiento;
     _sexo = "";
     _direccion = "";
     _telefono = "";
@@ -33,8 +33,8 @@ void Persona::setApellido(string apellido) { _apellido = apellido; }
 string Persona::getApellido() { return _apellido; }
 
 // set y get de edad
-void Persona::setEdad(int edad) { _edad = edad; }
-int Persona::getEdad() { return _edad; }
+void Persona::setFechaNacimiento(Fecha fechaNacimiento) { _fechaNacimiento = fechaNacimiento; }
+Fecha Persona::getFechaNacimiento() { return _fechaNacimiento; }
 
 // set y get de sexo
 void Persona::setSexo(string sexo) { _sexo = sexo; }

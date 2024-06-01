@@ -1,6 +1,6 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
-
+#include "Fecha.h"
 class Persona
 {
 private:
@@ -8,7 +8,7 @@ private:
     int _dni;
     string _nombre;
     string _apellido;
-    int _edad;
+    Fecha _fechaNacimiento;
     string _sexo;
     string _direccion;
     string _telefono;
@@ -28,8 +28,8 @@ public:
     void setApellido(string apellido);
     string getApellido();
 
-    void setEdad(int edad);
-    int getEdad();
+    void setFechaNacimiento(Fecha fechaNacimiento);
+    Fecha getFechaNacimiento();
 
     void setSexo(string sexo);
     string getSexo();
