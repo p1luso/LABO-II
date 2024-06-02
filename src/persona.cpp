@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "persona.h"
+#include "../include/persona.h"
 
 // constructor
 Persona::Persona()

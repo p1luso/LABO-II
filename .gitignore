@@ -1,6 +1,6 @@
 # Ignora la configuracion de vscode
 .vscode/
-maini.dSYM/
+main.dSYM/
 
 # Ignora los archivos de configuracion de git
 .gitignore
