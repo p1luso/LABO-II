@@ -9,3 +9,4 @@ main.dSYM/
 
 # Ignora el ejecutable de la aplicacion
 *.exe
+main

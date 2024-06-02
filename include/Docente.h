@@ -1,21 +1,21 @@
+#pragma once
 #include "persona.h"
 #include <string>
-#pragma once
 
-class Docente
+class Docente : public Persona
 {
 private:
-   int _idDocente;
-   char _turno[2];
-   Persona _persona;
+   int _id;
+   char _turno[10];
 
 public:
-   Docente(int idDocente, std::string turno, Persona persona);
+   Docente(int idDocente, std::string turno, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string &direccion, const std::string &email, const std::string &telefono);
+   Docente();
    ~Docente();
-   int getIdDocente();
-   void setIdDocente(int idDocente);
+   int getId();
+   void setId(int idDocente);
    std::string getTurno();
    void setTurno(std::string turno);
-   Persona getPersona();
-   void setPersona(Persona persona);
+   void Cargar();
+   void Mostrar();
 };

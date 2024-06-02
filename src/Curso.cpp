@@ -1,27 +1,35 @@
-// #include "../include/Curso.h"
-// #include <cstring>
 
-// Curso::Curso(int idCurso, std::string nombrCurso)
-// {
-//    _idCurso = 0;
-//    strcpy(_nombreCurso, "");
-// }
+#include <iostream>
+#include <cstring>
+#include "../include/Curso.h"
+#include "../utils/utils.h"
 
-// void Curso::setICurso(int id)
-// {
-//    _idCurso = id;
-// }
-// int Curso::getICurso()
-// {
-//    return _idCurso;
-// }
+Curso::Curso(int idCurso, std::string nombrCurso)
+{
+    _idCurso = 0;
+    setNombrCurso(nombrCurso);
+}
 
-// void Curso::setNombrCurso(std::string nombrCurso)
-// {
-//    strcpy(_nombreCurso, nombrCurso.c_str());
-// }
+Curso::Curso(){};
 
-// std::string Curso::getNombrCurso()
-// {
-//    return std::string(_nombreCurso);
-// }
+void Curso::setId(int id) { _idCurso = id; }
+
+int Curso::getId() { return _idCurso; }
+
+void Curso::setNombrCurso(std::string nombrCurso) { strcpy(_nombreCurso, nombrCurso.c_str()); }
+
+std::string Curso::getNombrCurso() { return _nombreCurso; }
+
+void Curso::Cargar()
+{
+    std::cout << "Id Curso: ";
+    std::cin >> _idCurso;
+    std::cout << "Nombre Curso: ";
+    cargarCadena(_nombreCurso, 30);
+}
+
+void Curso::Mostrar()
+{
+    std::cout << "ID: " << getId() << std::endl;
+    std::cout << "Nombre: " << getNombrCurso() << std::endl;
+}

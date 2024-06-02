@@ -6,3 +6,7 @@ void GuardarDirector();
 void mostrarDirector();
 
 void contarDirector();
+
+void tests();
+
+void cargarCadena(char *pal, int tam);

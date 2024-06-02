@@ -17,34 +17,26 @@ Fecha::Fecha(int dia, int mes, int anio)
    _anio = anio;
 }
 
-int Fecha::getDia()
-{
-   return _dia;
-}
+int Fecha::getDia() { return _dia; }
 
-int Fecha::getMes()
-{
-   return _mes;
-}
+int Fecha::getMes() { return _mes; }
 
-int Fecha::getAnio()
-{
-   return _anio;
-}
+int Fecha::getAnio() { return _anio; }
 
-void Fecha::setDia(int dia)
-{
-   _dia = dia;
-}
+void Fecha::setDia(int dia) { _dia = dia; }
 
-void Fecha::setMes(int mes)
-{
-   _mes = mes;
-}
+void Fecha::setMes(int mes) { _mes = mes; }
 
-void Fecha::setAnio(int anio)
+void Fecha::setAnio(int anio) { _anio = anio; }
+
+void Fecha::Cargar()
 {
-   _anio = anio;
+   std::cout << "Dia: ";
+   std::cin >> _dia;
+   std::cout << "Mes: ";
+   std::cin >> _mes;
+   std::cout << "Anio: ";
+   std::cin >> _anio;
 }
 
 std::string Fecha::toString()

@@ -1,20 +1,12 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 using namespace std;
 #include "../include/persona.h"
+#include "../utils/utils.h"
 
 // constructor
-Persona::Persona()
-{
-    _id = 0;
-    _dni = 0;
-    _nombre = "";
-    _apellido = "";
-    Fecha _fechaNacimiento;
-    _sexo = "";
-    _direccion = "";
-    _telefono = "";
-}
+Persona::Persona(){};
 
 // set y get de Id
 void Persona::setId(int id) { _id = id; }
@@ -25,25 +17,51 @@ void Persona::setDni(int dni) { _dni = dni; }
 int Persona::getDni() { return _dni; }
 
 // set y get de nombre
-void Persona::setNombre(string nombre) { _nombre = nombre; }
-string Persona::getNombre() { return _nombre; }
+void Persona::setNombre(std::string nombre) { strcpy(_nombre, nombre.c_str()); }
+std::string Persona::getNombre() { return _nombre; }
 
 // set y get de apellido
-void Persona::setApellido(string apellido) { _apellido = apellido; }
-string Persona::getApellido() { return _apellido; }
+void Persona::setApellido(std::string apellido) { strcpy(_apellido, apellido.c_str()); }
+std::string Persona::getApellido() { return _apellido; }
 
 // set y get de edad
 void Persona::setFechaNacimiento(Fecha fechaNacimiento) { _fechaNacimiento = fechaNacimiento; }
 Fecha Persona::getFechaNacimiento() { return _fechaNacimiento; }
 
 // set y get de sexo
-void Persona::setSexo(string sexo) { _sexo = sexo; }
-string Persona::getSexo() { return _sexo; }
+void Persona::setSexo(std::string sexo) { strcpy(_sexo, sexo.c_str()); }
+std::string Persona::getSexo() { return _sexo; }
+
+// set y get de email
+void Persona::setEmail(std::string email) { strcpy(_email, email.c_str()); }
+std::string Persona::getEmail() { return _email; }
 
 // set y get de direccion
-void Persona::setDireccion(string direccion) { _direccion = direccion; }
-string Persona::getDireccion() { return _direccion; }
+void Persona::setDireccion(std::string direccion) { strcpy(_direccion, direccion.c_str()); }
+std::string Persona::getDireccion() { return _direccion; }
 
 // set y get de telefono
-void Persona::setTelefono(string telefono) { _telefono = telefono; }
-string Persona::getTelefono() { return _telefono; }
+void Persona::setTelefono(std::string telefono) { strcpy(_telefono, telefono.c_str()); }
+std::string Persona::getTelefono() { return _telefono; }
+
+void Persona::Cargar()
+{
+    cout << "userId: ";
+    cin >> _id;
+    cout << "DNI: ";
+    cin >> _dni;
+    cout << "Nombre: ";
+    cargarCadena(_nombre, 50);
+    cout << "Apellido: ";
+    cargarCadena(_apellido, 50);
+    cout << "Fecha de nacimiento: " << endl;
+    _fechaNacimiento.Cargar();
+    cout << "Sexo: ";
+    cargarCadena(_sexo, 10);
+    cout << "Email: ";
+    cargarCadena(_email, 50);
+    cout << "Direccion: ";
+    cargarCadena(_direccion, 100);
+    cout << "Telefono: ";
+    cargarCadena(_telefono, 50);
+}
