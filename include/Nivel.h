@@ -9,9 +9,14 @@ private:
 
 public:
    Nivel(int idNivel, std::string nombreNivel);
+   Nivel();
 
-   void setIdNivel(int id);
-   int getIdNivel();
+   void setId(int id);
+   int getId();
    void setNombreNivel(std::string nombreNivel);
    std::string getNombreNivel();
+
+   void Cargar();
+
+   void Mostrar();
 };

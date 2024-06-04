@@ -5,12 +5,13 @@ class Persona
 private:
     int _id;
     int _dni;
-    std::string _nombre;
-    std::string _apellido;
+    char _nombre[50];
+    char _apellido[50];
     Fecha _fechaNacimiento;
-    std::string _sexo;
-    std::string _direccion;
-    std::string _telefono;
+    char _sexo[10];
+    char _email[50];
+    char _direccion[100];
+    char _telefono[50];
 
 public:
     Persona();
@@ -33,9 +34,14 @@ public:
     void setSexo(std::string sexo);
     std::string getSexo();
 
+    void setEmail(std::string email);
+    std::string getEmail();
+
     void setDireccion(std::string direccion);
     std::string getDireccion();
 
     void setTelefono(std::string telefono);
     std::string getTelefono();
+
+    void Cargar();
 };

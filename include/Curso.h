@@ -5,13 +5,18 @@ class Curso
 {
 private:
    int _idCurso;
-   char _nombreCurso[30];
+   char _nombreCurso[100];
 
 public:
    Curso(int idCurso, std::string nombrCurso);
+   Curso();
 
-   void setICurso(int id);
-   int getICurso();
+   void setId(int id);
+   int getId();
    void setNombrCurso(std::string nombrCurso);
    std::string getNombrCurso();
+
+   void Cargar();
+
+   void Mostrar();
 };
