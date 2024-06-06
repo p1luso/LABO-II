@@ -4,7 +4,7 @@ main.dSYM/
 
 # Ignora los archivos de configuracion de git
 .gitignore
-./Debug
+.\bin\Debug
 
 
 # Ignora el ejecutable de la aplicacion
