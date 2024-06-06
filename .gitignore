@@ -4,7 +4,8 @@ main.dSYM/
 
 # Ignora los archivos de configuracion de git
 .gitignore
-
+/obj
+/bin
 
 
 # Ignora el ejecutable de la aplicacion
