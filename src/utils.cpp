@@ -58,7 +58,7 @@ void tests()
 {
     Asignatura asignatura;
     // asignatura.Cargar();
-    asignatura.Mostrar();
+    ///asignatura.Mostrar();
     cout << "-------------------" << endl;
     Curso curso;
     curso.Cargar();
