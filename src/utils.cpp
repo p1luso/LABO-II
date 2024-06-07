@@ -13,6 +13,8 @@ using namespace std;
 #include "../include/Estudiante.h"
 #include "../include/Nivel.h"
 #include "../include/Rol.h"
+#include "../utils/MenuAdmin.h"
+#include "../utils/DirectorManager.h"
 
 // testeo de la clase Director con herencia de Persona
 // void GuardarDirector()
@@ -60,9 +62,11 @@ void tests()
     // asignatura.Cargar();
     ///asignatura.Mostrar();
     cout << "-------------------" << endl;
-    Curso curso;
-    curso.Cargar();
-    curso.Mostrar();
+    MenuAdmin menu;
+    menu.menu();
+//    Curso curso;
+//    curso.Cargar();
+//    curso.Mostrar();
     cout << "-------------------" << endl;
     Director director;
     // director.Cargar();

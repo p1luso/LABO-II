@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-#include "../include/DirectorManager.h"
+#include "../utils/DirectorManager.h"
 
 void DirectorManager::menu()
 {
