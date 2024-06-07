@@ -32,9 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Utils/ArchivoManager.h" />
-		<Unit filename="Utils/rlutil.h" />
-		<Unit filename="Utils/utils.h" />
 		<Unit filename="file/directores.dat" />
 		<Unit filename="include/Asignatura.h" />
 		<Unit filename="include/Curso.h" />
@@ -51,11 +48,20 @@
 		<Unit filename="src/Docente.cpp" />
 		<Unit filename="src/Estudiante.cpp" />
 		<Unit filename="src/Fecha.cpp" />
+		<Unit filename="src/Menus.cpp" />
 		<Unit filename="src/Nivel.cpp" />
 		<Unit filename="src/Rol.cpp" />
+		<Unit filename="src/funciones.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/persona.cpp" />
 		<Unit filename="src/utils.cpp" />
+		<Unit filename="utils/ArchivoManager.h" />
+		<Unit filename="utils/Menus.h" />
+		<Unit filename="utils/funciones.h" />
+		<Unit filename="utils/rlutil.h" />
+		<Unit filename="utils/utils.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

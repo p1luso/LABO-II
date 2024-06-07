@@ -13,8 +13,7 @@ using namespace std;
 #include "../include/Estudiante.h"
 #include "../include/Nivel.h"
 #include "../include/Rol.h"
-#include "../utils/MenuAdmin.h"
-#include "../utils/DirectorManager.h"
+#include "../utils/Menus.h"
 
 // testeo de la clase Director con herencia de Persona
 // void GuardarDirector()
@@ -58,31 +57,6 @@ void contarDirector()
 
 void tests()
 {
-    Asignatura asignatura;
-    // asignatura.Cargar();
-    ///asignatura.Mostrar();
-    cout << "-------------------" << endl;
-    MenuAdmin menu;
-    menu.menu();
-//    Curso curso;
-//    curso.Cargar();
-//    curso.Mostrar();
-    cout << "-------------------" << endl;
-    Director director;
-    // director.Cargar();
-    director.Mostrar();
-    cout << "-------------------" << endl;
-    Docente docente;
-    docente.Cargar();
-    docente.Mostrar();
-    cout << "-------------------" << endl;
-    Estudiante estudiante;
-    estudiante.Cargar();
-    estudiante.Mostrar();
-    cout << "-------------------" << endl;
-    Nivel nivel(1, "Primaria");
-    nivel.Mostrar();
-    cout << "-------------------" << endl;
-    Rol rol(1, "Director");
-    rol.Mostrar();
+    Menus menu;
+    menu.App();
 }
