@@ -1,4 +1,11 @@
 #pragma once
+#include <cstring>    // para strcpy
+#include <cstdio>     // para FILE, fopen, fclose, etc.
+#include <stdexcept>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 template <class T>
 class ArchivoManager

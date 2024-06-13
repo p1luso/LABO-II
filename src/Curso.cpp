@@ -10,7 +10,7 @@ Curso::Curso(int idCurso, std::string nombrCurso)
     setNombrCurso(nombrCurso);
 }
 
-Curso::Curso(){};
+Curso::Curso(){}
 
 void Curso::setId(int id) { _idCurso = id; }
 

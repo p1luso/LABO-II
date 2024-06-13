@@ -9,7 +9,7 @@ Asignatura::Asignatura(int idAsignatura, std::string nombreAsignatura)
     setNombreAsignatura(nombreAsignatura);
 }
 
-Asignatura::Asignatura(){};
+Asignatura::Asignatura(){}
 
 void Asignatura::setId(int id) { _idAsignatura = id; }
 

@@ -6,7 +6,7 @@ using namespace std;
 #include "../utils/utils.h"
 
 // constructor
-Persona::Persona(){};
+Persona::Persona(){}
 
 // set y get de Id
 void Persona::setId(int id) { _id = id; }

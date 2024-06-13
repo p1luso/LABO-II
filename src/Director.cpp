@@ -17,7 +17,7 @@
 //    pal[i] = '\0';
 //    fflush(stdin); /// vuelve a limpiar el buffer para eliminar los caracteres sobrantes
 // }
-Director::Director(){};
+Director::Director(){}
 
 Director::Director(int idDirector, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string email, const std::string &direccion, const std::string &telefono)
 {
@@ -30,7 +30,7 @@ Director::Director(int idDirector, const std::string &nombre, const std::string 
    setDireccion(direccion);
    setTelefono(telefono);
 }
-Director::~Director(){};
+Director::~Director(){}
 
 int Director::getId() { return _idDirector; }
 
