@@ -1,9 +1,9 @@
-#ifndef FUNCIONES_H_INCLUDED
-#define FUNCIONES_H_INCLUDED
+#ifndef FUNCIONES_H
+#define FUNCIONES_H
 
 #include "rlutil.h"
 #include <windows.h>
-#include <iostream> // Incluye <iostream> para std::cout en las funciones
+#include <iostream>
 
 enum Color {
     cNEGRO = 0,
@@ -30,6 +30,6 @@ void gotoxy(short x, short y);
 void textcolor(short colorTexto, short colorFondo);
 void recuadro(short iniX, short iniY, short ancho, short alto, short colorLinea = cBLANCO, short colorFondo = cNEGRO);
 void showItem(const char* text, int posx, int posy, bool selected);
-
 void obtenerDimensionesConsola(int &ancho, int &alto);
-#endif // FUNCIONES_H_INCLUDED
+
+#endif // FUNCIONES_H

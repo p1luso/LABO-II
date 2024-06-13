@@ -239,14 +239,15 @@
 
 1717712874 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
 
-1717736306 c:\users\santi\documents\github\labo-ii\utils\menus.h
+1718309801 c:\users\santi\documents\github\labo-ii\utils\menus.h
+	"funciones.h"
 
-1717733795 c:\users\santi\documents\github\labo-ii\utils\funciones.h
+1718309841 c:\users\santi\documents\github\labo-ii\utils\funciones.h
 	"rlutil.h"
 	<windows.h>
 	<iostream>
 
-1717736333 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
+1718309764 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../utils/funciones.h"
 

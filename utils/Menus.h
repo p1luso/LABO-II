@@ -1,5 +1,5 @@
 #pragma once
-
+#include "funciones.h"
 class Menus
 {
 public:

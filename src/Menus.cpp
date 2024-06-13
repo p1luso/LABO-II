@@ -443,7 +443,8 @@ void Menus::menuDirEstu()
     std::cout<<"Menu Director Estudiantes";
 }
 void Menus::menuVarios()
-{int opy = 0, op = 1;
+{
+    int opy = 0, op = 1;
 
     int anchoConsola, altoConsola;
     obtenerDimensionesConsola(anchoConsola, altoConsola);
