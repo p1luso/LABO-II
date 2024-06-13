@@ -1,14 +1,5 @@
 #include "../utils/funciones.h"
 
-void clrscr(void)
-{
-    system("cls");
-}
-
-void pause(void)
-{
-    system("pause >nul");
-}
 
 void gotoxy(short x, short y)
 {

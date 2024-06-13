@@ -221,7 +221,7 @@
 	"../include/persona.h"
 	"../utils/utils.h"
 
-1717736400 source:c:\users\santi\documents\github\labo-ii\src\utils.cpp
+1718316345 source:c:\users\santi\documents\github\labo-ii\src\utils.cpp
 	<iostream>
 	<string>
 	<stdexcept>
@@ -237,20 +237,32 @@
 	"../include/Rol.h"
 	"../utils/Menus.h"
 
-1717712874 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
+1718310753 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
+	<cstring>
+	<cstdio>
+	<stdexcept>
+	<string>
+	<iostream>
 
-1718309801 c:\users\santi\documents\github\labo-ii\utils\menus.h
+1718317871 c:\users\santi\documents\github\labo-ii\utils\menus.h
+	"ArchivoManager.h"
+	"../include/Director.h"
+	"../include/Docente.h"
+	"../include/Estudiante.h"
+	"rlutil.h"
 	"funciones.h"
+	<functional>
+	<vector>
 
 1718309841 c:\users\santi\documents\github\labo-ii\utils\funciones.h
 	"rlutil.h"
 	<windows.h>
 	<iostream>
 
-1718309764 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
+1718318185 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
-	"../utils/funciones.h"
+	"../include/Director.h"
 
-1717734093 source:c:\users\santi\documents\github\labo-ii\src\funciones.cpp
+1718315541 source:c:\users\santi\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 

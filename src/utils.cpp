@@ -58,5 +58,5 @@ void contarDirector()
 void tests()
 {
     Menus menu;
-    menu.App();
+    menu.Login();
 }
