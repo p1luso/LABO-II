@@ -20,16 +20,25 @@ void Nivel::setNombreNivel(std::string nombreNivel) { strcpy(_nombreNivel, nombr
 
 std::string Nivel::getNombreNivel() { return _nombreNivel; }
 
+void Nivel::setEstado(bool estado) { _estado = estado; }
+
+bool Nivel::getEstado() { return _estado; }
+
 void Nivel::Cargar()
 {
     std::cout << "Ingrese el id del nivel: ";
     std::cin >> _idNivel;
     std::cout << "Ingrese el nombre del nivel: ";
     cargarCadena(_nombreNivel, 30);
+    setEstado(true);
 }
 
 void Nivel::Mostrar()
 {
-    std::cout << "Id Nivel: " << _idNivel << std::endl;
-    std::cout << "Nombre Nivel: " << _nombreNivel << std::endl;
+    if (getEstado() == true)
+    {
+        std::cout << "Id Nivel: " << getId() << std::endl;
+        std::cout << "Nombre Nivel: " << getNombreNivel() << std::endl;
+        std::cout << "-------------------" << std::endl;
+    }
 }

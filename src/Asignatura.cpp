@@ -9,7 +9,7 @@ Asignatura::Asignatura(int idAsignatura, std::string nombreAsignatura)
     setNombreAsignatura(nombreAsignatura);
 }
 
-Asignatura::Asignatura(){}
+Asignatura::Asignatura() {}
 
 void Asignatura::setId(int id) { _idAsignatura = id; }
 
@@ -19,17 +19,24 @@ void Asignatura::setNombreAsignatura(std::string nombreAsignatura) { strcpy(_nom
 
 std::string Asignatura::getNombreAsignatura() { return std::string(_nombreAsignatura); }
 
+void Asignatura::setEstado(bool estado) { _estado = estado; }
+
+bool Asignatura::getEstado() { return _estado; }
 void Asignatura::Cargar()
 {
     std::cout << "Id Asignatura: ";
     std::cin >> _idAsignatura;
     std::cout << "Nombre Asignatura: ";
     cargarCadena(_nombreAsignatura, 30);
+    _estado = true;
 }
 
 void Asignatura::Mostrar()
 
 {
-    std::cout << "ID: " << getId() << std::endl;
-    std::cout << "Nombre: " << getNombreAsignatura() << std::endl;
+    if (getEstado() == true)
+    {
+        std::cout << "ID: " << getId() << std::endl;
+        std::cout << "Nombre: " << getNombreAsignatura() << std::endl;
+    }
 }

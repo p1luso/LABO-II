@@ -1,11 +1,10 @@
 #pragma once
-#include <cstring>    // para strcpy
-#include <cstdio>     // para FILE, fopen, fclose, etc.
+
+#include <cstring> // para strcpy
+#include <cstdio>  // para FILE, fopen, fclose, etc.
 #include <stdexcept>
 #include <string>
 #include <iostream>
-
-using namespace std;
 
 template <class T>
 class ArchivoManager
@@ -16,10 +15,10 @@ public:
 
     bool guardarRegistro(T obj);
     bool listarRegistro(T obj);
-    int buscarRegistro(int id);
-    T leerRegistro(int pos);
+    int buscarRegistro(T obj, int id);
+    T leerRegistro(T obj, int pos);
     bool modificarRegistro(T obj, int pos);
-    int cantidadRegistros(T obj);
+    int cantidadRegistros();
     bool registroExiste(int pos);
 };
 
@@ -32,7 +31,7 @@ ArchivoManager<T>::ArchivoManager(const char *nombreArchivo)
 template <class T>
 bool ArchivoManager<T>::guardarRegistro(T obj)
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "ab");
     if (f == NULL)
@@ -47,7 +46,7 @@ bool ArchivoManager<T>::guardarRegistro(T obj)
 template <class T>
 bool ArchivoManager<T>::listarRegistro(T obj)
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
@@ -55,58 +54,56 @@ bool ArchivoManager<T>::listarRegistro(T obj)
         return false;
     }
 
-    while (fread(&obj, sizeof(T), 1, f) == 1)
+    while (fread(&obj, sizeof obj, 1, f) == 1)
     {
         obj.Mostrar();
-
-        cout << endl; // Asume que T tiene un método mostrar()
+        std::cout << std::endl;
     }
     fclose(f);
     return true;
 }
 
 template <class T>
-int ArchivoManager<T>::buscarRegistro(int id)
+int ArchivoManager<T>::buscarRegistro(T obj, int id)
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "rb");
+    int pos = 0;
+
     if (f == NULL)
     {
-        return -1;
+        cout << "Error: No se pudo acceder al archivo" << endl;
+        fclose(f);
+        exit(-1);
     }
-    T obj;
-    int pos = 0;
-    while (fread(&obj, sizeof(T), 1, f) == 1)
+
+    while (fread(&obj, sizeof obj, 1, f) == 1)
     {
         if (obj.getId() == id)
-        { // Asume que T tiene un método getId()
+        {
             fclose(f);
             return pos;
         }
         pos++;
     }
     fclose(f);
-    return -1;
+    return -2;
 }
 
 template <class T>
-T ArchivoManager<T>::leerRegistro(int pos)
+T ArchivoManager<T>::leerRegistro(T obj, int pos)
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        throw std::runtime_error("Error al abrir el archivo");
+        return obj;
     }
-    T obj;
-    fseek(f, pos * sizeof(T), SEEK_SET);
-    if (fread(&obj, sizeof(T), 1, f) != 1)
-    {
-        fclose(f);
-        throw std::runtime_error("Error al leer el registro");
-    }
+
+    fseek(f, pos * sizeof obj, SEEK_SET);
+    fread(&obj, sizeof obj, 1, f);
     fclose(f);
     return obj;
 }
@@ -114,7 +111,7 @@ T ArchivoManager<T>::leerRegistro(int pos)
 template <class T>
 bool ArchivoManager<T>::modificarRegistro(T obj, int pos)
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "r+b");
     if (f == NULL)
@@ -128,9 +125,9 @@ bool ArchivoManager<T>::modificarRegistro(T obj, int pos)
 }
 
 template <class T>
-int ArchivoManager<T>::cantidadRegistros(T obj)
+int ArchivoManager<T>::cantidadRegistros()
 {
-    std::string ruta = "LABO-II/file/";
+    std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)

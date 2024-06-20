@@ -9,13 +9,20 @@ private:
    char _turno[10];
 
 public:
-   Docente(int idDocente, std::string turno, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string &direccion, const std::string &email, const std::string &telefono);
    Docente();
    ~Docente();
    int getId();
-   void setId(int idDocente);
    std::string getTurno();
+   void setId(int idDocente);
    void setTurno(std::string turno);
+
    void Cargar();
+
    void Mostrar();
+
+   void altaDocente();
+
+   void listarDocentes();
+
+   void bajaDocente();
 };

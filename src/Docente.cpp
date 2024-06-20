@@ -4,18 +4,6 @@
 #include "../include/Docente.h"
 #include "../utils/utils.h"
 
-Docente::Docente(int idDocente, std::string turno, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string &direccion, const std::string &email, const std::string &telefono)
-{
-    setId(idDocente);
-    setTurno(turno);
-    setNombre(nombre);
-    setApellido(apellido);
-    setFechaNacimiento(fechaNacimiento);
-    setSexo(sexo);
-    setDireccion(direccion);
-    setEmail(email);
-    setTelefono(telefono);
-}
 Docente::Docente() {}
 Docente::~Docente() {}
 
@@ -34,6 +22,7 @@ void Docente::Cargar()
     Persona::Cargar();
     std::cout << "Turno: ";
     cargarCadena(_turno, 10);
+    setEstado(true);
 }
 
 void Docente::Mostrar()

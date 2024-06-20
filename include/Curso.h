@@ -6,6 +6,7 @@ class Curso
 private:
    int _idCurso;
    char _nombreCurso[100];
+   bool _estado;
 
 public:
    Curso(int idCurso, std::string nombrCurso);
@@ -15,8 +16,16 @@ public:
    int getId();
    void setNombrCurso(std::string nombrCurso);
    std::string getNombrCurso();
+   void setEstado(bool estado);
+   bool getEstado();
 
    void Cargar();
 
    void Mostrar();
+
+   void altaCurso();
+
+   void listarCursos();
+
+   void bajaCurso();
 };
