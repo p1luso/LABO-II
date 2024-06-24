@@ -19,16 +19,24 @@ void Rol::setNombreRol(std::string nombreRol) { strcpy(_nombreRol, nombreRol.c_s
 
 std::string Rol::getNombreRol() { return std::string(_nombreRol); }
 
+void Rol::setEstado(bool estado) { _estado = estado; }
+
+bool Rol::getEstado() { return _estado; }
+
 void Rol::Cargar()
 {
     std::cout << "Id Rol: ";
     std::cin >> _idRol;
     std::cout << "Nombre Rol: ";
     cargarCadena(_nombreRol, 30);
+    _estado = true;
 }
 
 void Rol::Mostrar()
 {
-    std::cout << "Id Rol: " << _idRol << std::endl;
-    std::cout << "Nombre Rol: " << _nombreRol << std::endl;
+    if (_estado == true)
+    {
+        std::cout << "Id Rol: " << _idRol << std::endl;
+        std::cout << "Nombre Rol: " << _nombreRol << std::endl;
+    }
 }

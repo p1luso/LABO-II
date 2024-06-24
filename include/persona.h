@@ -3,6 +3,7 @@
 class Persona
 {
 private:
+    int _userId;
     int _id;
     int _dni;
     char _nombre[50];
@@ -12,9 +13,13 @@ private:
     char _email[50];
     char _direccion[100];
     char _telefono[50];
+    bool _estado;
 
 public:
     Persona();
+
+    void setUserId(int userId);
+    int getUserId();
 
     void setId(int id);
     int getId();
@@ -43,5 +48,16 @@ public:
     void setTelefono(std::string telefono);
     std::string getTelefono();
 
+    void setEstado(bool estado);
+    bool getEstado();
+
     void Cargar();
+
+    void Mostrar();
+
+    void altaPersona();
+
+    void listarPersonas();
+
+    void bajaPersona();
 };

@@ -9,7 +9,6 @@ private:
    char _turno[10];
 
 public:
-   Estudiante(int idEstudiante, std::string turno, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string email, const std::string &direccion, const std::string &telefono);
    Estudiante();
    ~Estudiante();
    int getId();
@@ -20,4 +19,10 @@ public:
    void Cargar();
 
    void Mostrar();
+
+   void altaEstudiante();
+
+   void listarEstudiantes();
+
+   void bajaEstudiante();
 };

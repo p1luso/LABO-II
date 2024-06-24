@@ -8,12 +8,17 @@ private:
    int _idDirector;
 
 public:
-   Director(int idDirector, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string email, const std::string &direccion, const std::string &telefono);
    Director();
    ~Director();
-   int getId();
    void setId(int idDirector);
    void Cargar();
+   int getId();
    void Mostrar();
+
+   void altaDirector();
+
+   void listarDirectores();
+
+   void bajaDirector();
 };
 #endif // DIRECTOR_H

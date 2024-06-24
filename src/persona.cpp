@@ -6,9 +6,15 @@ using namespace std;
 #include "../utils/utils.h"
 
 // constructor
-Persona::Persona(){}
+Persona::Persona() {}
+
+// destructor
 
 // set y get de Id
+
+void Persona::setUserId(int userId) { _userId = userId; }
+int Persona::getUserId() { return _userId; }
+
 void Persona::setId(int id) { _id = id; }
 int Persona::getId() { return _id; }
 
@@ -44,10 +50,14 @@ std::string Persona::getDireccion() { return _direccion; }
 void Persona::setTelefono(std::string telefono) { strcpy(_telefono, telefono.c_str()); }
 std::string Persona::getTelefono() { return _telefono; }
 
+// set y get de estado
+void Persona::setEstado(bool estado) { _estado = estado; }
+bool Persona::getEstado() { return _estado; }
+
 void Persona::Cargar()
 {
     cout << "userId: ";
-    cin >> _id;
+    cin >> _userId;
     cout << "DNI: ";
     cin >> _dni;
     cout << "Nombre: ";

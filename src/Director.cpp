@@ -17,20 +17,9 @@
 //    pal[i] = '\0';
 //    fflush(stdin); /// vuelve a limpiar el buffer para eliminar los caracteres sobrantes
 // }
-Director::Director(){}
+Director::Director() {}
 
-Director::Director(int idDirector, const std::string &nombre, const std::string &apellido, const Fecha &fechaNacimiento, const std::string &sexo, const std::string email, const std::string &direccion, const std::string &telefono)
-{
-   setId(idDirector);
-   setNombre(nombre);
-   setApellido(apellido);
-   setFechaNacimiento(fechaNacimiento);
-   setSexo(sexo);
-   setEmail(email);
-   setDireccion(direccion);
-   setTelefono(telefono);
-}
-Director::~Director(){}
+Director::~Director() {}
 
 int Director::getId() { return _idDirector; }
 
@@ -41,16 +30,21 @@ void Director::Cargar()
    std::cout << "IdDirector: ";
    std::cin >> _idDirector;
    Persona::Cargar();
+   Persona::setEstado(true);
 }
 
 void Director::Mostrar()
 {
-   std::cout << "ID: " << getId() << std::endl;
-   std::cout << "Nombre: " << getNombre() << std::endl;
-   std::cout << "Apellido: " << getApellido() << std::endl;
-   std::cout << "Fecha de nacimiento: " << getFechaNacimiento().toString() << std::endl;
-   std::cout << "Sexo: " << getSexo() << std::endl;
-   std::cout << "Email: " << getEmail() << std::endl;
-   std::cout << "Direccion: " << getDireccion() << std::endl;
-   std::cout << "Telefono: " << getTelefono() << std::endl;
+   if (getEstado() == true)
+   {
+      std::cout << "UserId: " << getUserId() << std::endl;
+      std::cout << "ID: " << getId() << std::endl;
+      std::cout << "Nombre: " << getNombre() << std::endl;
+      std::cout << "Apellido: " << getApellido() << std::endl;
+      std::cout << "Fecha de nacimiento: " << getFechaNacimiento().toString() << std::endl;
+      std::cout << "Sexo: " << getSexo() << std::endl;
+      std::cout << "Email: " << getEmail() << std::endl;
+      std::cout << "Direccion: " << getDireccion() << std::endl;
+      std::cout << "Telefono: " << getTelefono() << std::endl;
+   }
 }

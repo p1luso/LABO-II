@@ -10,7 +10,7 @@ Curso::Curso(int idCurso, std::string nombrCurso)
     setNombrCurso(nombrCurso);
 }
 
-Curso::Curso(){}
+Curso::Curso() {}
 
 void Curso::setId(int id) { _idCurso = id; }
 
@@ -20,16 +20,28 @@ void Curso::setNombrCurso(std::string nombrCurso) { strcpy(_nombreCurso, nombrCu
 
 std::string Curso::getNombrCurso() { return _nombreCurso; }
 
+void Curso::setEstado(bool estado) { _estado = estado; }
+
+bool Curso::getEstado() { return _estado; }
+
 void Curso::Cargar()
 {
     std::cout << "Id Curso: ";
     std::cin >> _idCurso;
     std::cout << "Nombre Curso: ";
     cargarCadena(_nombreCurso, 30);
+    setEstado(true);
 }
 
 void Curso::Mostrar()
 {
-    std::cout << "ID: " << getId() << std::endl;
-    std::cout << "Nombre: " << getNombrCurso() << std::endl;
+    if (getEstado() == false)
+    {
+        return;
+    }
+    else
+    {
+        std::cout << "ID: " << getId() << std::endl;
+        std::cout << "Nombre: " << getNombrCurso() << std::endl;
+    }
 }
