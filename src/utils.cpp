@@ -47,13 +47,13 @@ void cargarCadena(char *pal, int tam)
     fflush(stdin);
 }
 
-void contarDirector()
+/*void contarDirector()
 {
     ArchivoManager<Director> archivoDirector("directores.dat");
     Director director;
 
     cout << "Cantidad de directores: " << archivoDirector.cantidadRegistros(director) << endl;
-}
+}*/
 
 void tests()
 {

@@ -36,17 +36,7 @@ private:
 
     static void mostrarMenu(const std::vector<MenuItem>& items);
 
-    template<class T>
-    static void realizarAccion(ArchivoManager<T>& manager, int tipo);
 
-     template <class T>
-    static void altaRegistro(ArchivoManager<T>& manager);
-
-    template <class T>
-    static void bajaRegistro(ArchivoManager<T>& manager);
-
-    template <class T>
-    static void modificarRegistro(ArchivoManager<T>& manager);
 };
 
 #endif // MENUS_H
