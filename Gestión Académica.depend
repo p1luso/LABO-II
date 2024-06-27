@@ -307,7 +307,7 @@
 	"../utils/ArchivoManager.h"
 	"../utils/Menus.h"
 
-1719477372 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
+1719477743 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"
