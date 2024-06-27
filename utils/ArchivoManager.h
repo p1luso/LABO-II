@@ -5,6 +5,11 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
+#include "../include/Docente.h"
+#include "../include/Estudiante.h"
+
+
+using namespace std;
 
 template <class T>
 class ArchivoManager
@@ -14,12 +19,17 @@ public:
     ArchivoManager(const char *nombreArchivo);
 
     bool guardarRegistro(T obj);
-    bool listarRegistro(T obj);
+   void listarRegistro(T obj);
     int buscarRegistro(T obj, int id);
     T leerRegistro(T obj, int pos);
     bool modificarRegistro(T obj, int pos);
     int cantidadRegistros();
     bool registroExiste(int pos);
+    void listarDocentesPorCriterio(const std::string &criterio, const std::string &valor);
+    void listarEstudiantesPorCriterio(const std::string &criterio, const std::string &valor);
+    void listarNotasPorAsignatura(const std::string &asignatura);
+    std::string obtenerAsignaturaPorId(int id); // Nueva función para obtener la asignatura por ID
+
 };
 
 template <class T>
@@ -44,23 +54,25 @@ bool ArchivoManager<T>::guardarRegistro(T obj)
 }
 
 template <class T>
-bool ArchivoManager<T>::listarRegistro(T obj)
+void ArchivoManager<T>::listarRegistro(T obj)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        return false;
+        std::cerr << "Error: No se pudo abrir el archivo " << nombreArchivo << std::endl;
+        return;
     }
 
-    while (fread(&obj, sizeof obj, 1, f) == 1)
+    while (fread(&obj, sizeof(T), 1, f) == 1)
     {
-        obj.Mostrar();
-        std::cout << std::endl;
+        if (obj.getEstado())
+        {
+            obj.Mostrar();
+        }
     }
     fclose(f);
-    return true;
 }
 
 template <class T>
@@ -144,4 +156,123 @@ template <class T>
 bool ArchivoManager<T>::registroExiste(int pos)
 {
     return pos >= 0 && pos < cantidadRegistros();
+}
+
+template <class T>
+void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, const std::string &valor)
+{
+    ArchivoManager<Docente> archivoDocente("docentes.dat");
+    Docente docente;
+
+    std::string ruta = "files/docentes.dat";
+    FILE *f = fopen(ruta.c_str(), "rb");
+    if (f == NULL)
+    {
+        std::cerr << "Error: No se pudo abrir el archivo 'docentes.dat'" << std::endl;
+        return;
+    }
+
+    std::cout << "Buscar Docente en: " << valor << std::endl;
+    while (fread(&docente, sizeof(Docente), 1, f) == 1)
+    {
+        if ((criterio == "asignatura" && docente.getAsignatura() == valor) ||
+            (criterio == "curso" && docente.getCurso() == valor) || // Asumiendo que hay un método getCurso
+            (criterio == "nivel" && docente.getNivel() == valor) ||  // Asumiendo que hay un método getNivel
+            (criterio == "turno" && docente.getTurno() == valor))   // Asumiendo que hay un método getNivel
+
+        {
+            docente.Mostrar();
+            std::cout << std::endl;
+        }
+    }
+
+    fclose(f);
+}
+
+template <class T>
+void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio, const std::string &valor)
+{
+    ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
+    Estudiante estudiante;
+
+    std::string ruta = "files/estudiantes.dat";
+    FILE *f = fopen(ruta.c_str(), "rb");
+    if (f == NULL)
+    {
+        std::cerr << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
+        return;
+    }
+
+    std::cout << "Buscar Estudiantes en: " << valor<< std::endl;
+    while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
+    {
+        if ((criterio == "asignatura" && estudiante.getAsignatura() == valor) ||
+            (criterio == "curso" && estudiante.getCurso() == valor) ||
+            (criterio == "nivel" && estudiante.getNivel() == valor) ||
+            (criterio == "turno" && estudiante.getTurno() == valor))
+
+        {
+            estudiante.Mostrar();
+        }
+    }
+
+    fclose(f);
+}
+
+template <class T>
+void ArchivoManager<T>::listarNotasPorAsignatura(const std::string &asignatura) {
+    std::string ruta = "files/estudiantes.dat";
+    FILE *f = fopen(ruta.c_str(), "rb");
+    if (f == NULL)
+    {
+        std::cerr << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
+        return;
+    }
+
+    Estudiante estudiante;
+    while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
+    {
+        if (estudiante.getEstado() && estudiante.getAsignatura() == asignatura)
+        {
+            estudiante.Mostrar();
+            std::cout << std::endl;
+        }
+    }
+
+    fclose(f);
+}
+template <class T>
+std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
+{
+    std::string asignatura;
+
+    std::string ruta = "files/";
+    ruta.append(nombreArchivo);
+    FILE *f = fopen(ruta.c_str(), "rb");
+    if (f == NULL)
+    {
+        std::cerr << "Error: No se pudo abrir el archivo " << nombreArchivo << std::endl;
+        return asignatura; // Devuelve una cadena vacía si no se puede abrir el archivo
+    }
+
+    T obj;
+    bool encontrado = false;
+    while (fread(&obj, sizeof(T), 1, f) == 1)
+    {
+        if (obj.getId() == id) // Suponiendo que T tiene un método getId() que devuelve el ID del docente
+        {
+            asignatura = obj.getAsignatura(); // Suponiendo que T tiene un método getAsignatura() que devuelve la asignatura del docente
+            encontrado = true;
+            break;
+        }
+    }
+
+    fclose(f);
+
+    if (!encontrado)
+    {
+        std::cerr << "No se encontró el docente con ID: " << id << std::endl;
+    }
+
+    return asignatura;
 }

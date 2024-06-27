@@ -74,4 +74,5 @@ void Persona::Cargar()
     cargarCadena(_direccion, 100);
     cout << "Telefono: ";
     cargarCadena(_telefono, 50);
+    setEstado(true);
 }

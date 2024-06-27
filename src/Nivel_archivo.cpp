@@ -4,24 +4,28 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Nivel.h"
 
-void Nivel::altaNivel()
+void Nivel::alta()
 {
     Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
     nivel.Cargar();
 
     archivoNivel.guardarRegistro(nivel);
+        system("pause");
+
 }
 
-void Nivel::listarNiveles()
+void Nivel::listar()
 {
     Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
-
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoNivel.listarRegistro(nivel);
+        system("pause");
+
 }
 
-void Nivel::bajaNivel()
+void Nivel::baja()
 {
     Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
@@ -40,6 +44,7 @@ void Nivel::bajaNivel()
 
     if (nivel.getEstado() == true)
     {
+        int posY = 2; // Inicializar posY para la posición vertical de inicio
         nivel.Mostrar();
         cout << "Desea eliminar la Nivel? (s/n): ";
         char opcion;
@@ -55,4 +60,6 @@ void Nivel::bajaNivel()
     {
         cout << "El Nivel no existe o fue eliminado" << endl;
     }
+        system("pause");
+
 }

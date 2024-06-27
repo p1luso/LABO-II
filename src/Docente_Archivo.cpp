@@ -5,7 +5,36 @@ using namespace std;
 #include "../include/persona.h"
 #include "../include/Docente.h"
 
-void Docente::altaDocente()
+void Docente::listarEstudiantesPorMateria()
+{
+    system("cls");
+    ArchivoManager<Docente> archivoDocentes("docentes.dat");
+
+    // Obtener el ID del docente actual (suponiendo que tienes un método getId() en Docente)
+    int idDocente = getId();
+
+    // Obtener la asignatura del docente usando el ID
+    std::string asignaturaDocente = archivoDocentes.obtenerAsignaturaPorId(idDocente);
+
+    if (!asignaturaDocente.empty())
+    {
+        std::cout << "Estudiantes que cursan la asignatura " << asignaturaDocente << ":" << std::endl;
+
+        // Listar estudiantes por la asignatura del docente
+        ArchivoManager<Estudiante> archivoEstudiantes("estudiantes.dat");
+        archivoEstudiantes.listarEstudiantesPorCriterio("asignatura", asignaturaDocente);
+    }
+    else
+    {
+        std::cout << "No se encontró la asignatura del docente con ID: " << idDocente << std::endl;
+    }
+
+    system("pause");
+    system("cls");
+}
+
+
+void Docente::alta()
 {
     Docente docente;
     Persona user;
@@ -17,17 +46,21 @@ void Docente::altaDocente()
 
     archivoDocente.guardarRegistro(docente);
     archivoUsers.guardarRegistro(user);
+    system("pause");
+
 }
 
-void Docente::listarDocentes()
+void Docente::listar()
 {
     Docente docente;
     ArchivoManager<Docente> archivoDocente("docentes.dat");
-
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoDocente.listarRegistro(docente);
+    system("pause");
+
 }
 
-void Docente::bajaDocente()
+void Docente::baja()
 {
     Docente docente;
     ArchivoManager<Docente> archivoDocente("docentes.dat");
@@ -46,6 +79,7 @@ void Docente::bajaDocente()
 
     if (docente.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         docente.Mostrar();
         cout << "Desea eliminar la Docente? (s/n): " << endl;
         char opcion;
@@ -61,4 +95,5 @@ void Docente::bajaDocente()
     {
         cout << "El Docente ya no existe o fue eliminado " << endl;
     }
+    system("pause");
 }

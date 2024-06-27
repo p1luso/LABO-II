@@ -29,7 +29,7 @@ void Rol::Cargar()
     std::cin >> _idRol;
     std::cout << "Nombre Rol: ";
     cargarCadena(_nombreRol, 30);
-    _estado = true;
+    setEstado(true);
 }
 
 void Rol::Mostrar()

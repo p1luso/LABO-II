@@ -4,24 +4,29 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Asignatura.h"
 
-void Asignatura::altaAsignatura()
+
+void Asignatura::alta()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
     asignatura.Cargar();
 
     archivoAsignatura.guardarRegistro(asignatura);
+        system("pause");
 }
 
-void Asignatura::listarAsignaturas()
+void Asignatura::listar()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
 
     archivoAsignatura.listarRegistro(asignatura);
+        system("pause");
+
 }
 
-void Asignatura::bajaAsignatura()
+void Asignatura::baja()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
@@ -40,6 +45,7 @@ void Asignatura::bajaAsignatura()
 
     if (asignatura.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         asignatura.Mostrar();
         cout << "Desea eliminar la asignatura? (s/n): ";
         char opcion;
@@ -54,5 +60,8 @@ void Asignatura::bajaAsignatura()
     else
     {
         cout << "La asignatura ya esta eliminada" << endl;
+
     }
+        system("pause");
+
 }

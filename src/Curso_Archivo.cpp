@@ -4,24 +4,29 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Curso.h"
 
-void Curso::altaCurso()
+void Curso::alta()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
     curso.Cargar();
 
     archivoCurso.guardarRegistro(curso);
+        system("pause");
+
 }
 
-void Curso::listarCursos()
+void Curso::listar()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
 
     archivoCurso.listarRegistro(curso);
+        system("pause");
+
 }
 
-void Curso::bajaCurso()
+void Curso::baja()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
@@ -40,6 +45,7 @@ void Curso::bajaCurso()
 
     if (curso.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         curso.Mostrar();
         cout << "Desea eliminar la Curso? (s/n): " << endl;
         char opcion;
@@ -55,4 +61,6 @@ void Curso::bajaCurso()
     {
         cout << "El Curso ya no existe o fue eliminado " << endl;
     }
+        system("pause");
+
 }
