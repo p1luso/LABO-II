@@ -5,7 +5,7 @@ using namespace std;
 #include "../include/persona.h"
 #include "../include/Estudiante.h"
 
-void Estudiante::altaEstudiante()
+void Estudiante::alta()
 {
     Estudiante estudiante;
     Persona user;
@@ -19,7 +19,7 @@ void Estudiante::altaEstudiante()
     archivoUsers.guardarRegistro(user);
 }
 
-void Estudiante::listarEstudiantes()
+void Estudiante::listar()
 {
     Estudiante estudiante;
     ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
@@ -27,7 +27,7 @@ void Estudiante::listarEstudiantes()
     archivoEstudiante.listarRegistro(estudiante);
 }
 
-void Estudiante::bajaEstudiante()
+void Estudiante::baja()
 {
     Estudiante estudiante;
     ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");

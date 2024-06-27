@@ -1,5 +1,6 @@
  #include "../utils/Menus.h"
  #include "../include/Director.h"
+ #include "../utils/IRegistros.h"
 
  int Menus::login_code = 0;
 
@@ -125,8 +126,8 @@
 
  void Menus::menuDocente() {
      std::vector<MenuItem> items = {
-         {"1. LISTA ESTUDIANTES  ", []() { Menus::menuVarios(); }},
-         {"2. NOTAS              ", []() { Menus::menuVarios(); }},
+         {"1. LISTA ESTUDIANTES  ", []() { }},
+         {"2. NOTAS              ", []() { }},
      };
      mostrarMenu(items);
  }
@@ -140,10 +141,14 @@
  }
 
  void Menus::menuAdmPers() {
+     Estudiante estudiante;
+     Docente docente;
+     Director director;
      std::vector<MenuItem> items = {
-         {"1. DIRECTIVO          ", []() { Menus::menuVarios(); }},
-         {"2. DOCENTE            ", []() { Menus::menuVarios(); }},
-         {"3. ESTUDIANTE         ", []() { Menus::menuVarios(); }},
+         {"1. DIRECTIVO          ", [&director]() { Menus::menuVarios(director); }},
+         {"2. DOCENTE            ", [&docente
+         ]() { Menus::menuVarios(docente); }},
+         {"3. ESTUDIANTE         ", [&estudiante]() { Menus::menuVarios(estudiante); }},
          {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
@@ -151,95 +156,95 @@
 
  void Menus::menuAdmColeg() {
      std::vector<MenuItem> items = {
-         {"1. NIVEL              ", []() { Menus::menuVarios(); }},
-         {"2. CURSO              ", []() { Menus::menuVarios(); }},
-         {"3. ASIGNATURA         ", []() { Menus::menuVarios(); }},
+         {"1. NIVEL              ", []() { }},
+         {"2. CURSO              ", []() { }},
+         {"3. ASIGNATURA         ", []() { }},
          {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }
  void Menus::menuDirDoce() {
      std::vector<MenuItem> items = {
-         {"1. DOCENTE POR CURSO      ", []() { Menus::menuVarios(); }},
-         {"2. DOCENTE POR ASIGNATURA ", []() { Menus::menuVarios(); }},
-         {"3. DOCENTE POR NIVEL      ", []() { Menus::menuVarios(); }},
+         {"1. DOCENTE POR CURSO      ", []() { }},
+         {"2. DOCENTE POR ASIGNATURA ", []() { }},
+         {"3. DOCENTE POR NIVEL      ", []() { }},
          {"4. ATRAS                  ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }
 
  void Menus::menuDirEstu() {
+         Estudiante estudiante;
+
      std::vector<MenuItem> items = {
-         {"1. ESTUDIANTES POR CURSO      ", []() { Menus::menuVarios(); }},
-         {"2. ESTUDIANTES POR ASIGNATURA ", []() { Menus::menuVarios(); }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() { Menus::menuVarios(); }},
-         {"4. NOTAS DE ESTUDIANTES       ", []() { Menus::menuVarios(); }},
-         {"6. ATRAS                      ", []() { Menus::menuAdmin(); }}
+         {"1. ESTUDIANTES POR CURSO      ", []() { }},
+         {"2. ESTUDIANTES POR ASIGNATURA ", []() { }},
+         {"3. ESTUDIANTES POR NIVEL      ", []() {  }},
+         {"4. NOTAS DE ESTUDIANTES       ", []() { }},
+         {"6. ATRAS                      ", []() { }}
      };
      mostrarMenu(items);
  }
 
  void Menus::subMenuDoc(){
      std::vector<MenuItem> items = {
-         {"1. ESTUDIANTES POR CURSO      ", []() { Menus::menuVarios(); }},
-         {"2. ESTUDIANTES POR ASIGNATURA ", []() { Menus::menuVarios(); }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() { Menus::menuVarios(); }},
-         {"4. NOTAS DE ESTUDIANTES       ", []() { Menus::menuVarios(); }},
-         {"6. ATRAS                      ", []() { Menus::menuAdmin(); }}
+         {"1. ESTUDIANTES POR CURSO      ", []() { }},
+         {"2. ESTUDIANTES POR ASIGNATURA ", []() { }},
+         {"3. ESTUDIANTES POR NIVEL      ", []() {  }},
+         {"4. NOTAS DE ESTUDIANTES       ", []() {  }},
+         {"6. ATRAS                      ", []() { }}
      };
      mostrarMenu(items);
  }
 
- void Menus::menuVarios() {
-     // Mostrar men� de acciones
-     int opy = 0, op = 1;
-     int anchoConsola, altoConsola;
-     obtenerDimensionesConsola(anchoConsola, altoConsola);
+ void Menus::menuVarios(IRegistro& registro) {
+    int opy = 0, op = 1;
+    int anchoConsola, altoConsola;
+    obtenerDimensionesConsola(anchoConsola, altoConsola);
 
-     const int anchoRecuadro = 70;
-     const int altoRecuadro = 20;
-     const int longitudTexto = 23;
+    const int anchoRecuadro = 70;
+    const int altoRecuadro = 20;
+    const int longitudTexto = 23;
 
-     int recuadroX = (anchoConsola - anchoRecuadro) / 2;
-     int recuadroY = (altoConsola - altoRecuadro) / 2;
-     int textoX = recuadroX + (anchoRecuadro - longitudTexto) / 2;
-     recuadro(recuadroX, recuadroY, anchoRecuadro, altoRecuadro, 12, 0);
+    int recuadroX = (anchoConsola - anchoRecuadro) / 2;
+    int recuadroY = (altoConsola - altoRecuadro) / 2;
+    int textoX = recuadroX + (anchoRecuadro - longitudTexto) / 2;
+    recuadro(recuadroX, recuadroY, anchoRecuadro, altoRecuadro, 12, 0);
 
-     do {
-         rlutil::hidecursor();
-         rlutil::setColor(rlutil::COLOR::WHITE);
-         showItem("1. ALTA", textoX, recuadroY + 7, opy == 0);
-         showItem("2. BAJA", textoX, recuadroY + 9, opy == 2);
-         showItem("3. MODIFICACION", textoX, recuadroY + 11, opy == 4);
-         showItem("4. ATRAS", textoX, recuadroY + 13, opy == 6);
+    do {
+        rlutil::hidecursor();
+        rlutil::setColor(rlutil::COLOR::WHITE);
+        showItem("1. ALTA", textoX, recuadroY + 7, opy == 0);
+        showItem("2. BAJA", textoX, recuadroY + 9, opy == 2);
+        showItem("3. LISTAR", textoX, recuadroY + 11, opy == 4);
+        showItem("4. ATRAS", textoX, recuadroY + 13, opy == 6);
 
-         int key = rlutil::getkey();
-         switch (key) {
-         case 14:
-             rlutil::locate(textoX - 2, recuadroY + 7 + opy);
-             opy = (opy - 2 + 8) % 8;
-             break;
-         case 15:
-             rlutil::locate(textoX - 2, recuadroY + 7 + opy);
-             opy = (opy + 2) % 8;
-             break;
-         case 1:
-             rlutil::cls();
-             if (opy == 0) {
-                 //realizarAccion(managerDirector, opy);
-             } else if (opy == 2) {
-                // realizarAccion(managerDocente, opy);
-             } else if (opy == 4) {
-              //   realizarAccion(managerEstudiante, opy);
-             } else if (opy == 6) {
-                 Login();
-             }
-             op = 0;
-             break;
-         default:
-             break;
-         }
-     } while (op != 0);
- }
-
+        int key = rlutil::getkey();
+        switch (key) {
+        case 14:
+            rlutil::locate(textoX - 2, recuadroY + 7 + opy);
+            opy = (opy - 2 + 8) % 8;
+            break;
+        case 15:
+            rlutil::locate(textoX - 2, recuadroY + 7 + opy);
+            opy = (opy + 2) % 8;
+            break;
+        case 1:
+            rlutil::cls();
+            if (opy == 0) {
+                registro.alta();
+            } else if (opy == 2) {
+                registro.baja();
+            } else if (opy == 4) {
+                registro.listar();  // assuming modificar and listar are similar for this example
+            } else if (opy == 6) {
+                Login();
+            }
+            op = 0;
+            break;
+        default:
+            break;
+        }
+    } while (op != 0);
+}
 

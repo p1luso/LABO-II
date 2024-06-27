@@ -1,8 +1,9 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 #include "../include/persona.h"
+#include "../utils/IRegistros.h"
 
-class Director : public Persona
+class Director : public Persona, public IRegistro
 {
 private:
    int _idDirector;
@@ -15,10 +16,10 @@ public:
    int getId();
    void Mostrar();
 
-   void altaDirector();
+   void alta() override;
 
-   void listarDirectores();
+   void listar() override;
 
-   void bajaDirector();
+   void baja() override;
 };
 #endif // DIRECTOR_H

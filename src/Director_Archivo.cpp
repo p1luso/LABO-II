@@ -5,7 +5,7 @@ using namespace std;
 #include "../include/persona.h"
 #include "../include/Director.h"
 
-void Director::altaDirector()
+void Director::alta()
 {
     Director director;
     Persona user;
@@ -19,7 +19,7 @@ void Director::altaDirector()
     archivoUsers.guardarRegistro(user);
 }
 
-void Director::listarDirectores()
+void Director::listar()
 {
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
@@ -27,7 +27,7 @@ void Director::listarDirectores()
     archivoDirector.listarRegistro(director);
 }
 
-void Director::bajaDirector()
+void Director::baja()
 {
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");

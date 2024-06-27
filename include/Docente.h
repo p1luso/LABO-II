@@ -1,8 +1,9 @@
 #pragma once
 #include "persona.h"
 #include <string>
+#include "../utils/IRegistros.h"
 
-class Docente : public Persona
+class Docente : public Persona, public IRegistro
 {
 private:
    int _id;
@@ -20,9 +21,9 @@ public:
 
    void Mostrar();
 
-   void altaDocente();
+   void alta() override;
 
-   void listarDocentes();
+   void listar() override;
 
-   void bajaDocente();
+   void baja() override;
 };

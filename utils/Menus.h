@@ -9,6 +9,7 @@
 #include "funciones.h"
 #include <functional>
 #include <vector>
+#include "IRegistros.h"
 
 struct MenuItem {
     const char* texto;
@@ -27,7 +28,7 @@ public:
     static void menuDirDoce();
     static void menuDirEstu();
     static void subMenuDoc();
-    static void menuVarios();
+    static void menuVarios(IRegistro& registro);
     static void setLoginCode(int login);
     static int getLoginCode();
 
