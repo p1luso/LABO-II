@@ -17,6 +17,8 @@ void Docente::alta()
 
     archivoDocente.guardarRegistro(docente);
     archivoUsers.guardarRegistro(user);
+    system("pause");
+
 }
 
 void Docente::listar()
@@ -25,6 +27,8 @@ void Docente::listar()
     ArchivoManager<Docente> archivoDocente("docentes.dat");
 
     archivoDocente.listarRegistro(docente);
+    system("pause");
+
 }
 
 void Docente::baja()
@@ -61,4 +65,5 @@ void Docente::baja()
     {
         cout << "El Docente ya no existe o fue eliminado " << endl;
     }
+    system("pause");
 }

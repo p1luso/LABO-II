@@ -4,24 +4,28 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Rol.h"
 
-void Rol::altaRol()
+void Rol::alta()
 {
     Rol rol;
     ArchivoManager<Rol> archivoRol("Roles.dat");
     rol.Cargar();
 
     archivoRol.guardarRegistro(rol);
+        system("pause");
+
 }
 
-void Rol::listarRoles()
+void Rol::listar()
 {
     Rol rol;
     ArchivoManager<Rol> archivoRol("roles.dat");
 
     archivoRol.listarRegistro(rol);
+        system("pause");
+
 }
 
-void Rol::bajaRol()
+void Rol::baja()
 {
     Rol rol;
     ArchivoManager<Rol> archivoRol("Roles.dat");
@@ -55,4 +59,6 @@ void Rol::bajaRol()
     {
         cout << "El Rol no existe o fue eliminado" << endl;
     }
+        system("pause");
+
 }

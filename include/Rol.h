@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include "../utils/IRegistros.h"
 
-class Rol
+class Rol : public IRegistro
 {
 private:
    int _idRol;
@@ -24,9 +25,9 @@ public:
 
    void Mostrar();
 
-   void altaRol();
+   void alta();
 
-   void listarRoles();
+   void listar();
 
-   void bajaRol();
+   void baja();
 };

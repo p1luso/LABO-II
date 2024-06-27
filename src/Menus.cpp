@@ -145,20 +145,22 @@
      Docente docente;
      Director director;
      std::vector<MenuItem> items = {
-         {"1. DIRECTIVO          ", [&director]() { Menus::menuVarios(director); }},
-         {"2. DOCENTE            ", [&docente
-         ]() { Menus::menuVarios(docente); }},
-         {"3. ESTUDIANTE         ", [&estudiante]() { Menus::menuVarios(estudiante); }},
+         {"1. DIRECTIVO          ", [&director]() { Menus::menuVarios(director, Menus::menuAdmPers); }},
+         {"2. DOCENTE            ", [&docente]() { Menus::menuVarios(docente,  Menus::menuAdmPers); }},
+         {"3. ESTUDIANTE         ", [&estudiante]() { Menus::menuVarios(estudiante,  Menus::menuAdmPers); }},
          {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }
 
  void Menus::menuAdmColeg() {
+     Nivel nivel;
+     Curso curso;
+     Asignatura asignatura;
      std::vector<MenuItem> items = {
-         {"1. NIVEL              ", []() { }},
-         {"2. CURSO              ", []() { }},
-         {"3. ASIGNATURA         ", []() { }},
+         {"1. NIVEL              ", [&nivel]() {Menus::menuVarios(nivel, Menus::menuAdmColeg); }},
+         {"2. CURSO              ", [&curso]() { Menus::menuVarios(curso, Menus::menuAdmColeg); }},
+         {"3. ASIGNATURA         ", [&asignatura]() { Menus::menuVarios(asignatura, Menus::menuAdmColeg); }},
          {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
@@ -190,15 +192,16 @@
      std::vector<MenuItem> items = {
          {"1. ESTUDIANTES POR CURSO      ", []() { }},
          {"2. ESTUDIANTES POR ASIGNATURA ", []() { }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() {  }},
-         {"4. NOTAS DE ESTUDIANTES       ", []() {  }},
+         {"3. ESTUDIANTES POR NIVEL      ", []() { }},
+         {"4. NOTAS DE ESTUDIANTES       ", []() { }},
          {"6. ATRAS                      ", []() { }}
      };
      mostrarMenu(items);
  }
 
- void Menus::menuVarios(IRegistro& registro) {
+ void Menus::menuVarios(IRegistro& registro, void (*menuAnterior)()) {
     int opy = 0, op = 1;
+    int opcionElegida = 0;
     int anchoConsola, altoConsola;
     obtenerDimensionesConsola(anchoConsola, altoConsola);
 
@@ -211,6 +214,7 @@
     int textoX = recuadroX + (anchoRecuadro - longitudTexto) / 2;
     recuadro(recuadroX, recuadroY, anchoRecuadro, altoRecuadro, 12, 0);
 
+    do{
     do {
         rlutil::hidecursor();
         rlutil::setColor(rlutil::COLOR::WHITE);
@@ -233,18 +237,27 @@
             rlutil::cls();
             if (opy == 0) {
                 registro.alta();
+                opcionElegida = 1;
             } else if (opy == 2) {
                 registro.baja();
+                opcionElegida = 1;
             } else if (opy == 4) {
-                registro.listar();  // assuming modificar and listar are similar for this example
+                registro.listar();
+                opcionElegida = 1;
             } else if (opy == 6) {
-                Login();
-            }
+                menuAnterior(); // Llama al menú anterior
+        }
             op = 0;
             break;
         default:
             break;
         }
     } while (op != 0);
+     if(opcionElegida == 1)
+        {
+            rlutil::cls();
+            opcionElegida = 0;
+        }
+    }while(true);
 }
 

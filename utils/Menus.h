@@ -5,6 +5,10 @@
 #include "../include/Director.h"
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
+#include "../include/Nivel.h"
+#include "../include/Curso.h"
+#include "../include/Asignatura.h"
+#include "../include/Rol.h"
 #include "rlutil.h"
 #include "funciones.h"
 #include <functional>
@@ -18,6 +22,7 @@ struct MenuItem {
 
 class Menus {
 public:
+
     static void Login();
     static void menuAdmin();
     static void menuDirector();
@@ -28,7 +33,7 @@ public:
     static void menuDirDoce();
     static void menuDirEstu();
     static void subMenuDoc();
-    static void menuVarios(IRegistro& registro);
+    static void menuVarios(IRegistro& registro, void (*menuAnterior)());
     static void setLoginCode(int login);
     static int getLoginCode();
 

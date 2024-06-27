@@ -1,7 +1,8 @@
 #include <string>
+#include "../utils/IRegistros.h"
 #pragma once
 
-class Nivel
+class Nivel : public IRegistro
 {
 private:
    int _idNivel;
@@ -9,6 +10,9 @@ private:
    bool _estado;
 
 public:
+    void alta() override;
+    void listar() override;
+    void baja() override;
    Nivel(int idNivel, std::string nombreNivel);
    Nivel();
 
@@ -22,10 +26,4 @@ public:
    void Cargar();
 
    void Mostrar();
-
-   void altaNivel();
-
-   void listarNiveles();
-
-   void bajaNivel();
 };

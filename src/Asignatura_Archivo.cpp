@@ -4,24 +4,28 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Asignatura.h"
 
-void Asignatura::altaAsignatura()
+void Asignatura::alta()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
     asignatura.Cargar();
 
     archivoAsignatura.guardarRegistro(asignatura);
+        system("pause");
+
 }
 
-void Asignatura::listarAsignaturas()
+void Asignatura::listar()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
 
     archivoAsignatura.listarRegistro(asignatura);
+        system("pause");
+
 }
 
-void Asignatura::bajaAsignatura()
+void Asignatura::baja()
 {
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
@@ -55,4 +59,6 @@ void Asignatura::bajaAsignatura()
     {
         cout << "La asignatura ya esta eliminada" << endl;
     }
+        system("pause");
+
 }

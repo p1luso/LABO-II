@@ -4,24 +4,28 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/Curso.h"
 
-void Curso::altaCurso()
+void Curso::alta()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
     curso.Cargar();
 
     archivoCurso.guardarRegistro(curso);
+        system("pause");
+
 }
 
-void Curso::listarCursos()
+void Curso::listar()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
 
     archivoCurso.listarRegistro(curso);
+        system("pause");
+
 }
 
-void Curso::bajaCurso()
+void Curso::baja()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
@@ -55,4 +59,6 @@ void Curso::bajaCurso()
     {
         cout << "El Curso ya no existe o fue eliminado " << endl;
     }
+        system("pause");
+
 }

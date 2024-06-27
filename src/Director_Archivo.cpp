@@ -17,6 +17,8 @@ void Director::alta()
 
     archivoDirector.guardarRegistro(director);
     archivoUsers.guardarRegistro(user);
+        system("pause");
+
 }
 
 void Director::listar()
@@ -25,6 +27,7 @@ void Director::listar()
     ArchivoManager<Director> archivoDirector("directores.dat");
 
     archivoDirector.listarRegistro(director);
+    system("pause");
 }
 
 void Director::baja()
@@ -61,4 +64,6 @@ void Director::baja()
     {
         cout << "El Director ya no existe o fue eliminado " << endl;
     }
+        system("pause");
+
 }

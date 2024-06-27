@@ -17,6 +17,8 @@ void Estudiante::alta()
 
     archivoEstudiante.guardarRegistro(estudiante);
     archivoUsers.guardarRegistro(user);
+        system("pause");
+
 }
 
 void Estudiante::listar()
@@ -25,6 +27,8 @@ void Estudiante::listar()
     ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
 
     archivoEstudiante.listarRegistro(estudiante);
+        system("pause");
+
 }
 
 void Estudiante::baja()
@@ -61,4 +65,6 @@ void Estudiante::baja()
     {
         cout << "El Estudiante ya no existe o fue eliminado " << endl;
     }
+        system("pause");
+
 }

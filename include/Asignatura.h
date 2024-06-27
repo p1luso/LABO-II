@@ -1,7 +1,8 @@
 #include <string>
+#include "../utils/IRegistros.h"
 #pragma once
 
-class Asignatura
+class Asignatura : public IRegistro
 {
 private:
    int _idAsignatura;
@@ -9,6 +10,7 @@ private:
    bool _estado;
 
 public:
+
    Asignatura(int idRol, std::string nombreAsignatura);
    Asignatura();
 
@@ -22,9 +24,9 @@ public:
    void Cargar();
    void Mostrar();
 
-   void altaAsignatura();
+   void alta();
 
-   void listarAsignaturas();
+   void listar();
 
-   void bajaAsignatura();
+   void baja();
 };

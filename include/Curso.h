@@ -1,7 +1,8 @@
 #include <string>
+#include "../utils/IRegistros.h"
 #pragma once
 
-class Curso
+class Curso : public IRegistro
 {
 private:
    int _idCurso;
@@ -23,9 +24,9 @@ public:
 
    void Mostrar();
 
-   void altaCurso();
+   void alta();
 
-   void listarCursos();
+   void listar();
 
-   void bajaCurso();
+   void baja();
 };
