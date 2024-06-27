@@ -19,7 +19,7 @@ void Nivel::listar()
 {
     Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
-
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoNivel.listarRegistro(nivel);
         system("pause");
 
@@ -44,6 +44,7 @@ void Nivel::baja()
 
     if (nivel.getEstado() == true)
     {
+        int posY = 2; // Inicializar posY para la posición vertical de inicio
         nivel.Mostrar();
         cout << "Desea eliminar la Nivel? (s/n): ";
         char opcion;

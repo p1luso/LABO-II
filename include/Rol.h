@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "../utils/IRegistros.h"
+#include "../utils/funciones.h"
+
 
 class Rol : public IRegistro
 {

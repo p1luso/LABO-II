@@ -4,6 +4,7 @@
 #include "../include/Nivel.h"
 #include "../utils/utils.h"
 
+
 Nivel::Nivel(int idNivel, std::string nombreNivel)
 {
     _idNivel = idNivel;
@@ -37,6 +38,7 @@ void Nivel::Mostrar()
 {
     if (getEstado() == true)
     {
+
         std::cout << "Id Nivel: " << getId() << std::endl;
         std::cout << "Nombre Nivel: " << getNombreNivel() << std::endl;
         std::cout << "-------------------" << std::endl;

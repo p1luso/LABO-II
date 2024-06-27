@@ -1,5 +1,7 @@
 #include <string>
 #include "../utils/IRegistros.h"
+#include "../utils/funciones.h"
+
 #pragma once
 
 class Asignatura : public IRegistro

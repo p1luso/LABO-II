@@ -1,6 +1,4 @@
 #include <iostream>
-using namespace std;
-
 #include "../utils/ArchivoManager.h"
 #include "../include/persona.h"
 #include "../include/Estudiante.h"
@@ -17,8 +15,7 @@ void Estudiante::alta()
 
     archivoEstudiante.guardarRegistro(estudiante);
     archivoUsers.guardarRegistro(user);
-        system("pause");
-
+    system("pause");
 }
 
 void Estudiante::listar()
@@ -26,9 +23,9 @@ void Estudiante::listar()
     Estudiante estudiante;
     ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
 
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoEstudiante.listarRegistro(estudiante);
-        system("pause");
-
+    system("pause");
 }
 
 void Estudiante::baja()
@@ -50,6 +47,7 @@ void Estudiante::baja()
 
     if (estudiante.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         estudiante.Mostrar();
         cout << "Desea eliminar el Estudiante? (s/n): " << endl;
         char opcion;
@@ -65,6 +63,5 @@ void Estudiante::baja()
     {
         cout << "El Estudiante ya no existe o fue eliminado " << endl;
     }
-        system("pause");
-
+    system("pause");
 }

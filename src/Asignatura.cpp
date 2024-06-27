@@ -7,6 +7,7 @@ Asignatura::Asignatura(int idAsignatura, std::string nombreAsignatura)
 {
     _idAsignatura = 0;
     setNombreAsignatura(nombreAsignatura);
+    setEstado(true);
 }
 
 Asignatura::Asignatura() {}
@@ -22,6 +23,7 @@ std::string Asignatura::getNombreAsignatura() { return std::string(_nombreAsigna
 void Asignatura::setEstado(bool estado) { _estado = estado; }
 
 bool Asignatura::getEstado() { return _estado; }
+
 void Asignatura::Cargar()
 {
     std::cout << "Id Asignatura: ";
@@ -32,11 +34,10 @@ void Asignatura::Cargar()
 }
 
 void Asignatura::Mostrar()
-
 {
     if (getEstado() == true)
     {
-        std::cout << "ID: " << getId() << std::endl;
+        std::cout<< "ID: " << getId() << std::endl;
         std::cout << "Nombre: " << getNombreAsignatura() << std::endl;
     }
 }

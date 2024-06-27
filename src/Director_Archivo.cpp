@@ -1,9 +1,61 @@
 #include <iostream>
-using namespace std;
-
-#include "../utils/ArchivoManager.h"
-#include "../include/persona.h"
 #include "../include/Director.h"
+#include "../include/Docente.h"
+#include "../include/Asignatura.h"
+#include "../utils/ArchivoManager.h"
+#include "../utils/Menus.h"
+
+void Director::estudiantePorCriterio(const std::string &criterio)
+{
+    system("cls");
+
+    std::string valor;
+    std::cout << "Ingrese el " << criterio << ": ";
+    std::cin.ignore();
+    std::getline(std::cin, valor);
+
+    ArchivoManager<Estudiante> archivoManager("estudiantes.dat");
+    archivoManager.listarEstudiantesPorCriterio(criterio, valor);
+
+    rlutil::anykey("Presione cualquier tecla para continuar...");
+    system("cls");
+    Menus::menuDirEstu();
+}
+
+void Director::listarNotasPorAsig()
+{
+    system("cls");
+
+    std::string valor;
+    std::cout << "Ingrese la asignatura para ver las notas: ";
+    std::cin.ignore();
+    std::getline(std::cin, valor);
+
+    ArchivoManager<Estudiante> archivoManager("estudiantes.dat");
+
+        archivoManager.listarNotasPorAsignatura(valor); // Llama a la función para listar notas por asignatura
+
+    rlutil::anykey("Presione cualquier tecla para continuar...");
+    system("cls");
+    Menus::menuDirEstu(); // Vuelve al menú de opciones para estudiantes del Director
+}
+
+void Director::docentePorCriterio(const std::string &criterio)
+{
+    system("cls");
+
+    std::string valor;
+    std::cout << "Ingrese el " << criterio << ": ";
+    std::cin.ignore();
+    std::getline(std::cin, valor);
+
+    ArchivoManager<Docente> archivoManager("docentes.dat");
+    archivoManager.listarDocentesPorCriterio(criterio, valor);
+
+    rlutil::anykey("Presione cualquier tecla para continuar...");
+    system("cls");
+    Menus::menuDirDoce();
+}
 
 void Director::alta()
 {
@@ -17,14 +69,14 @@ void Director::alta()
 
     archivoDirector.guardarRegistro(director);
     archivoUsers.guardarRegistro(user);
-        system("pause");
-
+    system("pause");
 }
 
 void Director::listar()
 {
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
 
     archivoDirector.listarRegistro(director);
     system("pause");
@@ -35,13 +87,13 @@ void Director::baja()
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
     int id;
-    cout << "Ingrese el id de la Director a eliminar: ";
-    cin >> id;
+    std::cout << "Ingrese el id del Director a eliminar: ";
+    std::cin >> id;
 
     int idPos = archivoDirector.buscarRegistro(director, id);
     if (idPos == -1)
     {
-        cout << "No se encontro el Director" << endl;
+        std::cout << "No se encontro el Director" << std::endl;
         return;
     }
 
@@ -49,21 +101,22 @@ void Director::baja()
 
     if (director.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         director.Mostrar();
-        cout << "Desea eliminar la Director? (s/n): " << endl;
+        std::cout << "Desea eliminar el Director? (s/n): " << std::endl;
         char opcion;
-        cin >> opcion;
+        std::cin >> opcion;
         if (opcion == 's' || opcion == 'S')
         {
             director.setEstado(false);
             archivoDirector.modificarRegistro(director, idPos);
-            cout << "Director eliminado " << endl;
+            std::cout << "Director eliminado" << std::endl;
         }
     }
     else
     {
-        cout << "El Director ya no existe o fue eliminado " << endl;
+        std::cout << "El Director ya no existe o fue eliminado" << std::endl;
     }
-        system("pause");
-
+    system("pause");
 }
+

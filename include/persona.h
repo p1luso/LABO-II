@@ -1,5 +1,9 @@
 #pragma once
 #include "../include/Fecha.h"
+#include "../utils/IRegistros.h"
+#include "../utils/funciones.h"
+
+
 class Persona
 {
 private:
@@ -55,9 +59,9 @@ public:
 
     void Mostrar();
 
-    void altaPersona();
+    void alta();
 
-    void listarPersonas();
+    void listar();
 
-    void bajaPersona();
+    void baja();
 };

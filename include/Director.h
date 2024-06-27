@@ -2,6 +2,8 @@
 #define DIRECTOR_H
 #include "../include/persona.h"
 #include "../utils/IRegistros.h"
+#include "../utils/funciones.h"
+
 
 class Director : public Persona, public IRegistro
 {
@@ -15,6 +17,10 @@ public:
    void Cargar();
    int getId();
    void Mostrar();
+   void docentePorCriterio(const std::string &criterio);
+    void estudiantePorCriterio(const std::string &criterio);
+    void listarNotasPorAsig();
+
 
    void alta() override;
 

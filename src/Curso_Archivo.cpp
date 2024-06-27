@@ -19,6 +19,7 @@ void Curso::listar()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
 
     archivoCurso.listarRegistro(curso);
         system("pause");
@@ -44,6 +45,7 @@ void Curso::baja()
 
     if (curso.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         curso.Mostrar();
         cout << "Desea eliminar la Curso? (s/n): " << endl;
         char opcion;

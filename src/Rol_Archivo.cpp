@@ -19,7 +19,7 @@ void Rol::listar()
 {
     Rol rol;
     ArchivoManager<Rol> archivoRol("roles.dat");
-
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoRol.listarRegistro(rol);
         system("pause");
 
@@ -44,6 +44,8 @@ void Rol::baja()
 
     if (rol.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
+
         rol.Mostrar();
         cout << "Desea eliminar el Rol? (s/n): ";
         char opcion;

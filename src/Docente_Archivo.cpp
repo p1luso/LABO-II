@@ -5,6 +5,7 @@ using namespace std;
 #include "../include/persona.h"
 #include "../include/Docente.h"
 
+
 void Docente::alta()
 {
     Docente docente;
@@ -25,7 +26,7 @@ void Docente::listar()
 {
     Docente docente;
     ArchivoManager<Docente> archivoDocente("docentes.dat");
-
+    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoDocente.listarRegistro(docente);
     system("pause");
 
@@ -50,6 +51,7 @@ void Docente::baja()
 
     if (docente.getEstado() == true)
     {
+        int posY = 2; // Definir la posición inicial Y
         docente.Mostrar();
         cout << "Desea eliminar la Docente? (s/n): " << endl;
         char opcion;

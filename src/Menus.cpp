@@ -167,10 +167,16 @@
  }
  void Menus::menuDirDoce() {
      std::vector<MenuItem> items = {
-         {"1. DOCENTE POR CURSO      ", []() { }},
-         {"2. DOCENTE POR ASIGNATURA ", []() { }},
-         {"3. DOCENTE POR NIVEL      ", []() { }},
-         {"4. ATRAS                  ", []() { Menus::menuAdmin(); }}
+         {"1. DOCENTE POR CURSO      ", []() { Director director;
+            director.docentePorCriterio("curso");}},
+         {"2. DOCENTE POR ASIGNATURA ", []() {
+            Director director;
+            director.docentePorCriterio("asignatura");
+            }},
+         {"3. DOCENTE POR NIVEL      ", []() {
+         Director director;
+            director.docentePorCriterio("nivel");}},
+         {"4. ATRAS                  ", []() { Menus::menuDirector(); }}
      };
      mostrarMenu(items);
  }
@@ -179,22 +185,30 @@
          Estudiante estudiante;
 
      std::vector<MenuItem> items = {
-         {"1. ESTUDIANTES POR CURSO      ", []() { }},
-         {"2. ESTUDIANTES POR ASIGNATURA ", []() { }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() {  }},
-         {"4. NOTAS DE ESTUDIANTES       ", []() { }},
-         {"6. ATRAS                      ", []() { }}
+         {"1. ESTUDIANTES POR CURSO      ", []() {
+             Director director;
+         director.estudiantePorCriterio("curso");
+          }},
+         {"2. ESTUDIANTES POR ASIGNATURA ", []() {Director director;
+         director.estudiantePorCriterio("asignatura"); }},
+         {"3. ESTUDIANTES POR NIVEL      ", []() { Director director;
+         director.estudiantePorCriterio("nivel"); }},
+         {"3. ESTUDIANTES POR TURNO      ", []() { Director director;
+         director.estudiantePorCriterio("turno"); }},
+         {"5. NOTAS DE ESTUDIANTES       ", []() {Director director;
+         director.listarNotasPorAsig(); }},
+         {"6. ATRAS                      ", []() {Menus::menuDirector(); }}
      };
      mostrarMenu(items);
  }
 
  void Menus::subMenuDoc(){
      std::vector<MenuItem> items = {
-         {"1. ESTUDIANTES POR CURSO      ", []() { }},
-         {"2. ESTUDIANTES POR ASIGNATURA ", []() { }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() { }},
-         {"4. NOTAS DE ESTUDIANTES       ", []() { }},
-         {"6. ATRAS                      ", []() { }}
+         {"1. LISTAR NOTAS               ", []() { }},
+         {"2. CARGAR NOTAS               ", []() { }},
+         {"3. MODIFICAR NOTAS            ", []() { }},
+         {"4. BORRAR NOTAS               ", []() { }},
+         {"6. ATRAS                      ", []() {Menus:menuDocente(); }}
      };
      mostrarMenu(items);
  }
