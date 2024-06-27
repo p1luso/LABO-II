@@ -33,7 +33,7 @@ void Director::listarNotasPorAsig()
 
     ArchivoManager<Estudiante> archivoManager("estudiantes.dat");
 
-        archivoManager.listarNotasPorAsignatura(valor); // Llama a la función para listar notas por asignatura
+    archivoManager.listarNotasPorAsignatura(valor); // Llama a la función para listar notas por asignatura
 
     rlutil::anykey("Presione cualquier tecla para continuar...");
     system("cls");

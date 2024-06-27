@@ -120,7 +120,7 @@
 	"../include/Docente.h"
 	"../utils/utils.h"
 
-1719470805 c:\users\santi\documents\github\labo-ii\include\docente.h
+1719475368 c:\users\santi\documents\github\labo-ii\include\docente.h
 	"persona.h"
 	<string>
 	"../utils/IRegistros.h"
@@ -136,7 +136,7 @@
 
 1717712874 c:\users\santi\documents\github\labo-ii\utils\utils.h
 
-1719474740 source:c:\users\santi\documents\github\labo-ii\src\estudiante.cpp
+1719475020 source:c:\users\santi\documents\github\labo-ii\src\estudiante.cpp
 	<iostream>
 	<string>
 	<cstring>
@@ -252,7 +252,7 @@
 	"../include/Rol.h"
 	"../utils/Menus.h"
 
-1719474882 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
+1719477731 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
 	<cstring>
 	<cstdio>
 	<stdexcept>
@@ -281,7 +281,7 @@
 	<windows.h>
 	<iostream>
 
-1719474601 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
+1719476770 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../include/Director.h"
 	"../utils/IRegistros.h"
@@ -299,7 +299,7 @@
 	"../utils/ArchivoManager.h"
 	"../include/Curso.h"
 
-1719474477 source:c:\users\santi\documents\github\labo-ii\src\director_archivo.cpp
+1719477431 source:c:\users\santi\documents\github\labo-ii\src\director_archivo.cpp
 	<iostream>
 	"../include/Director.h"
 	"../include/Docente.h"
@@ -307,7 +307,7 @@
 	"../utils/ArchivoManager.h"
 	"../utils/Menus.h"
 
-1719471063 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
+1719477372 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"

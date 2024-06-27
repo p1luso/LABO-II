@@ -5,6 +5,34 @@ using namespace std;
 #include "../include/persona.h"
 #include "../include/Docente.h"
 
+void Docente::listarEstudiantesPorMateria()
+{
+    system("cls");
+    ArchivoManager<Docente> archivoDocentes("docentes.dat");
+
+    // Obtener el ID del docente actual (suponiendo que tienes un método getId() en Docente)
+    int idDocente = getId();
+
+    // Obtener la asignatura del docente usando el ID
+    std::string asignaturaDocente = archivoDocentes.obtenerAsignaturaPorId(idDocente);
+
+    if (!asignaturaDocente.empty())
+    {
+        std::cout << "Estudiantes que cursan la asignatura " << asignaturaDocente << ":" << std::endl;
+
+        // Listar estudiantes por la asignatura del docente
+        ArchivoManager<Estudiante> archivoEstudiantes("estudiantes.dat");
+        archivoEstudiantes.listarEstudiantesPorCriterio("asignatura", asignaturaDocente);
+    }
+    else
+    {
+        std::cout << "No se encontró la asignatura del docente con ID: " << idDocente << std::endl;
+    }
+
+    system("pause");
+    system("cls");
+}
+
 
 void Docente::alta()
 {

@@ -27,13 +27,10 @@ public:
     void setCurso(std::string curso);
     void setNivel(std::string nivel);
     void Cargar();
-
+    void listarEstudiantesPorMateria();
     void Mostrar();
-
     void alta() override;
-
     void listar() override;
-
     void baja() override;
 
 };

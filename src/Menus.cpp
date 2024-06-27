@@ -125,8 +125,10 @@
  }
 
  void Menus::menuDocente() {
+     Docente docente;
      std::vector<MenuItem> items = {
-         {"1. LISTA ESTUDIANTES  ", []() { }},
+         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
+            menuDocente(); }},
          {"2. NOTAS              ", []() { }},
      };
      mostrarMenu(items);
@@ -176,7 +178,10 @@
          {"3. DOCENTE POR NIVEL      ", []() {
          Director director;
             director.docentePorCriterio("nivel");}},
-         {"4. ATRAS                  ", []() { Menus::menuDirector(); }}
+         {"4. DOCENTE POR TURNO      ", []() {
+         Director director;
+            director.docentePorCriterio("turno");}},
+         {"5. ATRAS                  ", []() { Menus::menuDirector(); }}
      };
      mostrarMenu(items);
  }
