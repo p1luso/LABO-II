@@ -76,8 +76,6 @@ void Director::listar()
 {
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
-    int posY = 1; // Inicializar posY para la posición vertical de inicio
-
     archivoDirector.listarRegistro(director);
     system("pause");
 }

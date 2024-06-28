@@ -113,20 +113,21 @@
 1717548892 c:\users\maxi-casa\documents\github\labo-ii\include\rol.h
 	<string>
 
-1719472819 source:c:\users\santi\documents\github\labo-ii\src\docente.cpp
+1719532565 source:c:\users\santi\documents\github\labo-ii\src\docente.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Docente.h"
 	"../utils/utils.h"
 
-1719475368 c:\users\santi\documents\github\labo-ii\include\docente.h
+1719532185 c:\users\santi\documents\github\labo-ii\include\docente.h
 	"persona.h"
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
+	"Asignatura.h"
 
-1719470805 c:\users\santi\documents\github\labo-ii\include\persona.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\persona.h
 	"../include/Fecha.h"
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
@@ -136,14 +137,14 @@
 
 1717712874 c:\users\santi\documents\github\labo-ii\utils\utils.h
 
-1719475020 source:c:\users\santi\documents\github\labo-ii\src\estudiante.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\estudiante.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Estudiante.h"
 	"../utils/utils.h"
 
-1719474715 c:\users\santi\documents\github\labo-ii\include\estudiante.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\estudiante.h
 	"persona.h"
 	<vector>
 	<string>
@@ -174,69 +175,69 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1719471112 source:c:\users\santi\documents\github\labo-ii\src\nivel.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\nivel.cpp
 	<cstring>
 	<iostream>
 	"../include/Nivel.h"
 	"../utils/utils.h"
 
-1719470805 c:\users\santi\documents\github\labo-ii\include\nivel.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\nivel.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719471118 source:c:\users\santi\documents\github\labo-ii\src\rol.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\rol.cpp
 	<iostream>
 	<cstring>
 	"../include/Rol.h"
 	"../utils/utils.h"
 
-1719470805 c:\users\santi\documents\github\labo-ii\include\rol.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\rol.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719471083 source:c:\users\santi\documents\github\labo-ii\src\asignatura.cpp
+1719532983 source:c:\users\santi\documents\github\labo-ii\src\asignatura.cpp
 	<cstring>
 	<iostream>
 	"../include/Asignatura.h"
 	"../utils/utils.h"
 
-1719470806 c:\users\santi\documents\github\labo-ii\include\asignatura.h
+1719533002 c:\users\santi\documents\github\labo-ii\include\asignatura.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719471063 source:c:\users\santi\documents\github\labo-ii\src\curso.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\curso.cpp
 	<iostream>
 	<cstring>
 	"../include/Curso.h"
 	"../utils/utils.h"
 
-1719470806 c:\users\santi\documents\github\labo-ii\include\curso.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\curso.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719471063 source:c:\users\santi\documents\github\labo-ii\src\director.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\director.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Director.h"
 
-1719474487 c:\users\santi\documents\github\labo-ii\include\director.h
+1719525197 c:\users\santi\documents\github\labo-ii\include\director.h
 	"../include/persona.h"
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719469835 source:c:\users\santi\documents\github\labo-ii\src\persona.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\persona.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/persona.h"
 	"../utils/utils.h"
 
-1719444573 source:c:\users\santi\documents\github\labo-ii\src\utils.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\utils.cpp
 	<iostream>
 	<string>
 	<stdexcept>
@@ -252,16 +253,17 @@
 	"../include/Rol.h"
 	"../utils/Menus.h"
 
-1719477731 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
+1719532520 c:\users\santi\documents\github\labo-ii\utils\archivomanager.h
 	<cstring>
 	<cstdio>
 	<stdexcept>
 	<string>
 	<iostream>
 	"../include/Docente.h"
+	"../include/Asignatura.h"
 	"../include/Estudiante.h"
 
-1719453639 c:\users\santi\documents\github\labo-ii\utils\menus.h
+1719525197 c:\users\santi\documents\github\labo-ii\utils\menus.h
 	"ArchivoManager.h"
 	"../include/Director.h"
 	"../include/Docente.h"
@@ -281,7 +283,7 @@
 	<windows.h>
 	<iostream>
 
-1719476770 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
+1719531119 source:c:\users\santi\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../include/Director.h"
 	"../utils/IRegistros.h"
@@ -289,17 +291,17 @@
 1718318549 source:c:\users\santi\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 
-1719471063 source:c:\users\santi\documents\github\labo-ii\src\asignatura_archivo.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\asignatura_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Asignatura.h"
 
-1719471063 source:c:\users\santi\documents\github\labo-ii\src\curso_archivo.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\curso_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Curso.h"
 
-1719477431 source:c:\users\santi\documents\github\labo-ii\src\director_archivo.cpp
+1719527999 source:c:\users\santi\documents\github\labo-ii\src\director_archivo.cpp
 	<iostream>
 	"../include/Director.h"
 	"../include/Docente.h"
@@ -307,27 +309,29 @@
 	"../utils/ArchivoManager.h"
 	"../utils/Menus.h"
 
-1719477743 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
+1719533381 source:c:\users\santi\documents\github\labo-ii\src\docente_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"
 	"../include/Docente.h"
+	"../include/Estudiante.h"
+	"../include/Asignatura.h"
 
-1719471105 source:c:\users\santi\documents\github\labo-ii\src\estudiante_archivo.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\estudiante_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"
 	"../include/Estudiante.h"
 
-1719471128 source:c:\users\santi\documents\github\labo-ii\src\nivel_archivo.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\nivel_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Nivel.h"
 
-1719471137 source:c:\users\santi\documents\github\labo-ii\src\rol_archivo.cpp
+1719525197 source:c:\users\santi\documents\github\labo-ii\src\rol_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Rol.h"
 
-1719447079 c:\users\santi\documents\github\labo-ii\utils\iregistros.h
+1719526332 c:\users\santi\documents\github\labo-ii\utils\iregistros.h
 

@@ -3,13 +3,6 @@
 #include "../include/Asignatura.h"
 #include "../utils/utils.h"
 
-Asignatura::Asignatura(int idAsignatura, std::string nombreAsignatura)
-{
-    _idAsignatura = 0;
-    setNombreAsignatura(nombreAsignatura);
-    setEstado(true);
-}
-
 Asignatura::Asignatura() {}
 
 void Asignatura::setId(int id) { _idAsignatura = id; }
@@ -30,7 +23,8 @@ void Asignatura::Cargar()
     std::cin >> _idAsignatura;
     std::cout << "Nombre Asignatura: ";
     cargarCadena(_nombreAsignatura, 30);
-    _estado = true;
+    setEstado(true);
+
 }
 
 void Asignatura::Mostrar()

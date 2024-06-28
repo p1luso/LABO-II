@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include "../include/Docente.h"
+#include "../include/Asignatura.h"
 #include "../include/Estudiante.h"
 
 
@@ -162,7 +163,20 @@ template <class T>
 void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, const std::string &valor)
 {
     ArchivoManager<Docente> archivoDocente("docentes.dat");
+    ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
     Docente docente;
+    Asignatura asignatura;
+    std::string nombreAsig;
+
+    int archiAsigTam = archivoAsignatura.cantidadRegistros();
+
+    for(int i = 0; i< archiAsigTam; i++)
+    {
+        if(docente.getIdAsignatura().getId() == asignatura.getId())
+        {
+            nombreAsig = asignatura.getNombreAsignatura();
+        }
+    }
 
     std::string ruta = "files/docentes.dat";
     FILE *f = fopen(ruta.c_str(), "rb");
@@ -172,20 +186,20 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, c
         return;
     }
 
+
+
     std::cout << "Buscar Docente en: " << valor << std::endl;
     while (fread(&docente, sizeof(Docente), 1, f) == 1)
     {
-        if ((criterio == "asignatura" && docente.getAsignatura() == valor) ||
+        if ((criterio == "asignatura" && nombreAsig == valor) ||
             (criterio == "curso" && docente.getCurso() == valor) || // Asumiendo que hay un método getCurso
             (criterio == "nivel" && docente.getNivel() == valor) ||  // Asumiendo que hay un método getNivel
             (criterio == "turno" && docente.getTurno() == valor))   // Asumiendo que hay un método getNivel
-
         {
             docente.Mostrar();
             std::cout << std::endl;
         }
     }
-
     fclose(f);
 }
 

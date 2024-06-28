@@ -16,10 +16,9 @@ void Docente::setId(int idDocente)
 {
     _id = idDocente;
 }
-std::string Docente::getAsignatura()
-{
-    return _asignatura;
-}
+
+Asignatura Docente::getIdAsignatura(){return _asignatura;};
+
 std::string Docente::getTurno()
 {
     return _turno;
@@ -37,10 +36,7 @@ void Docente::setTurno(std::string turno)
 {
     strcpy(_turno, turno.c_str());
 }
-void Docente::setAsignatura(std::string asignatura)
-{
-    strcpy(_asignatura, asignatura.c_str());
-}
+void Docente::setIdAsignatura(Asignatura asignatura){_asignatura = asignatura;};
 void Docente::setCurso(std::string curso)
 {
     strcpy(_curso, curso.c_str());
@@ -52,13 +48,15 @@ void Docente::setNivel(std::string nivel)
 
 void Docente::Cargar()
 {
+    int idAsignaturas = _asignatura.getId();
+
+
     std::cout << "IdDocente: ";
     std::cin >> _id;
     Persona::Cargar();
     std::cout << "Turno: ";
     cargarCadena(_turno, 10);
-    std::cout<<"Asignatura: ";
-    cargarCadena(_asignatura,50);
+    _asignatura.Cargar();
     std::cout<< "Curso: ";
     cargarCadena(_curso, 50);
     std::cout<<"Nivel: ";
@@ -77,7 +75,7 @@ void Docente::Mostrar()
     std::cout << "Direccion: " << getDireccion() << std::endl;
     std::cout << "Telefono: " << getTelefono() << std::endl;
     std::cout << "Turno: " << getTurno() << std::endl;
-    std::cout << "Asignatura: " << getAsignatura()<<std::endl;
+    _asignatura.Mostrar();
     std::cout << "Curso: " <<getCurso()<<std::endl;
     std::cout << "Nivel: "<<getNivel()<<std::endl;
     std::cout << "-------------------" << std::endl;

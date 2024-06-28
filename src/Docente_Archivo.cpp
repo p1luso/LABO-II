@@ -4,29 +4,42 @@ using namespace std;
 #include "../utils/ArchivoManager.h"
 #include "../include/persona.h"
 #include "../include/Docente.h"
+#include "../include/Estudiante.h"
+#include "../include/Asignatura.h"
 
 void Docente::listarEstudiantesPorMateria()
 {
     system("cls");
     ArchivoManager<Docente> archivoDocentes("docentes.dat");
+    ArchivoManager<Asignatura> archivoAsig("asignaturas.dat");
+    ArchivoManager<Estudiante> archivoEst("estudiantes.dat");
 
-    // Obtener el ID del docente actual (suponiendo que tienes un método getId() en Docente)
-    int idDocente = getId();
+    Asignatura asignatura;
+    Docente docente;
+    Estudiante estudiante;
 
-    // Obtener la asignatura del docente usando el ID
-    std::string asignaturaDocente = archivoDocentes.obtenerAsignaturaPorId(idDocente);
+    int cantRDocentes = archivoDocentes.cantidadRegistros();
+    int cantREstudiantes = archivoEst.cantidadRegistros();
+    int cantRAsignatura = archivoAsig.cantidadRegistros();
 
-    if (!asignaturaDocente.empty())
+    for(int j = 0; j < cantRAsignatura; j++)
     {
-        std::cout << "Estudiantes que cursan la asignatura " << asignaturaDocente << ":" << std::endl;
 
-        // Listar estudiantes por la asignatura del docente
-        ArchivoManager<Estudiante> archivoEstudiantes("estudiantes.dat");
-        archivoEstudiantes.listarEstudiantesPorCriterio("asignatura", asignaturaDocente);
-    }
-    else
-    {
-        std::cout << "No se encontró la asignatura del docente con ID: " << idDocente << std::endl;
+        asignatura = archivoAsig.leerRegistro(asignatura, j);
+
+        if(asignatura.getId() == 1)
+        {
+            for(int x = 0; x < cantREstudiantes; x++)
+            {
+                estudiante = archivoEst.leerRegistro(estudiante,x);
+                if(asignatura.getNombreAsignatura() == estudiante.getAsignatura())
+                {
+                    std::cout<<estudiante.getNombre()<<" "<<estudiante.getApellido()<<std::endl;
+                    std::cout<<"--------------------------"<<std::endl;
+                }
+            }
+        }
+
     }
 
     system("pause");
@@ -54,7 +67,6 @@ void Docente::listar()
 {
     Docente docente;
     ArchivoManager<Docente> archivoDocente("docentes.dat");
-    int posY = 1; // Inicializar posY para la posición vertical de inicio
     archivoDocente.listarRegistro(docente);
     system("pause");
 

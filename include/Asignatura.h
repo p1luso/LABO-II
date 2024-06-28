@@ -13,7 +13,6 @@ private:
 
 public:
 
-   Asignatura(int idRol, std::string nombreAsignatura);
    Asignatura();
 
    void setId(int id);
