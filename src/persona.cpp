@@ -2,8 +2,11 @@
 #include <string>
 #include <cstring>
 using namespace std;
+#include "../utils/ArchivoManager.h"
 #include "../include/persona.h"
 #include "../utils/utils.h"
+#include "../include/UserId.h"
+#include "../include/Rol.h"
 
 // constructor
 Persona::Persona() {}
@@ -12,11 +15,11 @@ Persona::Persona() {}
 
 // set y get de Id
 
-void Persona::setUserId(int userId) { _userId = userId; }
-int Persona::getUserId() { return _userId; }
+void Persona::setIdUser(int id) { _idUser = id;}
 
-void Persona::setId(int id) { _id = id; }
-int Persona::getId() { return _id; }
+int Persona::getIdUser(){
+   return _idUser;
+}
 
 // set y get de dni
 void Persona::setDni(int dni) { _dni = dni; }
@@ -54,10 +57,12 @@ std::string Persona::getTelefono() { return _telefono; }
 void Persona::setEstado(bool estado) { _estado = estado; }
 bool Persona::getEstado() { return _estado; }
 
+
 void Persona::Cargar()
 {
-    cout << "userId: ";
-    cin >> _userId;
+    Rol rol;
+    cout << "UserId: " << getNuevoId() << endl;
+    _idUser = getNuevoId();
     cout << "DNI: ";
     cin >> _dni;
     cout << "Nombre: ";
@@ -76,3 +81,22 @@ void Persona::Cargar()
     cargarCadena(_telefono, 50);
     setEstado(true);
 }
+void Persona::Mostrar(){
+      std::cout << "ID: " << getIdUser() << std::endl;
+      std::cout << "Nombre: " << getDni() << std::endl;
+}
+
+int Persona::getNuevoId(){
+    UserId user;
+    ArchivoManager<UserId> archivoUser("users.dat");
+    int cant = archivoUser.cantidadRegistros();
+    if(cant > 0){
+
+      user = archivoUser.leerRegistro(user, cant-1);
+      return user.getIdUser()+1;
+    }
+    else{
+      return 1;
+    }
+}
+

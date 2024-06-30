@@ -5,6 +5,7 @@
 using namespace std;
 #include "../utils/rlutil.h"
 #include "../utils/ArchivoManager.h"
+#include "../include/Admin.h"
 #include "../include/Director.h"
 #include "../include/persona.h"
 #include "../include/Asignatura.h"

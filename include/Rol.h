@@ -26,10 +26,12 @@ public:
    void Cargar();
 
    void Mostrar();
+   std::string MostrarNombre(int num);
 
    void alta();
 
    void listar();
+   void listarNombres();
 
    void baja();
 };

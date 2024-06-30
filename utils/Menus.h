@@ -1,7 +1,9 @@
 // En Menus.h
 #ifndef MENUS_H
 #define MENUS_H
+
 #include "ArchivoManager.h"
+#include "../include/Admin.h"
 #include "../include/Director.h"
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
@@ -9,10 +11,11 @@
 #include "../include/Curso.h"
 #include "../include/Asignatura.h"
 #include "../include/Rol.h"
+#include "../include/UserId.h"
 #include "rlutil.h"
 #include "funciones.h"
-#include <functional>
 #include <vector>
+#include <functional>
 #include "IRegistros.h"
 
 struct MenuItem {

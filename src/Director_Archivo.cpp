@@ -1,8 +1,10 @@
 #include <iostream>
 #include "../include/Director.h"
+#include "../include/persona.h"
 #include "../include/Docente.h"
 #include "../include/Asignatura.h"
 #include "../utils/ArchivoManager.h"
+#include "../include/UserId.h"
 #include "../utils/Menus.h"
 
 void Director::estudiantePorCriterio(const std::string &criterio)
@@ -60,23 +62,39 @@ void Director::docentePorCriterio(const std::string &criterio)
 void Director::alta()
 {
     Director director;
-    Persona user;
-
     ArchivoManager<Director> archivoDirector("directores.dat");
-    ArchivoManager<Persona> archivoUsers("users.dat");
 
     director.Cargar();
 
     archivoDirector.guardarRegistro(director);
-    archivoUsers.guardarRegistro(user);
+    //system("pause");
+    Persona persona;
+    UserId user;
+    ArchivoManager<UserId> archivoUser("users.dat");
+    int cant = archivoDirector.cantidadRegistros();
+    archivoDirector.leerRegistro(director, cant);
+    int id = director.getIdUser();
+    int dni = director.getDni();
+    int idRol = director.getIdRol();
+    bool estado = director.getEstado();
+    user.Cargar(id, dni, idRol, estado);
+
+    archivoUser.guardarRegistro(user);
     system("pause");
+
 }
+
 
 void Director::listar()
 {
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
     archivoDirector.listarRegistro(director);
+    //system("pause");
+    std::cout << "------------------------------------ " << std::endl;
+     UserId user;
+    ArchivoManager<UserId> archivoUser("users.dat");
+    archivoUser.listarRegistro(user);
     system("pause");
 }
 
@@ -118,3 +136,15 @@ void Director::baja()
     system("pause");
 }
 
+int Director::getNuevoId(){
+    Director director;
+    ArchivoManager<Director> archivoDirector("directores.dat");
+    int cant = archivoDirector.cantidadRegistros();
+    if(cant > 0){
+      director = archivoDirector.leerRegistro(director, cant);
+      return director.getId()+1;
+    }
+    else{
+      return 1;
+    }
+}

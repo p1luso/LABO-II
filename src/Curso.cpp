@@ -26,8 +26,8 @@ bool Curso::getEstado() { return _estado; }
 
 void Curso::Cargar()
 {
-    std::cout << "Id Curso: ";
-    std::cin >> _idCurso;
+    std::cout << "Id Curso: " << getNuevoId() << std::endl;
+    setId(getNuevoId());
     std::cout << "Nombre Curso: ";
     cargarCadena(_nombreCurso, 30);
     setEstado(true);

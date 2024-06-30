@@ -6,6 +6,7 @@ using namespace std;
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
 #include "../include/Asignatura.h"
+#include "../include/UserId.h"
 
 void Docente::listarEstudiantesPorMateria()
 {
@@ -50,15 +51,25 @@ void Docente::listarEstudiantesPorMateria()
 void Docente::alta()
 {
     Docente docente;
-    Persona user;
 
     ArchivoManager<Docente> archivoDocente("docentes.dat");
-    ArchivoManager<Persona> archivoUsers("users.dat");
 
     docente.Cargar();
 
     archivoDocente.guardarRegistro(docente);
-    archivoUsers.guardarRegistro(user);
+    Persona persona;
+    UserId user;
+    ArchivoManager<UserId> archivoUser("users.dat");
+
+    int cant = archivoDocente.cantidadRegistros();
+    archivoDocente.leerRegistro(docente, cant);
+    int id = docente.getIdUser();
+    int dni = docente.getDni();
+    int idRol = docente.getIdRol();
+    bool estado = docente.getEstado();
+    user.Cargar(id, dni, idRol, estado);
+
+    archivoUser.guardarRegistro(user);
     system("pause");
 
 }
@@ -108,4 +119,17 @@ void Docente::baja()
         cout << "El Docente ya no existe o fue eliminado " << endl;
     }
     system("pause");
+}
+
+int Docente::getNuevoId(){
+    Docente docente;
+    ArchivoManager<Docente> archivoDocente("docentes.dat");
+    int cant = archivoDocente.cantidadRegistros();
+    if(cant > 0){
+      docente = archivoDocente.leerRegistro(docente, cant-1);
+      return docente.getId() + 1;
+    }
+    else{
+      return 1;
+    }
 }

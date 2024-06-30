@@ -1,6 +1,7 @@
  #include "../utils/Menus.h"
- #include "../include/Director.h"
  #include "../utils/IRegistros.h"
+ #include "../include/Director.h"
+
 
  int Menus::login_code = 0;
 
@@ -65,6 +66,7 @@
      int anchoConsola, altoConsola;
      obtenerDimensionesConsola(anchoConsola, altoConsola);
      int code;
+     int cod;
      const int anchoRecuadro = 70;
      const int altoRecuadro = 20;
      const int longitudTexto = 32;
@@ -72,6 +74,7 @@
      int recuadroX = (anchoConsola - anchoRecuadro) / 2;
      int recuadroY = (altoConsola - altoRecuadro) / 2;
      int textoX = recuadroX + (anchoRecuadro - longitudTexto) / 2;
+
      recuadro(recuadroX, recuadroY, anchoRecuadro, altoRecuadro, 12, 0); // Recuadro
 
      rlutil::locate(textoX,altoRecuadro/2);
@@ -83,7 +86,13 @@
      rlutil::setBackgroundColor(rlutil::COLOR::LIGHTBLUE);
      rlutil::setColor(15);
      std::cin>>code;
-     Menus::setLoginCode(code);
+
+     UserId user;
+     cod = user.VerificadorUsuario(code);
+
+
+     Menus::setLoginCode(cod);
+
      switch (Menus::getLoginCode())
      {
      case 1:
@@ -134,9 +143,6 @@
      mostrarMenu(items);
  }
 
-
-
-
  void Menus::menuEstudiante() {
      std::vector<MenuItem> items = {
          {"1. VER NOTAS          ", []() { /* Acci�n para ver notas */ }},
@@ -146,14 +152,16 @@
  }
 
  void Menus::menuAdmPers() {
-     Estudiante estudiante;
-     Docente docente;
+     Admin admin;
      Director director;
+     Docente docente;
+     Estudiante estudiante;
      std::vector<MenuItem> items = {
-         {"1. DIRECTIVO          ", [&director]() { Menus::menuVarios(director, Menus::menuAdmPers); }},
-         {"2. DOCENTE            ", [&docente]() { Menus::menuVarios(docente,  Menus::menuAdmPers); }},
-         {"3. ESTUDIANTE         ", [&estudiante]() { Menus::menuVarios(estudiante,  Menus::menuAdmPers); }},
-         {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
+         {"1. ADMINISTRADOR      ", [&admin]() { Menus::menuVarios(admin, Menus::menuAdmPers); }},
+         {"2. DIRECTIVO          ", [&director]() { Menus::menuVarios(director, Menus::menuAdmPers); }},
+         {"3. DOCENTE            ", [&docente]() { Menus::menuVarios(docente,  Menus::menuAdmPers); }},
+         {"4. ESTUDIANTE         ", [&estudiante]() { Menus::menuVarios(estudiante,  Menus::menuAdmPers); }},
+         {"5. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }
@@ -162,11 +170,13 @@
      Nivel nivel;
      Curso curso;
      Asignatura asignatura;
+     Rol rol;
      std::vector<MenuItem> items = {
          {"1. NIVEL              ", [&nivel]() {Menus::menuVarios(nivel, Menus::menuAdmColeg); }},
          {"2. CURSO              ", [&curso]() { Menus::menuVarios(curso, Menus::menuAdmColeg); }},
          {"3. ASIGNATURA         ", [&asignatura]() { Menus::menuVarios(asignatura, Menus::menuAdmColeg); }},
-         {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
+         {"4. ROLES              ", [&rol]() { Menus::menuVarios(rol, Menus::menuAdmColeg); }},
+         {"5. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }
@@ -194,7 +204,7 @@
 
      std::vector<MenuItem> items = {
          {"1. ESTUDIANTES POR CURSO      ", []() {
-             Director director;
+         Director director;
          director.estudiantePorCriterio("curso");
           }},
          {"2. ESTUDIANTES POR ASIGNATURA ", []() {Director director;

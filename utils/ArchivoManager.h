@@ -20,7 +20,8 @@ public:
     ArchivoManager(const char *nombreArchivo);
 
     bool guardarRegistro(T obj);
-   void listarRegistro(T obj);
+    void listarRegistro(T obj);
+    void listarNombres(T obj);
     int buscarRegistro(T obj, int id);
     T leerRegistro(T obj, int pos);
     bool modificarRegistro(T obj, int pos);
@@ -75,6 +76,8 @@ void ArchivoManager<T>::listarRegistro(T obj)
     }
     fclose(f);
 }
+
+
 
 template <class T>
 int ArchivoManager<T>::buscarRegistro(T obj, int id)
@@ -290,3 +293,6 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
 
     return asignatura;
 }
+
+
+

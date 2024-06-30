@@ -7,8 +7,7 @@
 class Persona
 {
 private:
-    int _userId;
-    int _id;
+    int _idUser;
     int _dni;
     char _nombre[50];
     char _apellido[50];
@@ -22,11 +21,8 @@ private:
 public:
     Persona();
 
-    void setUserId(int userId);
-    int getUserId();
-
-    void setId(int id);
-    int getId();
+    void setIdUser(int id);
+    int getIdUser();
 
     void setDni(int dni);
     int getDni();
@@ -55,13 +51,15 @@ public:
     void setEstado(bool estado);
     bool getEstado();
 
+    int getNuevoId();
+
     void Cargar();
 
     void Mostrar();
 
-    void alta();
 
-    void listar();
 
-    void baja();
+
+
+
 };

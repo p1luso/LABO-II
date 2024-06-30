@@ -64,3 +64,15 @@ void Curso::baja()
         system("pause");
 
 }
+
+int Curso::getNuevoId(){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros() - 1;
+    if(cant > 0){
+      return archivoCurso.leerRegistro(curso, cant).getId() + 1;
+    }
+    else{
+      return 1;
+    }
+}

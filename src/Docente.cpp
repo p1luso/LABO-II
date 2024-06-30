@@ -17,7 +17,11 @@ void Docente::setId(int idDocente)
     _id = idDocente;
 }
 
-Asignatura Docente::getIdAsignatura(){return _asignatura;};
+int Docente::getIdRol(){
+   return _idRol;
+}
+
+Asignatura Docente::getIdAsignatura(){return _asignatura;}
 
 std::string Docente::getTurno()
 {
@@ -36,7 +40,7 @@ void Docente::setTurno(std::string turno)
 {
     strcpy(_turno, turno.c_str());
 }
-void Docente::setIdAsignatura(Asignatura asignatura){_asignatura = asignatura;};
+void Docente::setIdAsignatura(Asignatura asignatura){_asignatura = asignatura;}
 void Docente::setCurso(std::string curso)
 {
     strcpy(_curso, curso.c_str());
@@ -49,10 +53,9 @@ void Docente::setNivel(std::string nivel)
 void Docente::Cargar()
 {
     int idAsignaturas = _asignatura.getId();
-
-
-    std::cout << "IdDocente: ";
-    std::cin >> _id;
+    std::cout << "Id Docente: " << getNuevoId() << std::endl;
+    _id = getNuevoId();
+    std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
     std::cout << "Turno: ";
     cargarCadena(_turno, 10);

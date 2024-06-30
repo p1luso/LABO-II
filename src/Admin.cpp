@@ -2,37 +2,33 @@
 #include <string>
 #include <cstring>
 
-#include "../include/Director.h"
+#include "../include/Admin.h"
 
 
-Director::Director() {}
-
-Director::~Director() {}
-
-int Director::getId()
+int Admin::getId()
 {
-    return _idDirector;
+    return _idAdmin;
 }
 
-void Director::setId(int idDirector)
+void Admin::setId(int idAdmin)
 {
-    _idDirector = idDirector;
+    _idAdmin = idAdmin;
 }
 
-int Director::getIdRol(){
+int Admin::getIdRol(){
    return _idRol;
 }
 
-void Director::Cargar()
+void Admin::Cargar()
 {
-    std::cout << "IdDirector: " << getNuevoId() << std::endl;
-    _idDirector = getNuevoId();
+    std::cout << "Id Admin: " << getNuevoId() << std::endl;
+    _idAdmin = getNuevoId();
     std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
     Persona::setEstado(true);
 }
 
-void Director::Mostrar()
+void Admin::Mostrar()
 {
     if (getEstado() == true)
     {
