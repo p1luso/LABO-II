@@ -4,25 +4,23 @@
 #include "../utils/funciones.h"
 #include "../include/Rol.h"
 
-class Director : public Persona, public IRegistro
+class Admin : public Persona, public IRegistro
 {
 private:
-   int _idDirector;
-   int _idRol = 2;
+   int _idAdmin;
+   int _idRol = 1;
 public:
-   Director();
-   ~Director();
 
    Rol rol;
 
-   void setId(int idDirector);
+   void setId(int idAdmin);
    int getId();
    int getIdRol();
 
    void Cargar();
    void Mostrar();
 
-   void docentePorCriterio(const std::string &criterio);
+void docentePorCriterio(const std::string &criterio);
    void estudiantePorCriterio(const std::string &criterio);
    void listarNotasPorAsig();
 

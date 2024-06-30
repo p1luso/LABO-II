@@ -10,7 +10,7 @@ Fecha::Fecha()
    _anio = 0;
 }
 
-Fecha::Fecha(int dia, int mes, int anio)
+Fecha::Fecha(int dia = 0, int mes = 0, int anio = 0)
 {
    _dia = dia;
    _mes = mes;

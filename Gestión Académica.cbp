@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="file/directores.dat" />
+		<Unit filename="include/Admin.h" />
 		<Unit filename="include/Asignatura.h" />
 		<Unit filename="include/Curso.h" />
 		<Unit filename="include/Director.h" />
@@ -41,7 +42,10 @@
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Nivel.h" />
 		<Unit filename="include/Rol.h" />
+		<Unit filename="include/UserId.h" />
 		<Unit filename="include/persona.h" />
+		<Unit filename="src/Admin.cpp" />
+		<Unit filename="src/Admin_Archivo.cpp" />
 		<Unit filename="src/Asignatura.cpp" />
 		<Unit filename="src/Asignatura_Archivo.cpp" />
 		<Unit filename="src/Curso.cpp" />
@@ -58,6 +62,8 @@
 		<Unit filename="src/Nivel_archivo.cpp" />
 		<Unit filename="src/Rol.cpp" />
 		<Unit filename="src/Rol_Archivo.cpp" />
+		<Unit filename="src/UserId.cpp" />
+		<Unit filename="src/UserId_Archivo.cpp" />
 		<Unit filename="src/funciones.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/persona.cpp" />

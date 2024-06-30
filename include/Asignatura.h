@@ -22,6 +22,8 @@ public:
    void setEstado(bool estado);
    bool getEstado();
 
+   int getNuevoId();
+
    void Cargar();
    void Mostrar();
 

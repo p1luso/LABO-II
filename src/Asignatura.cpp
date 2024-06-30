@@ -19,8 +19,8 @@ bool Asignatura::getEstado() { return _estado; }
 
 void Asignatura::Cargar()
 {
-    std::cout << "Id Asignatura: ";
-    std::cin >> _idAsignatura;
+    std::cout << "Id Asignatura: " << getNuevoId() << std::endl;
+    setId(getNuevoId());
     std::cout << "Nombre Asignatura: ";
     cargarCadena(_nombreAsignatura, 30);
     setEstado(true);

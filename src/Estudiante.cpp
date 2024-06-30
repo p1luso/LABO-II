@@ -9,6 +9,11 @@ Estudiante::Estudiante() {}
 Estudiante::~Estudiante() {}
 
 int Estudiante::getId() { return _idEstudiante; }
+
+int Estudiante::getIdRol(){
+   return _idRol;
+}
+
 std::string Estudiante::getAsignatura() { return std::string(_asignatura); }
 std::string Estudiante::getCurso() { return std::string(_curso); }
 std::string Estudiante::getNivel() { return std::string(_nivel); }
@@ -32,8 +37,9 @@ void Estudiante::listarNotas() {
 }
 
 void Estudiante::Cargar() {
-    std::cout << "Id Estudiante: ";
-    std::cin >> _idEstudiante;
+    std::cout << "Id Estudiante: " << getNuevoId() << std::endl;
+    setId(getNuevoId());
+    std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
     std::cout << "Asignatura: ";
     cargarCadena(_asignatura, 50);
@@ -49,6 +55,8 @@ void Estudiante::Cargar() {
 void Estudiante::Mostrar() {
     if (getEstado()) {
         std::cout << "Id: " << getId() << std::endl;
+        std::cout << "Id Usuario: " << getIdUser() << std::endl;
+        std::cout << "DNI: " << getNombre() << std::endl;
         std::cout << "Nombre: " << getNombre() << std::endl;
         std::cout << "Apellido: " << getApellido() << std::endl;
         std::cout << "Fecha de nacimiento: " << getFechaNacimiento().toString() << std::endl;
