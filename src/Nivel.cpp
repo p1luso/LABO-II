@@ -3,7 +3,7 @@
 #include <iostream>
 #include "../include/Nivel.h"
 #include "../utils/utils.h"
-
+#include "../utils/ArchivoManager.h"
 
 Nivel::Nivel(int idNivel, std::string nombreNivel)
 {
@@ -27,8 +27,8 @@ bool Nivel::getEstado() { return _estado; }
 
 void Nivel::Cargar()
 {
-    std::cout << "Ingrese el id del nivel: ";
-    std::cin >> _idNivel;
+    std::cout << "Id del nivel: " << getNuevoId() << std::endl;
+    setId(getNuevoId());
     std::cout << "Ingrese el nombre del nivel: ";
     cargarCadena(_nombreNivel, 30);
     setEstado(true);
@@ -42,5 +42,18 @@ void Nivel::Mostrar()
         std::cout << "Id Nivel: " << getId() << std::endl;
         std::cout << "Nombre Nivel: " << getNombreNivel() << std::endl;
         std::cout << "-------------------" << std::endl;
+    }
+}
+
+int Nivel::getNuevoId(){
+    Nivel nivel;
+    ArchivoManager<Nivel> archivoNivel("niveles.dat");
+    int cant = archivoNivel.cantidadRegistros();
+    if(cant > 0){
+      nivel = archivoNivel.leerRegistro(nivel, cant-1);
+      return nivel.getId() + 1;
+    }
+    else{
+      return 1;
     }
 }

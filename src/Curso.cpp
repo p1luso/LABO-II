@@ -3,6 +3,7 @@
 #include <cstring>
 #include "../include/Curso.h"
 #include "../utils/utils.h"
+#include "../utils/ArchivoManager.h"
 
 Curso::Curso(int idCurso, std::string nombrCurso)
 {
@@ -44,5 +45,18 @@ void Curso::Mostrar()
 
         std::cout << "ID: " << getId() << std::endl;
         std::cout << "Nombre: " << getNombrCurso() << std::endl;
+    }
+}
+
+int Curso::getNuevoId(){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros();
+    if(cant > 0){
+      curso = archivoCurso.leerRegistro(curso, cant-1);
+      return curso.getId() + 1;
+    }
+    else{
+      return 1;
     }
 }

@@ -66,15 +66,4 @@ void Asignatura::baja()
 
 }
 
-int Asignatura::getNuevoId(){
-    Asignatura asignatura;
-    ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
-    int cant = archivoAsignatura.cantidadRegistros();
-    if(cant > 0){
-      asignatura = archivoAsignatura.leerRegistro(asignatura, cant);
-      return asignatura.getId() + 1;
-    }
-    else{
-      return 1;
-    }
-}
+
