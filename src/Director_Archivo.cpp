@@ -11,10 +11,11 @@ void Director::estudiantePorCriterio(const std::string &criterio)
 {
     system("cls");
 
-    std::string valor;
+    int valor;
     std::cout << "Ingrese el " << criterio << ": ";
-    std::cin.ignore();
-    std::getline(std::cin, valor);
+    std::cin >> valor;
+    ///std::cin.ignore();
+    //std::getline(std::cin, valor);
 
     ArchivoManager<Estudiante> archivoManager("estudiantes.dat");
     archivoManager.listarEstudiantesPorCriterio(criterio, valor);
@@ -28,10 +29,11 @@ void Director::listarNotasPorAsig()
 {
     system("cls");
 
-    std::string valor;
+    int valor;
     std::cout << "Ingrese la asignatura para ver las notas: ";
-    std::cin.ignore();
-    std::getline(std::cin, valor);
+    std::cin >> valor;
+//    std::cin.ignore();
+//    std::getline(std::cin, valor);
 
     ArchivoManager<Estudiante> archivoManager("estudiantes.dat");
 
@@ -46,10 +48,11 @@ void Director::docentePorCriterio(const std::string &criterio)
 {
     system("cls");
 
-    std::string valor;
+    int valor;
     std::cout << "Ingrese el " << criterio << ": ";
-    std::cin.ignore();
-    std::getline(std::cin, valor);
+    std::cin >> valor;
+//    std::cin.ignore();
+//    std::getline(std::cin, valor);
 
     ArchivoManager<Docente> archivoManager("docentes.dat");
     archivoManager.listarDocentesPorCriterio(criterio, valor);

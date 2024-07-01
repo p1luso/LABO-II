@@ -121,6 +121,7 @@
      std::vector<MenuItem> items = {
          {"1. CONFIGURACION PERSONAL    ", []() { Menus::menuAdmPers(); }},
          {"2. CONFIGURACION DE COLEGIO  ", []() { Menus::menuAdmColeg(); }},
+         {"3. CERRAR SESION  ", []() { exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -136,8 +137,8 @@
  void Menus::menuDocente() {
      Docente docente;
      std::vector<MenuItem> items = {
-         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
-            menuDocente(); }},
+///         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
+///            menuDocente(); }},
          {"2. NOTAS              ", []() { }},
      };
      mostrarMenu(items);
@@ -182,7 +183,8 @@
  }
  void Menus::menuDirDoce() {
      std::vector<MenuItem> items = {
-         {"1. DOCENTE POR CURSO      ", []() { Director director;
+         {"1. DOCENTE POR CURSO      ", []() {
+            Director director;
             director.docentePorCriterio("curso");}},
          {"2. DOCENTE POR ASIGNATURA ", []() {
             Director director;

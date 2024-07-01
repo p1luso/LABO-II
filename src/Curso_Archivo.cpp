@@ -26,6 +26,19 @@ void Curso::listar()
 
 }
 
+void Curso::MostrarNombres(){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros();
+
+    for(int i=0; i<=cant; i++){
+      curso = archivoCurso.leerRegistro(curso, i);
+      cout << curso.getId() << ": " << curso.getNombrCurso() << " | ";
+    }
+    cout << endl;
+
+}
+
 void Curso::baja()
 {
     Curso curso;

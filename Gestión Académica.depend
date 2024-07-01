@@ -503,3 +503,280 @@
 	<cstring>
 	"../include/Admin.h"
 
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\admin_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/persona.h"
+	"../include/Admin.h"
+	"../include/Estudiante.h"
+	"../include/Asignatura.h"
+	"../include/UserId.h"
+
+1719858260 c:\users\lenovo_m\documents\github\labo-ii\utils\archivomanager.h
+	<cstring>
+	<cstdio>
+	<stdexcept>
+	<string>
+	<iostream>
+	"../include/Docente.h"
+	"../include/Asignatura.h"
+	"../include/Estudiante.h"
+
+1719861351 c:\users\lenovo_m\documents\github\labo-ii\include\docente.h
+	"persona.h"
+	<string>
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+	"Asignatura.h"
+	"../include/Rol.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\persona.h
+	"../include/Fecha.h"
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\fecha.h
+	<string>
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\utils\iregistros.h
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\utils\funciones.h
+	"rlutil.h"
+	<windows.h>
+	<iostream>
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\utils\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\asignatura.h
+	<string>
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+
+1719844491 c:\users\lenovo_m\documents\github\labo-ii\include\rol.h
+	<string>
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+
+1719853568 c:\users\lenovo_m\documents\github\labo-ii\include\estudiante.h
+	"persona.h"
+	"../include/Rol.h"
+	"../include/Curso.h"
+	<vector>
+	<string>
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\admin.h
+	"../include/persona.h"
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+	"../include/Rol.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\userid.h
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\estudiante_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/persona.h"
+	"../include/Estudiante.h"
+	"../include/UserId.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\fecha.cpp
+	<iostream>
+	"../include/Fecha.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\funciones.cpp
+	"../utils/funciones.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\main.cpp
+	<iostream>
+	<string>
+	<stdexcept>
+	"../utils/rlutil.h"
+	"../utils/utils.h"
+	"../utils/funciones.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\utils\utils.h
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\nivel_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/Nivel.h"
+
+1719844491 c:\users\lenovo_m\documents\github\labo-ii\include\nivel.h
+	<string>
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\persona.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../utils/ArchivoManager.h"
+	"../include/persona.h"
+	"../utils/utils.h"
+	"../include/UserId.h"
+	"../include/Rol.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\rol_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/Rol.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\userid.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../include/UserId.h"
+	"../utils/ArchivoManager.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\userid_archivo.cpp
+	<iostream>
+	"../include/UserId.h"
+	"../utils/ArchivoManager.h"
+
+1719835691 source:c:\users\lenovo_m\documents\github\labo-ii\src\utils.cpp
+	<iostream>
+	<string>
+	<stdexcept>
+	"../utils/rlutil.h"
+	"../utils/ArchivoManager.h"
+	"../include/Admin.h"
+	"../include/Director.h"
+	"../include/persona.h"
+	"../include/Asignatura.h"
+	"../include/Curso.h"
+	"../include/Docente.h"
+	"../include/Estudiante.h"
+	"../include/Nivel.h"
+	"../include/Rol.h"
+	"../utils/Menus.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\include\director.h
+	"../include/persona.h"
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+	"../include/Rol.h"
+
+1719846677 c:\users\lenovo_m\documents\github\labo-ii\include\curso.h
+	<string>
+	"../utils/IRegistros.h"
+	"../utils/funciones.h"
+
+1719835691 c:\users\lenovo_m\documents\github\labo-ii\utils\menus.h
+	"ArchivoManager.h"
+	"../include/Admin.h"
+	"../include/Director.h"
+	"../include/Docente.h"
+	"../include/Estudiante.h"
+	"../include/Nivel.h"
+	"../include/Curso.h"
+	"../include/Asignatura.h"
+	"../include/Rol.h"
+	"../include/UserId.h"
+	"rlutil.h"
+	"funciones.h"
+	<vector>
+	<functional>
+	"IRegistros.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\admin.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../include/Admin.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\asignatura.cpp
+	<cstring>
+	<iostream>
+	"../include/Asignatura.h"
+	"../utils/utils.h"
+	"../utils/ArchivoManager.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\asignatura_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/Asignatura.h"
+
+1719846677 source:c:\users\lenovo_m\documents\github\labo-ii\src\curso.cpp
+	<iostream>
+	<cstring>
+	"../include/Curso.h"
+	"../utils/utils.h"
+	"../utils/ArchivoManager.h"
+
+1719847232 source:c:\users\lenovo_m\documents\github\labo-ii\src\curso_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/Curso.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\director.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../include/Director.h"
+
+1719857475 source:c:\users\lenovo_m\documents\github\labo-ii\src\director_archivo.cpp
+	<iostream>
+	"../include/Director.h"
+	"../include/persona.h"
+	"../include/Docente.h"
+	"../include/Asignatura.h"
+	"../utils/ArchivoManager.h"
+	"../include/UserId.h"
+	"../utils/Menus.h"
+
+1719860455 source:c:\users\lenovo_m\documents\github\labo-ii\src\docente.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../include/Docente.h"
+	"../utils/utils.h"
+
+1719861351 source:c:\users\lenovo_m\documents\github\labo-ii\src\docente_archivo.cpp
+	<iostream>
+	"../utils/ArchivoManager.h"
+	"../include/persona.h"
+	"../include/Docente.h"
+	"../include/Estudiante.h"
+	"../include/Asignatura.h"
+	"../include/UserId.h"
+
+1719854125 source:c:\users\lenovo_m\documents\github\labo-ii\src\estudiante.cpp
+	<iostream>
+	<string>
+	<cstring>
+	"../include/Estudiante.h"
+	"../utils/utils.h"
+
+1719858507 source:c:\users\lenovo_m\documents\github\labo-ii\src\menus.cpp
+	"../utils/Menus.h"
+	"../utils/IRegistros.h"
+	"../include/Director.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\nivel.cpp
+	<cstring>
+	<iostream>
+	"../include/Nivel.h"
+	"../utils/utils.h"
+	"../utils/ArchivoManager.h"
+
+1719844491 source:c:\users\lenovo_m\documents\github\labo-ii\src\rol.cpp
+	<iostream>
+	<cstring>
+	"../include/Rol.h"
+	"../utils/utils.h"
+	"../utils/ArchivoManager.h"
+
+1719848374 source:c:\users\lenovo_m\documents\github\labo-ii\src\notas_archivo.cpp
+

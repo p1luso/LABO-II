@@ -3,48 +3,43 @@
 
 #include "persona.h"
 #include "../include/Rol.h"
+#include "../include/Curso.h"
 #include <vector>
 #include <string>
 
-class Nota {
-public:
-    std::string asignatura;
-    float valor;
 
-    Nota(std::string asignatura, float valor) : asignatura(asignatura), valor(valor) {}
-};
 
 class Estudiante : public Persona, public IRegistro {
 private:
     int _idEstudiante;
     int _idRol = 4;
-    char _asignatura[50];
-    char _curso[50];
+    int _idNivel;
+    int _idCurso;
     char _turno[30];
-    char _nivel[50];
-    std::vector<Nota> _notas; // Nueva propiedad para almacenar notas
+
+
 
 public:
     Estudiante();
     ~Estudiante();
 
     Rol rol;
+    Curso curso;
     int getId();
     int getIdRol();
 
-    std::string getAsignatura();
-    std::string getCurso();
-    std::string getNivel();
+
+    int getIdNivel();
+    int getIdCurso();
     std::string getTurno();
 
 
     void setId(int idEstudiante);
-    void setAsignatura(std::string asignatura);
-    void setCurso(std::string curso);
-    void setNivel(std::string nivel);
+    void setIdCurso(int curso);
+    void setIdNivel(int nivel);
     void setTurno(std::string turno);
 
-    void agregarNota(std::string asignatura, float valor); // Nuevo método para agregar notas
+
     void listarNotas(); // Nuevo método para listar notas
 
     int getNuevoId();

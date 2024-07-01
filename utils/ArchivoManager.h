@@ -27,9 +27,9 @@ public:
     bool modificarRegistro(T obj, int pos);
     int cantidadRegistros();
     bool registroExiste(int pos);
-    void listarDocentesPorCriterio(const std::string &criterio, const std::string &valor);
-    void listarEstudiantesPorCriterio(const std::string &criterio, const std::string &valor);
-    void listarNotasPorAsignatura(const std::string &asignatura);
+    void listarDocentesPorCriterio(const std::string &criterio, const int &valor);
+    void listarEstudiantesPorCriterio(const std::string &criterio, const int &valor);
+    void listarNotasPorAsignatura(const int &asignatura);
     std::string obtenerAsignaturaPorId(int id); // Nueva función para obtener la asignatura por ID
 
 };
@@ -163,7 +163,7 @@ bool ArchivoManager<T>::registroExiste(int pos)
 }
 
 template <class T>
-void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, const std::string &valor)
+void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio,const int &valor)
 {
     ArchivoManager<Docente> archivoDocente("docentes.dat");
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
@@ -175,7 +175,7 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, c
 
     for(int i = 0; i< archiAsigTam; i++)
     {
-        if(docente.getIdAsignatura().getId() == asignatura.getId())
+        if(docente.getIdCurso() == asignatura.getId())
         {
             nombreAsig = asignatura.getNombreAsignatura();
         }
@@ -194,10 +194,9 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, c
     std::cout << "Buscar Docente en: " << valor << std::endl;
     while (fread(&docente, sizeof(Docente), 1, f) == 1)
     {
-        if ((criterio == "asignatura" && nombreAsig == valor) ||
-            (criterio == "curso" && docente.getCurso() == valor) || // Asumiendo que hay un método getCurso
-            (criterio == "nivel" && docente.getNivel() == valor) ||  // Asumiendo que hay un método getNivel
-            (criterio == "turno" && docente.getTurno() == valor))   // Asumiendo que hay un método getNivel
+        if ((criterio == "curso" && docente.getIdCurso() == valor) || // Asumiendo que hay un método getCurso
+            (criterio == "nivel" && docente.getIdNivel() == valor)) // Asumiendo que hay un método getNivel
+            // Asumiendo que hay un método getNivel
         {
             docente.Mostrar();
             std::cout << std::endl;
@@ -207,7 +206,7 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, c
 }
 
 template <class T>
-void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio, const std::string &valor)
+void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio, const int &valor)
 {
     ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
     Estudiante estudiante;
@@ -223,11 +222,8 @@ void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio
     std::cout << "Buscar Estudiantes en: " << valor<< std::endl;
     while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
     {
-        if ((criterio == "asignatura" && estudiante.getAsignatura() == valor) ||
-            (criterio == "curso" && estudiante.getCurso() == valor) ||
-            (criterio == "nivel" && estudiante.getNivel() == valor) ||
-            (criterio == "turno" && estudiante.getTurno() == valor))
-
+        if ((criterio == "curso" && estudiante.getIdCurso() == valor) ||
+            (criterio == "nivel" && estudiante.getIdNivel() == valor))
         {
             estudiante.Mostrar();
         }
@@ -237,7 +233,7 @@ void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio
 }
 
 template <class T>
-void ArchivoManager<T>::listarNotasPorAsignatura(const std::string &asignatura) {
+void ArchivoManager<T>::listarNotasPorAsignatura(const int &asignatura) {
     std::string ruta = "files/estudiantes.dat";
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
@@ -249,7 +245,7 @@ void ArchivoManager<T>::listarNotasPorAsignatura(const std::string &asignatura) 
     Estudiante estudiante;
     while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
     {
-        if (estudiante.getEstado() && estudiante.getAsignatura() == asignatura)
+        if (estudiante.getEstado())
         {
             estudiante.Mostrar();
             std::cout << std::endl;
@@ -258,6 +254,7 @@ void ArchivoManager<T>::listarNotasPorAsignatura(const std::string &asignatura) 
 
     fclose(f);
 }
+
 template <class T>
 std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
 {

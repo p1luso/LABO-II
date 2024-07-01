@@ -10,29 +10,36 @@ class Docente : public Persona, public IRegistro
 private:
     int _id;
     int _idRol = 3;
+    ///Asignatura _asignatura;
+    int _idNivel;
+    int _idCurso;
+    int _idAsignatura;
     char _turno[10];
-    Asignatura _asignatura;
-    char _curso[50];
-    char _nivel[15];
 public:
     Docente();
     ~Docente();
     Rol rol;
     int getId();
     int getIdRol();
+    ///Asignatura getIdAsignatura();
+    int getIdNivel();
+    int getIdCurso();
+    int getIdAsignatura();
     std::string getTurno();
-    Asignatura getIdAsignatura();
-    std::string getCurso();
-    std::string getNivel();
     void setId(int idDocente);
+    ///void setIdAsignatura(Asignatura asignatura);
+    void setIdNivel(int idNivel);
+    void setIdCurso(int idCurso);
+    void setIdAsignatura(int idAsignatura);
     void setTurno(std::string turno);
-    void setIdAsignatura(Asignatura asignatura);
-    void setCurso(std::string curso);
-    void setNivel(std::string nivel);
-    void Cargar();
+
     void listarEstudiantesPorMateria();
+    void CargarNotas();
+    void Cargar();
     void Mostrar();
+
     int getNuevoId();
+
     void alta() override;
     void listar() override;
     void baja() override;

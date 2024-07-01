@@ -45,6 +45,7 @@ void Curso::Mostrar()
 
         std::cout << "ID: " << getId() << std::endl;
         std::cout << "Nombre: " << getNombrCurso() << std::endl;
+
     }
 }
 

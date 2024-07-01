@@ -21,49 +21,35 @@ int Docente::getIdRol(){
    return _idRol;
 }
 
-Asignatura Docente::getIdAsignatura(){return _asignatura;}
+///Asignatura Docente::getIdAsignatura(){return _asignatura;}
 
-std::string Docente::getTurno()
-{
-    return _turno;
-}
-std::string Docente::getNivel()
-{
-    return _nivel;
-}
-std::string Docente::getCurso()
-{
-    return _curso;
-}
+int Docente::getIdNivel(){ return _idNivel; }
+int Docente::getIdCurso(){ return _idCurso; }
+int Docente::getIdAsignatura(){ return _idAsignatura; }
+std::string Docente::getTurno(){ return _turno; }
 
-void Docente::setTurno(std::string turno)
-{
-    strcpy(_turno, turno.c_str());
-}
-void Docente::setIdAsignatura(Asignatura asignatura){_asignatura = asignatura;}
-void Docente::setCurso(std::string curso)
-{
-    strcpy(_curso, curso.c_str());
-}
-void Docente::setNivel(std::string nivel)
-{
-    strcpy(_nivel, nivel.c_str());
-}
+///void Docente::setIdAsignatura(Asignatura asignatura){_asignatura = asignatura;}
+void Docente::setIdNivel(int idNivel){ _idNivel = idNivel; }
+void Docente::setIdCurso(int idCurso){ _idCurso = idCurso; }
+void Docente::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
+void Docente::setTurno(std::string turno){ strcpy(_turno, turno.c_str()); }
 
 void Docente::Cargar()
 {
-    int idAsignaturas = _asignatura.getId();
+    ///int idAsignaturas = _asignatura.getId();
     std::cout << "Id Docente: " << getNuevoId() << std::endl;
     _id = getNuevoId();
     std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
+    std::cout<<"Nivel: ";
+    std::cin >> _idNivel;
+    ///_asignatura.Cargar();
+    std::cout<< "Curso: ";
+    std::cin >> _idCurso;
+    std::cout<< "Asignatura: ";
+    std::cin >> _idAsignatura;
     std::cout << "Turno: ";
     cargarCadena(_turno, 10);
-    _asignatura.Cargar();
-    std::cout<< "Curso: ";
-    cargarCadena(_curso, 50);
-    std::cout<<"Nivel: ";
-    cargarCadena(_nivel, 15);
     setEstado(true);
 }
 
@@ -77,9 +63,9 @@ void Docente::Mostrar()
     std::cout << "Email: " << getEmail() << std::endl;
     std::cout << "Direccion: " << getDireccion() << std::endl;
     std::cout << "Telefono: " << getTelefono() << std::endl;
+    std::cout << "Nivel: "<<getIdNivel()<<std::endl;
+    std::cout << "Curso: " <<getIdCurso()<<std::endl;
     std::cout << "Turno: " << getTurno() << std::endl;
-    _asignatura.Mostrar();
-    std::cout << "Curso: " <<getCurso()<<std::endl;
-    std::cout << "Nivel: "<<getNivel()<<std::endl;
+    ///_asignatura.Mostrar();
     std::cout << "-------------------" << std::endl;
 }

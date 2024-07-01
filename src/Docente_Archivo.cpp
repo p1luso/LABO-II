@@ -8,6 +8,13 @@ using namespace std;
 #include "../include/Asignatura.h"
 #include "../include/UserId.h"
 
+void CargarNotas(){
+
+
+
+
+}
+
 void Docente::listarEstudiantesPorMateria()
 {
     system("cls");
@@ -28,12 +35,12 @@ void Docente::listarEstudiantesPorMateria()
 
         asignatura = archivoAsig.leerRegistro(asignatura, j);
 
-        if(asignatura.getId() == 1)
+        if(asignatura.getId() == docente.getIdAsignatura())
         {
             for(int x = 0; x < cantREstudiantes; x++)
             {
                 estudiante = archivoEst.leerRegistro(estudiante,x);
-                if(asignatura.getNombreAsignatura() == estudiante.getAsignatura())
+                if(asignatura.getId() == estudiante.getIdCurso())
                 {
                     std::cout<<estudiante.getNombre()<<" "<<estudiante.getApellido()<<std::endl;
                     std::cout<<"--------------------------"<<std::endl;

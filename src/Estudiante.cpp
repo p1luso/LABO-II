@@ -14,17 +14,15 @@ int Estudiante::getIdRol(){
    return _idRol;
 }
 
-std::string Estudiante::getAsignatura() { return std::string(_asignatura); }
-std::string Estudiante::getCurso() { return std::string(_curso); }
-std::string Estudiante::getNivel() { return std::string(_nivel); }
+int Estudiante::getIdCurso() { return _idCurso; }
+int Estudiante::getIdNivel() { return _idNivel; }
 std::string Estudiante::getTurno() { return std::string(_turno); }
 
 void Estudiante::setId(int idEstudiante) { _idEstudiante = idEstudiante; }
-void Estudiante::setAsignatura(std::string asignatura) { strcpy(_asignatura, asignatura.c_str()); }
-void Estudiante::setCurso(std::string curso) { strcpy(_curso, curso.c_str()); }
-void Estudiante::setNivel(std::string nivel) { strcpy(_nivel, nivel.c_str()); }
+void Estudiante::setIdCurso(int idCurso) { _idCurso = idCurso; }
+void Estudiante::setIdNivel(int  idNivel) { _idNivel = idNivel; }
 void Estudiante::setTurno(std::string turno) { strcpy(_turno, turno.c_str()); }
-
+/*
 void Estudiante::agregarNota(std::string asignatura, float valor) {
     _notas.push_back(Nota(asignatura, valor));
 }
@@ -35,18 +33,19 @@ void Estudiante::listarNotas() {
         std::cout << "Asignatura: " << nota.asignatura << ", Nota: " << nota.valor << std::endl;
     }
 }
-
+*/
 void Estudiante::Cargar() {
     std::cout << "Id Estudiante: " << getNuevoId() << std::endl;
     setId(getNuevoId());
     std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
     std::cout << "Asignatura: ";
-    cargarCadena(_asignatura, 50);
-    std::cout << "Curso: ";
-    cargarCadena(_curso, 50);
+///    cargarCadena(_asignatura, 50);
     std::cout << "Nivel: ";
-    cargarCadena(_nivel, 50);
+    std::cin >> _idNivel;
+    std::cout << "Curso: " << std::endl;
+    curso.MostrarNombres();
+    std::cin >> _idCurso;
     std::cout <<"Turno: ";
     cargarCadena(_turno, 30);
     setEstado(true);
@@ -65,8 +64,8 @@ void Estudiante::Mostrar() {
         std::cout << "Direccion: " << getDireccion() << std::endl;
         std::cout << "Telefono: " << getTelefono() << std::endl;
         std::cout << "Turno: "<<getTurno()<<std::endl;
-        std::cout << "Nivel: "<<getNivel()<<std::endl;
-        std::cout << "Curso: "<<getCurso()<<std::endl;
+        std::cout << "Nivel: "<<getIdNivel()<<std::endl;
+        std::cout << "Curso: "<<getIdCurso()<<std::endl;
         std::cout << "-------------------" << std::endl;
     }
 }
