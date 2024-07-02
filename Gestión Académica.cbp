@@ -32,7 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="file/directores.dat" />
+		<Unit filename="files/Roles.dat" />
+		<Unit filename="files/admin.dat" />
+		<Unit filename="files/asignaturas.dat" />
+		<Unit filename="files/cursos.dat" />
+		<Unit filename="files/directores.dat" />
+		<Unit filename="files/docentes.dat" />
+		<Unit filename="files/estudiantes.dat" />
+		<Unit filename="files/users.dat" />
 		<Unit filename="include/Admin.h" />
 		<Unit filename="include/Asignatura.h" />
 		<Unit filename="include/Curso.h" />

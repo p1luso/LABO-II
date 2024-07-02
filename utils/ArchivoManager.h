@@ -185,7 +185,7 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio,co
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        std::cerr << "Error: No se pudo abrir el archivo 'docentes.dat'" << std::endl;
+        std::cout << "Error: No se pudo abrir el archivo 'docentes.dat'" << std::endl;
         return;
     }
 
@@ -215,7 +215,7 @@ void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        std::cerr << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
+        std::cout << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
         return;
     }
 
@@ -238,7 +238,7 @@ void ArchivoManager<T>::listarNotasPorAsignatura(const int &asignatura) {
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        std::cerr << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
+        std::cout << "Error: No se pudo abrir el archivo 'estudiantes.dat'" << std::endl;
         return;
     }
 
@@ -265,7 +265,7 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
     FILE *f = fopen(ruta.c_str(), "rb");
     if (f == NULL)
     {
-        std::cerr << "Error: No se pudo abrir el archivo " << nombreArchivo << std::endl;
+        std::cout << "Error: No se pudo abrir el archivo " << nombreArchivo << std::endl;
         return asignatura; // Devuelve una cadena vacía si no se puede abrir el archivo
     }
 
@@ -285,7 +285,7 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
 
     if (!encontrado)
     {
-        std::cerr << "No se encontró el docente con ID: " << id << std::endl;
+        std::cout << "No se encontró el docente con ID: " << id << std::endl;
     }
 
     return asignatura;

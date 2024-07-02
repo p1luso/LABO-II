@@ -8,13 +8,6 @@ using namespace std;
 #include "../include/Asignatura.h"
 #include "../include/UserId.h"
 
-void CargarNotas(){
-
-
-
-
-}
-
 void Docente::listarEstudiantesPorMateria()
 {
     system("cls");

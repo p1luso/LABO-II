@@ -16,11 +16,13 @@ int Estudiante::getIdRol(){
 
 int Estudiante::getIdCurso() { return _idCurso; }
 int Estudiante::getIdNivel() { return _idNivel; }
+int Estudiante::getIdAsignatura(){ return _idAsignatura; }
 std::string Estudiante::getTurno() { return std::string(_turno); }
 
 void Estudiante::setId(int idEstudiante) { _idEstudiante = idEstudiante; }
 void Estudiante::setIdCurso(int idCurso) { _idCurso = idCurso; }
 void Estudiante::setIdNivel(int  idNivel) { _idNivel = idNivel; }
+void Estudiante::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
 void Estudiante::setTurno(std::string turno) { strcpy(_turno, turno.c_str()); }
 /*
 void Estudiante::agregarNota(std::string asignatura, float valor) {
@@ -39,8 +41,6 @@ void Estudiante::Cargar() {
     setId(getNuevoId());
     std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
     Persona::Cargar();
-    std::cout << "Asignatura: ";
-///    cargarCadena(_asignatura, 50);
     std::cout << "Nivel: ";
     std::cin >> _idNivel;
     std::cout << "Curso: " << std::endl;
@@ -63,9 +63,9 @@ void Estudiante::Mostrar() {
         std::cout << "Email: " << getEmail() << std::endl;
         std::cout << "Direccion: " << getDireccion() << std::endl;
         std::cout << "Telefono: " << getTelefono() << std::endl;
-        std::cout << "Turno: "<<getTurno()<<std::endl;
         std::cout << "Nivel: "<<getIdNivel()<<std::endl;
         std::cout << "Curso: "<<getIdCurso()<<std::endl;
+        std::cout << "Turno: "<<getTurno()<<std::endl;
         std::cout << "-------------------" << std::endl;
     }
 }

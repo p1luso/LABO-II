@@ -34,7 +34,7 @@ public:
     void setTurno(std::string turno);
 
     void listarEstudiantesPorMateria();
-    void CargarNotas();
+
     void Cargar();
     void Mostrar();
 

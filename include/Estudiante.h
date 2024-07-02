@@ -15,6 +15,7 @@ private:
     int _idRol = 4;
     int _idNivel;
     int _idCurso;
+    int _idAsignatura;
     char _turno[30];
 
 
@@ -27,16 +28,16 @@ public:
     Curso curso;
     int getId();
     int getIdRol();
-
-
+    int getIdAsignatura();
     int getIdNivel();
     int getIdCurso();
     std::string getTurno();
 
 
     void setId(int idEstudiante);
-    void setIdCurso(int curso);
-    void setIdNivel(int nivel);
+    void setIdNivel(int idNivel);
+    void setIdCurso(int idCurso);
+    void setIdAsignatura(int idAsignatura);
     void setTurno(std::string turno);
 
 

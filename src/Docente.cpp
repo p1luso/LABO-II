@@ -34,6 +34,11 @@ void Docente::setIdCurso(int idCurso){ _idCurso = idCurso; }
 void Docente::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
 void Docente::setTurno(std::string turno){ strcpy(_turno, turno.c_str()); }
 
+void CargarNotas(){
+
+
+}
+
 void Docente::Cargar()
 {
     ///int idAsignaturas = _asignatura.getId();
@@ -58,6 +63,7 @@ void Docente::Mostrar()
     std::cout << "Id: " << getId() << std::endl;
     std::cout << "Nombre: " << getNombre() << std::endl;
     std::cout << "Apellido: " << getApellido() << std::endl;
+    std::cout << "DNI: " << getDni() << std::endl;
     std::cout << "Fecha de nacimiento: " << getFechaNacimiento().toString() << std::endl;
     std::cout << "Sexo: " << getSexo() << std::endl;
     std::cout << "Email: " << getEmail() << std::endl;

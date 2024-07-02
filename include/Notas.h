@@ -1,6 +1,13 @@
 #pragma once
+#include <iostream>
+#include "../utils/ArchivoManager.h"
+#include "../include/Nivel.h"
+#include "../include/Curso.h"
+#include "../include/Asignatura.h"
+#include "../include/Docente.h"
+#include "../include/Estudiante.h"
 
-class Nota {
+class Notas {
 private:
    int _idTrimestre;
    int _idNivel;
@@ -8,11 +15,34 @@ private:
    int _idAsignatura;
    int _idDocente;
    int _idEstudiante;
+   float _nota;
 public:
-    std::string asignatura;
-    float valor;
+   Nivel nivel;
+   Curso curso;
+   Asignatura asignatura;
+   Docente docente;
+   Estudiante estudiante;
 
-    Nota(std::string asignatura, float valor) : asignatura(asignatura), valor(valor) {}
+   void setIdTrimestre(int idTri);
+   void setIdNivel(int idNivel);
+   void setIdCurso(int idCurso);
+   void setIdAsignatura(int idAsignatura);
+   void setIdDocente(int idDocente);
+   void setIdEstudiante(int idEstudiante);
+   void setNota(float nota);
+
+   int getIdTrimestre();
+   int getIdNivel();
+   int getIdCurso();
+   int getIdAsignatura();
+   int getIdDocente();
+   int getIdEstudiante();
+   float getNota();
+
+   void CargarNotas();
+
+
+
 };
 
 

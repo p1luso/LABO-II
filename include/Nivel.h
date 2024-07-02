@@ -30,4 +30,5 @@ public:
    void Cargar();
 
    void Mostrar();
+   void MostrarNombres();
 };

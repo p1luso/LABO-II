@@ -139,7 +139,7 @@
      std::vector<MenuItem> items = {
 ///         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
 ///            menuDocente(); }},
-         {"2. NOTAS              ", []() { }},
+         {"2. NOTAS              ", []() { Menus::subMenuDoc(); }},
      };
      mostrarMenu(items);
  }
@@ -200,7 +200,27 @@
      };
      mostrarMenu(items);
  }
+/*
+ void Menus::menuDocente() {
+    Docente docente;
+    std::vector<MenuItem> items = {
+         {"1. CARGAR NOTAS          ", [&docente]() {   }},
+         {"2. LISTAR NOTA           ", []() {
+            Docente docente;
+            }},
+         {"3. MODIFICAR NOTAS       ", []() {
+         Docente docente;
+            }},
+         {"4. BORRAR NOTAS          ", []() {
+         Docente docente;
+            }},
+         {"5. ATRAS                 ", []() { Menus::menuDirector(); }}
+     };
+     mostrarMenu(items);
 
+
+ }
+*/
  void Menus::menuDirEstu() {
          Estudiante estudiante;
 
@@ -209,14 +229,18 @@
          Director director;
          director.estudiantePorCriterio("curso");
           }},
-         {"2. ESTUDIANTES POR ASIGNATURA ", []() {Director director;
-         director.estudiantePorCriterio("asignatura"); }},
-         {"3. ESTUDIANTES POR NIVEL      ", []() { Director director;
-         director.estudiantePorCriterio("nivel"); }},
-         {"3. ESTUDIANTES POR TURNO      ", []() { Director director;
-         director.estudiantePorCriterio("turno"); }},
-         {"5. NOTAS DE ESTUDIANTES       ", []() {Director director;
-         director.listarNotasPorAsig(); }},
+         {"2. ESTUDIANTES POR ASIGNATURA ", []() {
+            Director director;
+            director.estudiantePorCriterio("asignatura"); }},
+         {"3. ESTUDIANTES POR NIVEL      ", []() {
+            Director director;
+            director.estudiantePorCriterio("nivel"); }},
+         {"3. ESTUDIANTES POR TURNO      ", []() {
+            Director director;
+            director.estudiantePorCriterio("turno"); }},
+         {"5. NOTAS DE ESTUDIANTES       ", []() {
+            Director director;
+            director.listarNotasPorAsig(); }},
          {"6. ATRAS                      ", []() {Menus::menuDirector(); }}
      };
      mostrarMenu(items);
