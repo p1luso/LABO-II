@@ -49,7 +49,6 @@ std::string Rol::MostrarNombre(int num)
       Rol rol;
       ArchivoManager<Rol> archivoRol("roles.dat");
 
-
       int cant = archivoRol.cantidadRegistros();
 
       for(int i=0;i<cant;i++){
@@ -58,8 +57,5 @@ std::string Rol::MostrarNombre(int num)
             return rol.getNombreRol();
 
          }
-
-
-
     }
 }

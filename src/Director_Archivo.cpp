@@ -70,8 +70,7 @@ void Director::alta()
     director.Cargar();
 
     archivoDirector.guardarRegistro(director);
-    //system("pause");
-    Persona persona;
+
     UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");
     int cant = archivoDirector.cantidadRegistros();
@@ -95,7 +94,7 @@ void Director::listar()
     archivoDirector.listarRegistro(director);
     //system("pause");
     std::cout << "------------------------------------ " << std::endl;
-     UserId user;
+    UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");
     archivoUser.listarRegistro(user);
     system("pause");

@@ -48,7 +48,7 @@ int UserId::VerificadorUsuario(int Code){
     if(Code == 2024){
       return 1;
     }
-    for(int i=0; i <= cant; i++){
+    for(int i=0; i < cant; i++){
         user = archivoUsuario.leerRegistro(user, i);
 
         if(Code == user.getDni()){

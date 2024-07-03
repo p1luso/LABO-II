@@ -130,6 +130,7 @@
      std::vector<MenuItem> items = {
          {"1. LISTA DOCENTES     ", []() { Menus::menuDirDoce(); }},
          {"2. LISTA ESTUDIANTES  ", []() { Menus::menuDirEstu(); }},
+         {"3. CERRAR SESION  ", []() { exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -140,6 +141,7 @@
 ///         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
 ///            menuDocente(); }},
          {"2. NOTAS              ", []() { Menus::subMenuDoc(); }},
+         {"3. CERRAR SESION  ", []() { exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -148,6 +150,7 @@
      std::vector<MenuItem> items = {
          {"1. VER NOTAS          ", []() { /* Acci�n para ver notas */ }},
          {"2. VER MATERIAS       ", []() { /* Acci�n para ver materias */ }},
+         {"3. CERRAR SESION  ", []() { exit(1); }},
      };
      mostrarMenu(items);
  }

@@ -57,7 +57,23 @@ void Nivel::MostrarNombres(){
     cout << endl;
 
 }
+/*
+std::string Nivel::MostrarNombre(int num)
+{
+      Nivel nivel;
+      ArchivoManager<Nivel> archivoNivel("niveles.dat");
 
+
+      int cant = archivoNivel.cantidadRegistros();
+
+      for(int i=0;i<cant;i++){
+         nivel = archivoNivel.leerRegistro(rol, i);
+         if(num == nivel.getId() && nivel.getEstado()){
+            return nivel.getNombreNivel();
+         }
+    }
+}
+*/
 int Nivel::getNuevoId(){
     Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");

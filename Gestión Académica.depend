@@ -25,13 +25,13 @@
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 
-1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\director.cpp
+1719972570 source:c:\users\maxi-casa\documents\github\labo-ii\src\director.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Director.h"
 
-1719776269 c:\users\maxi-casa\documents\github\labo-ii\include\director.h
+1719969587 c:\users\maxi-casa\documents\github\labo-ii\include\director.h
 	"../include/persona.h"
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
@@ -52,14 +52,14 @@
 1717712601 c:\users\maxi-casa\documents\github\labo-ii\utils\directormanager.h
 	"../include/Director.h"
 
-1719880210 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente.cpp
+1719972570 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Docente.h"
 	"../utils/utils.h"
 
-1719882742 c:\users\maxi-casa\documents\github\labo-ii\include\docente.h
+1719969587 c:\users\maxi-casa\documents\github\labo-ii\include\docente.h
 	"persona.h"
 	<string>
 	"../utils/IRegistros.h"
@@ -67,14 +67,14 @@
 	"Asignatura.h"
 	"../include/Rol.h"
 
-1719961298 source:c:\users\maxi-casa\documents\github\labo-ii\src\estudiante.cpp
+1719974064 source:c:\users\maxi-casa\documents\github\labo-ii\src\estudiante.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Estudiante.h"
 	"../utils/utils.h"
 
-1719959084 c:\users\maxi-casa\documents\github\labo-ii\include\estudiante.h
+1719969587 c:\users\maxi-casa\documents\github\labo-ii\include\estudiante.h
 	"persona.h"
 	"../include/Rol.h"
 	"../include/Curso.h"
@@ -107,7 +107,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1719885842 source:c:\users\maxi-casa\documents\github\labo-ii\src\nivel.cpp
+1719965083 source:c:\users\maxi-casa\documents\github\labo-ii\src\nivel.cpp
 	<cstring>
 	<iostream>
 	"../include/Nivel.h"
@@ -129,7 +129,7 @@
 	"../include/UserId.h"
 	"../include/Rol.h"
 
-1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\rol.cpp
+1719973135 source:c:\users\maxi-casa\documents\github\labo-ii\src\rol.cpp
 	<iostream>
 	<cstring>
 	"../include/Rol.h"
@@ -390,7 +390,7 @@
 	"../utils/ArchivoManager.h"
 	"../include/Curso.h"
 
-1719868119 source:c:\users\maxi-casa\documents\github\labo-ii\src\director_archivo.cpp
+1719966556 source:c:\users\maxi-casa\documents\github\labo-ii\src\director_archivo.cpp
 	<iostream>
 	"../include/Director.h"
 	"../include/persona.h"
@@ -436,7 +436,7 @@
 1718321110 source:c:\users\maxi-casa\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 
-1719958062 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
+1719974329 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../utils/IRegistros.h"
 	"../include/Director.h"
@@ -470,7 +470,7 @@
 
 1719583361 source:c:\users\maxi-casa\documents\github\labo-ii\src\persona_archivo.cpp
 
-1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
+1719970535 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
 	<iostream>
 	<string>
 	<cstring>
@@ -484,7 +484,7 @@
 	"../include/UserId.h"
 	"../utils/ArchivoManager.h"
 
-1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\admin_archivo.cpp
+1719973238 source:c:\users\maxi-casa\documents\github\labo-ii\src\admin_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"
@@ -493,13 +493,13 @@
 	"../include/Asignatura.h"
 	"../include/UserId.h"
 
-1719776269 c:\users\maxi-casa\documents\github\labo-ii\include\admin.h
+1719973726 c:\users\maxi-casa\documents\github\labo-ii\include\admin.h
 	"../include/persona.h"
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
 	"../include/Rol.h"
 
-1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\admin.cpp
+1719972570 source:c:\users\maxi-casa\documents\github\labo-ii\src\admin.cpp
 	<iostream>
 	<string>
 	<cstring>

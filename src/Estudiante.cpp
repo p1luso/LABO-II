@@ -37,16 +37,15 @@ void Estudiante::listarNotas() {
 }
 */
 void Estudiante::Cargar() {
-    std::cout << "Id Estudiante: " << getNuevoId() << std::endl;
-    setId(getNuevoId());
-    std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
+    _idEstudiante = getNuevoId();
+    std::cout << "Rol: " << rol.MostrarNombre(getIdRol()) << std::endl;
     Persona::Cargar();
     std::cout << "Nivel: ";
     std::cin >> _idNivel;
     std::cout << "Curso: " << std::endl;
     curso.MostrarNombres();
     std::cin >> _idCurso;
-    std::cout <<"Turno: ";
+    std::cout <<"Turno M - Mañana | T - Tarde: ";
     cargarCadena(_turno, 30);
     setEstado(true);
 }

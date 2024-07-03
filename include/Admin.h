@@ -8,7 +8,7 @@ class Admin : public Persona, public IRegistro
 {
 private:
    int _idAdmin;
-   int _idRol = 1;
+   int _idRol=1;
 public:
 
    Rol rol;
@@ -20,7 +20,7 @@ public:
    void Cargar();
    void Mostrar();
 
-void docentePorCriterio(const std::string &criterio);
+   void docentePorCriterio(const std::string &criterio);
    void estudiantePorCriterio(const std::string &criterio);
    void listarNotasPorAsig();
 

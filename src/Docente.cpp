@@ -41,10 +41,8 @@ void CargarNotas(){
 
 void Docente::Cargar()
 {
-    ///int idAsignaturas = _asignatura.getId();
-    std::cout << "Id Docente: " << getNuevoId() << std::endl;
     _id = getNuevoId();
-    std::cout << "Rol: " << rol.MostrarNombre(getIdRol())<< std::endl;
+    std::cout << "Rol: " << rol.MostrarNombre(getIdRol()) << std::endl;
     Persona::Cargar();
     std::cout<<"Nivel: ";
     std::cin >> _idNivel;
