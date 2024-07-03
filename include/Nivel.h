@@ -1,6 +1,7 @@
 #include <string>
 #include "../utils/IRegistros.h"
 #include "../utils/funciones.h"
+#include "../include/Docente.h"
 
 #pragma once
 
@@ -17,6 +18,7 @@ public:
     void baja() override;
    Nivel(int idNivel, std::string nombreNivel);
    Nivel();
+   Docente docente;
 
    void setId(int id);
    int getId();
@@ -31,4 +33,5 @@ public:
 
    void Mostrar();
    void MostrarNombres();
+   void MostrarNombre(int id);
 };

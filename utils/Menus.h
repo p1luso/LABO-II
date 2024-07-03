@@ -12,6 +12,7 @@
 #include "../include/Asignatura.h"
 #include "../include/Rol.h"
 #include "../include/UserId.h"
+#include "../include/Notas.h"
 #include "rlutil.h"
 #include "funciones.h"
 #include <vector>
@@ -25,7 +26,8 @@ struct MenuItem {
 
 class Menus {
 public:
-
+    static void setIdUser(int id);
+    static int getIdUser();
     static void Login();
     static void menuAdmin();
     static void menuDirector();
@@ -42,7 +44,7 @@ public:
 
 private:
     static int login_code;
-
+    static int _idUser;
     static void mostrarMenu(const std::vector<MenuItem>& items);
 
 

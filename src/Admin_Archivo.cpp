@@ -18,8 +18,11 @@ void Admin::alta()
 
     admin.Cargar();
 
-    archivoAdmin.guardarRegistro(admin);
-    Persona persona;
+    if(!archivoAdmin.guardarRegistro(admin)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
+
     UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");
 

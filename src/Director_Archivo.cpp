@@ -69,7 +69,10 @@ void Director::alta()
 
     director.Cargar();
 
-    archivoDirector.guardarRegistro(director);
+    if(!archivoDirector.guardarRegistro(director)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
 
     UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");

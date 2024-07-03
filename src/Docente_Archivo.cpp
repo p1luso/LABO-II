@@ -56,8 +56,11 @@ void Docente::alta()
 
     docente.Cargar();
 
-    archivoDocente.guardarRegistro(docente);
-    Persona persona;
+    if(!archivoDocente.guardarRegistro(docente)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
+
     UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");
 

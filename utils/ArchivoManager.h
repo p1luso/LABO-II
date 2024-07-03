@@ -23,6 +23,7 @@ public:
     void listarRegistro(T obj);
     void listarNombres(T obj);
     int buscarRegistro(T obj, int id);
+    T buscarRegistroPorDni(T obj, int id);
     T leerRegistro(T obj, int pos);
     bool modificarRegistro(T obj, int pos);
     int cantidadRegistros();
@@ -105,6 +106,33 @@ int ArchivoManager<T>::buscarRegistro(T obj, int id)
     }
     fclose(f);
     return -2;
+}
+
+template <class T>
+T ArchivoManager<T>::buscarRegistroPorDni(T obj, int id)
+{
+    std::string ruta = "files/";
+    ruta.append(nombreArchivo);
+    FILE *f = fopen(ruta.c_str(), "rb");
+    int pos = 0;
+
+    if (f == NULL)
+    {
+        cout << "Error: No se pudo acceder al archivo" << endl;
+        fclose(f);
+        exit(-1);
+    }
+
+    while (fread(&obj, sizeof obj, 1, f) == 1)
+    {
+        if (obj.getDni() == id)
+        {
+            fclose(f);
+            return obj;
+        }
+        pos++;
+    }
+    fclose(f);
 }
 
 template <class T>

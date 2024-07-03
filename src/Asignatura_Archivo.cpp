@@ -11,7 +11,11 @@ void Asignatura::alta()
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
     asignatura.Cargar();
 
-    archivoAsignatura.guardarRegistro(asignatura);
+
+    if(!archivoAsignatura.guardarRegistro(asignatura)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
         system("pause");
 }
 

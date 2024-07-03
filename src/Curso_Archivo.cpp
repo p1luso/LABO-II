@@ -8,9 +8,13 @@ void Curso::alta()
 {
     Curso curso;
     ArchivoManager<Curso> archivoCurso("cursos.dat");
+
     curso.Cargar();
 
-    archivoCurso.guardarRegistro(curso);
+    if(!archivoCurso.guardarRegistro(curso)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
         system("pause");
 
 }

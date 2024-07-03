@@ -10,8 +10,11 @@ void Nivel::alta()
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
     nivel.Cargar();
 
-    archivoNivel.guardarRegistro(nivel);
-        system("pause");
+    if(!archivoNivel.guardarRegistro(nivel)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
+    system("pause");
 
 }
 

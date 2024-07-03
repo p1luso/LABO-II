@@ -20,12 +20,15 @@ int Notas::getIdDocente(){ return _idDocente; }
 int Notas::getIdEstudiante(){ return _idEstudiante; }
 float Notas::getNota(){ return _nota; }
 
-void Notas::CargarNotas(){
+void Notas::CargarNotas(int dni){
+   Docente docente;
+   ArchivoManager<Docente> archivoDocente("docentes.dat");
+   docente = archivoDocente.buscarRegistroPorDni(docente, dni);
 
    std::cout << "Ingrese Trimestre: 1 - 2 - 3: " << std::endl;
    std::cin >> _idTrimestre;
    std::cout << "Nivel: " << std::endl;
-
+   nivel.MostrarNombre(docente.getIdNivel());
    std::cout << "Curso: " << std::endl;
 
 

@@ -3,6 +3,7 @@
 #include <cstring>
 #include "../include/UserId.h"
 #include "../utils/ArchivoManager.h"
+#include "../utils/Menus.h"
 
 
 
@@ -42,6 +43,7 @@ void UserId::Mostrar()
 }
 int UserId::VerificadorUsuario(int Code){
     UserId user;
+    Menus menus;
     ArchivoManager<UserId> archivoUsuario("users.dat");
     int pos = 0, idRol = 0;
     int cant = archivoUsuario.cantidadRegistros();
@@ -53,6 +55,7 @@ int UserId::VerificadorUsuario(int Code){
 
         if(Code == user.getDni()){
              idRol = user.getIdRol();
+             menus.setIdUser(user.getDni());
         }
         pos++;
     }

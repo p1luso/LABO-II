@@ -13,6 +13,9 @@ Curso::Curso(int idCurso, std::string nombrCurso)
 
 Curso::Curso() {}
 
+void Curso::setIdNivel(int id){ _idNivel = id;}
+int Curso::getIdNivel(){ return _idNivel;}
+
 void Curso::setId(int id) { _idCurso = id; }
 
 int Curso::getId() { return _idCurso; }
@@ -29,8 +32,12 @@ void Curso::Cargar()
 {
     std::cout << "Id Curso: " << getNuevoId() << std::endl;
     setId(getNuevoId());
+    std::cout << "Selecione el Nivel: " << std::endl;
+    nivel.MostrarNombres();
+    std::cout << ": ";
+    std::cin >> _idNivel;
     std::cout << "Nombre Curso: ";
-    cargarCadena(_nombreCurso, 30);
+    cargarCadena(_nombreCurso, 50);
     setEstado(true);
 }
 
@@ -42,7 +49,7 @@ void Curso::Mostrar()
     }
     else
     {
-
+        std::cout << "Nivel: " << getIdNivel() << std::endl;
         std::cout << "ID: " << getId() << std::endl;
         std::cout << "Nombre: " << getNombrCurso() << std::endl;
 

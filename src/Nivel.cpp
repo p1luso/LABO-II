@@ -50,12 +50,25 @@ void Nivel::MostrarNombres(){
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
     int cant = archivoNivel.cantidadRegistros();
 
-    for(int i=0; i<=cant; i++){
+    for(int i=0; i<cant; i++){
       nivel = archivoNivel.leerRegistro(nivel, i);
       cout << nivel.getId() << ": " << nivel.getNombreNivel() << " | ";
     }
     cout << endl;
 
+}
+
+void Nivel::MostrarNombre(int id){
+Nivel nivel;
+    ArchivoManager<Nivel> archivoNivel("niveles.dat");
+    int cant = archivoNivel.cantidadRegistros();
+
+    for(int i=0; i<cant; i++){
+      nivel = archivoNivel.leerRegistro(nivel, i);
+      if(nivel.getId() == id){
+         cout << nivel.getNombreNivel() << endl;
+      }
+    }
 }
 /*
 std::string Nivel::MostrarNombre(int num)

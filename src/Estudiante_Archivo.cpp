@@ -12,7 +12,10 @@ void Estudiante::alta()
 
     estudiante.Cargar();
 
-    archivoEstudiante.guardarRegistro(estudiante);
+    if(!archivoEstudiante.guardarRegistro(estudiante)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
 
     UserId user;
     ArchivoManager<UserId> archivoUser("users.dat");

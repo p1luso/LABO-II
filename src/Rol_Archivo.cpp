@@ -10,7 +10,10 @@ void Rol::alta()
     ArchivoManager<Rol> archivoRol("Roles.dat");
     rol.Cargar();
 
-    archivoRol.guardarRegistro(rol);
+    if(!archivoRol.guardarRegistro(rol)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
         system("pause");
 
 }

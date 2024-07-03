@@ -15,6 +15,9 @@
      return login_code;
  }
 
+ void Menus::setIdUser(int id){ _idUser = id; }
+ int Menus::getIdUser(){ return _idUser; }
+
  void Menus::mostrarMenu(const std::vector<MenuItem>& items) {
      int opy = 0, op = 1;
 
@@ -250,9 +253,12 @@
  }
 
  void Menus::subMenuDoc(){
+     Notas notas;
      std::vector<MenuItem> items = {
          {"1. LISTAR NOTAS               ", []() { }},
-         {"2. CARGAR NOTAS               ", []() { }},
+         {"2. CARGAR NOTAS               ", []() {
+            //Notas::CargarNotas(Menus::getIdUser());
+         }},
          {"3. MODIFICAR NOTAS            ", []() { }},
          {"4. BORRAR NOTAS               ", []() { }},
          {"6. ATRAS                      ", []() {Menus:menuDocente(); }}
