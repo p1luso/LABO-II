@@ -23,7 +23,7 @@ public:
     void listarRegistro(T obj);
     void listarNombres(T obj);
     int buscarRegistro(T obj, int id);
-    T buscarRegistroPorDni(T obj, int id);
+    T buscarRegistroPorIdUser(T obj, int id);
     T leerRegistro(T obj, int pos);
     bool modificarRegistro(T obj, int pos);
     int cantidadRegistros();
@@ -109,7 +109,7 @@ int ArchivoManager<T>::buscarRegistro(T obj, int id)
 }
 
 template <class T>
-T ArchivoManager<T>::buscarRegistroPorDni(T obj, int id)
+T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int dni)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
@@ -125,7 +125,7 @@ T ArchivoManager<T>::buscarRegistroPorDni(T obj, int id)
 
     while (fread(&obj, sizeof obj, 1, f) == 1)
     {
-        if (obj.getDni() == id)
+        if (obj.getDni() == dni)
         {
             fclose(f);
             return obj;

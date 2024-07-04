@@ -1,6 +1,8 @@
  #include "../utils/Menus.h"
  #include "../utils/IRegistros.h"
  #include "../include/Director.h"
+ #include "../include/Notas.h"
+ #include "../include/UserId.h"
 
 
  int Menus::login_code = 0;
@@ -14,9 +16,6 @@
  {
      return login_code;
  }
-
- void Menus::setIdUser(int id){ _idUser = id; }
- int Menus::getIdUser(){ return _idUser; }
 
  void Menus::mostrarMenu(const std::vector<MenuItem>& items) {
      int opy = 0, op = 1;
@@ -91,8 +90,10 @@
      std::cin>>code;
 
      UserId user;
-     cod = user.VerificadorUsuario(code);
 
+     user = user.ObtenerUserConDni(code);
+
+     cod = user.VerificadorUsuario(code);
 
      Menus::setLoginCode(cod);
 
@@ -253,12 +254,12 @@
  }
 
  void Menus::subMenuDoc(){
-     Notas notas;
      std::vector<MenuItem> items = {
          {"1. LISTAR NOTAS               ", []() { }},
          {"2. CARGAR NOTAS               ", []() {
-            //Notas::CargarNotas(Menus::getIdUser());
-         }},
+            Notas notas;
+            UserId user;
+            notas.CargarNotas(user.getIdUser()); }},
          {"3. MODIFICAR NOTAS            ", []() { }},
          {"4. BORRAR NOTAS               ", []() { }},
          {"6. ATRAS                      ", []() {Menus:menuDocente(); }}

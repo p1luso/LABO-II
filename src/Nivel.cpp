@@ -59,14 +59,14 @@ void Nivel::MostrarNombres(){
 }
 
 void Nivel::MostrarNombre(int id){
-Nivel nivel;
+    Nivel nivel;
     ArchivoManager<Nivel> archivoNivel("niveles.dat");
     int cant = archivoNivel.cantidadRegistros();
 
     for(int i=0; i<cant; i++){
       nivel = archivoNivel.leerRegistro(nivel, i);
-      if(nivel.getId() == id){
-         cout << nivel.getNombreNivel() << endl;
+      if(nivel.getId() == id && nivel.getEstado()){
+         std::cout << nivel.getNombreNivel() << std::endl;
       }
     }
 }

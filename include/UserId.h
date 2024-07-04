@@ -26,6 +26,7 @@ public:
    void Mostrar();
    void Cargar(int id, int dni, int idRol, bool estado);
 
+   UserId ObtenerUserConDni(int dni);
    int VerificadorUsuario(int code);
 
 

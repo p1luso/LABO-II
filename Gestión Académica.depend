@@ -108,7 +108,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1720039174 source:c:\users\maxi-casa\documents\github\labo-ii\src\nivel.cpp
+1720109942 source:c:\users\maxi-casa\documents\github\labo-ii\src\nivel.cpp
 	<cstring>
 	<iostream>
 	"../include/Nivel.h"
@@ -377,7 +377,7 @@
 	"../utils/ArchivoManager.h"
 	"../include/Asignatura.h"
 
-1720039218 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
+1720118411 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
 	<cstring>
 	<cstdio>
 	<stdexcept>
@@ -402,7 +402,7 @@
 	"../include/UserId.h"
 	"../utils/Menus.h"
 
-1720040970 c:\users\maxi-casa\documents\github\labo-ii\utils\menus.h
+1720112355 c:\users\maxi-casa\documents\github\labo-ii\utils\menus.h
 	"ArchivoManager.h"
 	"../include/Admin.h"
 	"../include/Director.h"
@@ -439,10 +439,12 @@
 1718321110 source:c:\users\maxi-casa\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 
-1719974329 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
+1720121354 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../utils/IRegistros.h"
 	"../include/Director.h"
+	"../include/Notas.h"
+	"../include/UserId.h"
 
 1720035898 source:c:\users\maxi-casa\documents\github\labo-ii\src\nivel_archivo.cpp
 	<iostream>
@@ -473,7 +475,7 @@
 
 1719583361 source:c:\users\maxi-casa\documents\github\labo-ii\src\persona_archivo.cpp
 
-1720041513 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
+1720121135 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
 	<iostream>
 	<string>
 	<cstring>
@@ -481,7 +483,7 @@
 	"../utils/ArchivoManager.h"
 	"../utils/Menus.h"
 
-1719776269 c:\users\maxi-casa\documents\github\labo-ii\include\userid.h
+1720118411 c:\users\maxi-casa\documents\github\labo-ii\include\userid.h
 
 1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid_archivo.cpp
 	<iostream>
@@ -786,7 +788,7 @@
 
 1719848374 source:c:\users\lenovo_m\documents\github\labo-ii\src\notas_archivo.cpp
 
-1720039619 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
+1720111296 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Notas.h"

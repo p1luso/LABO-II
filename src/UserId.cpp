@@ -41,21 +41,20 @@ void UserId::Mostrar()
 
     }
 }
-int UserId::VerificadorUsuario(int Code){
+int UserId::VerificadorUsuario(int code){
     UserId user;
-    Menus menus;
+
     ArchivoManager<UserId> archivoUsuario("users.dat");
     int pos = 0, idRol = 0;
     int cant = archivoUsuario.cantidadRegistros();
-    if(Code == 2024){
+    if(code == 2024){
       return 1;
     }
     for(int i=0; i < cant; i++){
         user = archivoUsuario.leerRegistro(user, i);
 
-        if(Code == user.getDni()){
+        if(code == user.getDni()){
              idRol = user.getIdRol();
-             menus.setIdUser(user.getDni());
         }
         pos++;
     }
@@ -63,4 +62,24 @@ int UserId::VerificadorUsuario(int Code){
       return idRol;
     }
     return -1;
+}
+
+UserId UserId::ObtenerUserConDni(int dni){
+    UserId user;
+
+    ArchivoManager<UserId> archivoUsuario("users.dat");
+    int pos = 0, idRol = 0;
+    int cant = archivoUsuario.cantidadRegistros();
+
+    for(int i=0; i < cant; i++){
+        user = archivoUsuario.leerRegistro(user, i);
+
+        if(dni == user.getDni()){
+             return user;
+        }
+        pos++;
+    }
+
+      return user;
+
 }
