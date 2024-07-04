@@ -129,7 +129,7 @@ bool ArchivoManager<T>::modificarRegistro(T obj, int pos)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
-    FILE *f = fopen(ruta.c_str(), "r+b");
+    FILE *f = fopen(ruta.c_str(), "r+b"); //¿no es rb+?
     if (f == NULL)
     {
         return false;
@@ -195,8 +195,8 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio, c
     while (fread(&docente, sizeof(Docente), 1, f) == 1)
     {
         if ((criterio == "asignatura" && nombreAsig == valor) ||
-            (criterio == "curso" && docente.getCurso() == valor) || // Asumiendo que hay un método getCurso
-            (criterio == "nivel" && docente.getNivel() == valor) ||  // Asumiendo que hay un método getNivel
+            (criterio == "curso" && docente.getCurso().getNombrCurso() == valor) || // Asumiendo que hay un método getCurso
+            (criterio == "nivel" && docente.getNivel().getNombreNivel() == valor) ||  // Asumiendo que hay un método getNivel
             (criterio == "turno" && docente.getTurno() == valor))   // Asumiendo que hay un método getNivel
         {
             docente.Mostrar();
@@ -223,9 +223,9 @@ void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio
     std::cout << "Buscar Estudiantes en: " << valor<< std::endl;
     while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
     {
-        if ((criterio == "asignatura" && estudiante.getAsignatura() == valor) ||
-            (criterio == "curso" && estudiante.getCurso() == valor) ||
-            (criterio == "nivel" && estudiante.getNivel() == valor) ||
+        if ((criterio == "asignatura" && estudiante.getAsignatura().getNombreAsignatura() == valor) ||
+            (criterio == "curso" && estudiante.getCurso().getNombrCurso() == valor) ||
+            (criterio == "nivel" && estudiante.getNivel().getNombreNivel() == valor) ||
             (criterio == "turno" && estudiante.getTurno() == valor))
 
         {
@@ -249,7 +249,7 @@ void ArchivoManager<T>::listarNotasPorAsignatura(const std::string &asignatura) 
     Estudiante estudiante;
     while (fread(&estudiante, sizeof(Estudiante), 1, f) == 1)
     {
-        if (estudiante.getEstado() && estudiante.getAsignatura() == asignatura)
+        if (estudiante.getEstado() && estudiante.getAsignatura().getNombreAsignatura() == asignatura)
         {
             estudiante.Mostrar();
             std::cout << std::endl;
