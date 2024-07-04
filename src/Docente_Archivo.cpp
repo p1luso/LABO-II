@@ -33,7 +33,7 @@ void Docente::listarEstudiantesPorMateria()
             for(int x = 0; x < cantREstudiantes; x++)
             {
                 estudiante = archivoEst.leerRegistro(estudiante,x);
-                if(asignatura.getNombreAsignatura() == estudiante.getAsignatura())
+                if(asignatura.getNombreAsignatura() == estudiante.getAsignatura().getNombreAsignatura())
                 {
                     std::cout<<estudiante.getNombre()<<" "<<estudiante.getApellido()<<std::endl;
                     std::cout<<"--------------------------"<<std::endl;

@@ -5,6 +5,8 @@
 #include "../utils/funciones.h"
 #include "Asignatura.h"
 #include "../include/Rol.h"
+#include "Curso.h"
+#include "Nivel.h"
 class Docente : public Persona, public IRegistro
 {
 private:
@@ -12,8 +14,8 @@ private:
     int _idRol = 3;
     char _turno[10];
     Asignatura _asignatura;
-    char _curso[50];
-    char _nivel[15];
+    Curso _curso;  //cambio
+    Nivel _nivel; //cambio
 public:
     Docente();
     ~Docente();
@@ -22,13 +24,13 @@ public:
     int getIdRol();
     std::string getTurno();
     Asignatura getIdAsignatura();
-    std::string getCurso();
-    std::string getNivel();
+    Curso getCurso(); //cambio
+    Nivel getNivel(); //cambio
     void setId(int idDocente);
     void setTurno(std::string turno);
     void setIdAsignatura(Asignatura asignatura);
-    void setCurso(std::string curso);
-    void setNivel(std::string nivel);
+    void setCurso(Curso curso); //cambio
+    void setNivel(Nivel nivel);
     void Cargar();
     void listarEstudiantesPorMateria();
     void Mostrar();

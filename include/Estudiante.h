@@ -2,15 +2,19 @@
 #define ESTUDIANTE_H
 
 #include "persona.h"
+#include "Asignatura.h"
+#include "Curso.h"
+#include "Nivel.h"
 #include "../include/Rol.h"
 #include <vector>
 #include <string>
 
 class Nota {
 public:
+    //cambiar!!
     std::string asignatura;
     float valor;
-
+    //cambiar!!
     Nota(std::string asignatura, float valor) : asignatura(asignatura), valor(valor) {}
 };
 
@@ -18,10 +22,10 @@ class Estudiante : public Persona, public IRegistro {
 private:
     int _idEstudiante;
     int _idRol = 4;
-    char _asignatura[50];
-    char _curso[50];
+    Asignatura _asignatura; //cambio
+    Curso _curso; //cambio
     char _turno[30];
-    char _nivel[50];
+    Nivel _nivel; //cambio
     std::vector<Nota> _notas; // Nueva propiedad para almacenar notas
 
 public:
@@ -32,18 +36,19 @@ public:
     int getId();
     int getIdRol();
 
-    std::string getAsignatura();
-    std::string getCurso();
-    std::string getNivel();
+    Asignatura getAsignatura(); //cambio
+    Curso getCurso(); //cambio
+    Nivel getNivel(); //cambio
     std::string getTurno();
 
 
     void setId(int idEstudiante);
-    void setAsignatura(std::string asignatura);
-    void setCurso(std::string curso);
-    void setNivel(std::string nivel);
+    void setAsignatura(Asignatura asignatura); //cambio
+    void setCurso(Curso curso); //cambio
+    void setNivel(Nivel nivel);//cambio
     void setTurno(std::string turno);
 
+    //cambiar!!
     void agregarNota(std::string asignatura, float valor); // Nuevo método para agregar notas
     void listarNotas(); // Nuevo método para listar notas
 
