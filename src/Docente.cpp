@@ -21,7 +21,7 @@ int Docente::getIdRol(){
    return _idRol;
 }
 
-///Asignatura Docente::getIdAsignatura(){return _asignatura;}
+
 
 int Docente::getIdNivel(){ return _idNivel; }
 int Docente::getIdCurso(){ return _idCurso; }
@@ -34,10 +34,6 @@ void Docente::setIdCurso(int idCurso){ _idCurso = idCurso; }
 void Docente::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
 void Docente::setTurno(std::string turno){ strcpy(_turno, turno.c_str()); }
 
-void CargarNotas(){
-
-
-}
 
 void Docente::Cargar()
 {
@@ -58,6 +54,7 @@ void Docente::Cargar()
 
 void Docente::Mostrar()
 {
+   //rlutil::locate(10,1);
     std::cout << "Id: " << getId() << std::endl;
     std::cout << "Nombre: " << getNombre() << std::endl;
     std::cout << "Apellido: " << getApellido() << std::endl;

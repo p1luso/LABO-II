@@ -4,6 +4,7 @@
 #include "../include/Notas.h"
 
 
+
 void Notas::setIdTrimestre(int idTri){ _idTrimestre = idTri;}
 void Notas::setIdNivel(int idNivel){ _idNivel = idNivel; }
 void Notas::setIdCurso(int idCurso){ _idCurso = idCurso; }
@@ -21,20 +22,48 @@ int Notas::getIdEstudiante(){ return _idEstudiante; }
 float Notas::getNota(){ return _nota; }
 
 void Notas::CargarNotas(int id){
+   system ("cls");
+   int opcion;
+   Menus menus;
    Docente docente;
-   //UserId user;
+   Estudiante estudiante;
+
+
+
+
    ArchivoManager<Docente> archivoDocente("docentes.dat");
-   //ArchivoManager<UserId> archivoUser("Users.dat");
+   ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
+
    docente = archivoDocente.buscarRegistroPorIdUser(docente, id);
 
    std::cout << "Ingrese Trimestre: 1-2-3: " << std::endl;
    std::cin >> _idTrimestre;
-   std::cout << "Nivel: " << std::endl;
+   std::cout << "Nivel: ";
    nivel.MostrarNombre(docente.getIdNivel());
-   std::cout << "Curso: " << std::endl;
+   std::cout << "Curso: ";
+   curso.MostrarNombre(docente.getIdCurso());
+   std::cout << "Asignatura: ";
+   asignatura.MostrarNombre(docente.getIdAsignatura());
+   std::cout << "Estudiante: ";
+   //estudiante.MostrarNombre(estudiante.());
+
+   std::cout << "Notas: ";
+
+    Notas notas;
+    ArchivoManager<Notas> archivoNotas("notas.dat");
+
+    if(!archivoNotas.guardarRegistro(notas)){
+         cout << "No se pudo guardar!" << endl;
+    }
+    cout << "Se guardo con exito! " << endl;
+
+   std::cout << "Desea cargar otra nota: 1 - SI, 2 - NO: ";
+   std::cin >> opcion;
+   system ("pause");
 
 
-   std::cout << "Asignatura: " << std::endl;
-   std::cout << _idAsignatura;
-
+   system ("cls");
+   menus.subMenuDoc();
 }
+
+

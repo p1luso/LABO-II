@@ -30,18 +30,6 @@ void Curso::listar()
 
 }
 
-void Curso::MostrarNombres(){
-    Curso curso;
-    ArchivoManager<Curso> archivoCurso("cursos.dat");
-    int cant = archivoCurso.cantidadRegistros();
-
-    for(int i=0; i<=cant; i++){
-      curso = archivoCurso.leerRegistro(curso, i);
-      cout << curso.getId() << ": " << curso.getNombrCurso() << " | ";
-    }
-    cout << endl;
-
-}
 
 void Curso::baja()
 {
@@ -83,3 +71,28 @@ void Curso::baja()
 }
 
 
+void Curso::MostrarNombres(){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros();
+
+    for(int i=0; i<=cant; i++){
+      curso = archivoCurso.leerRegistro(curso, i);
+      cout << curso.getId() << ": " << curso.getNombrCurso() << " | ";
+    }
+    cout << endl;
+
+}
+
+void Curso::MostrarNombre(int id){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros();
+
+    for(int i=0; i<cant; i++){
+      curso = archivoCurso.leerRegistro(curso, i);
+      if(curso.getId() == id && curso.getEstado()){
+         std::cout << curso.getNombrCurso() << std::endl;
+      }
+    }
+}

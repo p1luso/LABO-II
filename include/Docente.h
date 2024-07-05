@@ -10,7 +10,6 @@ class Docente : public Persona, public IRegistro
 private:
     int _id;
     int _idRol = 3;
-    ///Asignatura _asignatura;
     int _idNivel;
     int _idCurso;
     int _idAsignatura;

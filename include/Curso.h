@@ -33,6 +33,7 @@ public:
 
    void Mostrar();
    void MostrarNombres();
+   void MostrarNombre(int id);
 
    void alta();
 

@@ -26,6 +26,7 @@ public:
 
    void Cargar();
    void Mostrar();
+   void MostrarNombre(int id);
 
    void alta();
 

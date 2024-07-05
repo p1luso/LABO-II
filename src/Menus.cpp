@@ -6,6 +6,7 @@
 
 
  int Menus::login_code = 0;
+ int Menus::_idUser = 0;
 
  void Menus::setLoginCode(int login)
  {
@@ -14,7 +15,16 @@
 
  int Menus::getLoginCode()
  {
-     return login_code;
+     return login_code ;
+ }
+
+ void Menus::setIdUser(int idUser)
+ {
+    _idUser = idUser;
+ }
+ int Menus::getIdUser()
+ {
+   return _idUser;
  }
 
  void Menus::mostrarMenu(const std::vector<MenuItem>& items) {
@@ -90,9 +100,9 @@
      std::cin>>code;
 
      UserId user;
-
      user = user.ObtenerUserConDni(code);
-
+     int user_Id = user.getIdUser();
+     Menus::setIdUser(user_Id);
      cod = user.VerificadorUsuario(code);
 
      Menus::setLoginCode(cod);
@@ -125,7 +135,11 @@
      std::vector<MenuItem> items = {
          {"1. CONFIGURACION PERSONAL    ", []() { Menus::menuAdmPers(); }},
          {"2. CONFIGURACION DE COLEGIO  ", []() { Menus::menuAdmColeg(); }},
-         {"3. CERRAR SESION  ", []() { exit(1); }},
+         {"3. CERRAR SESION  ", []() {
+            Menus::Login(); }},
+         {"4. SALIR  ", []() {
+            rlutil::locate(15,27);
+            exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -134,7 +148,11 @@
      std::vector<MenuItem> items = {
          {"1. LISTA DOCENTES     ", []() { Menus::menuDirDoce(); }},
          {"2. LISTA ESTUDIANTES  ", []() { Menus::menuDirEstu(); }},
-         {"3. CERRAR SESION  ", []() { exit(1); }},
+         {"3. CERRAR SESION  ", []() {
+            Menus::Login(); }},
+         {"4. SALIR  ", []() {
+            rlutil::locate(15,27);
+            exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -145,7 +163,11 @@
 ///         {"1. LISTA ESTUDIANTES  ", [&docente]() { docente.listarEstudiantesPorMateria();
 ///            menuDocente(); }},
          {"2. NOTAS              ", []() { Menus::subMenuDoc(); }},
-         {"3. CERRAR SESION  ", []() { exit(1); }},
+         {"3. CERRAR SESION  ", []() {
+            Menus::Login(); }},
+         {"4. SALIR  ", []() {
+            rlutil::locate(15,27);
+            exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -154,7 +176,11 @@
      std::vector<MenuItem> items = {
          {"1. VER NOTAS          ", []() { /* Acci�n para ver notas */ }},
          {"2. VER MATERIAS       ", []() { /* Acci�n para ver materias */ }},
-         {"3. CERRAR SESION  ", []() { exit(1); }},
+         {"3. CERRAR SESION  ", []() {
+            Menus::Login(); }},
+         {"4. SALIR  ", []() {
+            rlutil::locate(15,27);
+            exit(1); }},
      };
      mostrarMenu(items);
  }
@@ -242,7 +268,7 @@
          {"3. ESTUDIANTES POR NIVEL      ", []() {
             Director director;
             director.estudiantePorCriterio("nivel"); }},
-         {"3. ESTUDIANTES POR TURNO      ", []() {
+         {"4. ESTUDIANTES POR TURNO      ", []() {
             Director director;
             director.estudiantePorCriterio("turno"); }},
          {"5. NOTAS DE ESTUDIANTES       ", []() {
@@ -258,11 +284,10 @@
          {"1. LISTAR NOTAS               ", []() { }},
          {"2. CARGAR NOTAS               ", []() {
             Notas notas;
-            UserId user;
-            notas.CargarNotas(user.getIdUser()); }},
-         {"3. MODIFICAR NOTAS            ", []() { }},
-         {"4. BORRAR NOTAS               ", []() { }},
-         {"6. ATRAS                      ", []() {Menus:menuDocente(); }}
+            notas.CargarNotas(Menus::getIdUser()); }},
+         ///{"3. MODIFICAR NOTAS            ", []() { }},
+         {"3. BORRAR NOTAS               ", []() { }},
+         {"4. ATRAS                      ", []() {Menus:menuDocente(); }}
      };
      mostrarMenu(items);
  }

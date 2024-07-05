@@ -109,7 +109,7 @@ int ArchivoManager<T>::buscarRegistro(T obj, int id)
 }
 
 template <class T>
-T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int dni)
+T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int id)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
@@ -125,7 +125,7 @@ T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int dni)
 
     while (fread(&obj, sizeof obj, 1, f) == 1)
     {
-        if (obj.getDni() == dni)
+        if (obj.getIdUser() == id)
         {
             fclose(f);
             return obj;
@@ -157,7 +157,7 @@ bool ArchivoManager<T>::modificarRegistro(T obj, int pos)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
-    FILE *f = fopen(ruta.c_str(), "r+b");
+    FILE *f = fopen(ruta.c_str(), "rb+");
     if (f == NULL)
     {
         return false;

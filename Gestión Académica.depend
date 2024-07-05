@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1719799454 source:c:\users\maxi-casa\documents\github\labo-ii\src\asignatura.cpp
+1720131910 source:c:\users\maxi-casa\documents\github\labo-ii\src\asignatura.cpp
 	<cstring>
 	<iostream>
 	"../include/Asignatura.h"
 	"../utils/utils.h"
 	"../utils/ArchivoManager.h"
 
-1719776269 c:\users\maxi-casa\documents\github\labo-ii\include\asignatura.h
+1720131910 c:\users\maxi-casa\documents\github\labo-ii\include\asignatura.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
@@ -20,7 +20,7 @@
 	"../utils/utils.h"
 	"../utils/ArchivoManager.h"
 
-1720034636 c:\users\maxi-casa\documents\github\labo-ii\include\curso.h
+1720131301 c:\users\maxi-casa\documents\github\labo-ii\include\curso.h
 	<string>
 	"../utils/IRegistros.h"
 	"../utils/funciones.h"
@@ -53,14 +53,14 @@
 1717712601 c:\users\maxi-casa\documents\github\labo-ii\utils\directormanager.h
 	"../include/Director.h"
 
-1719972570 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente.cpp
+1720135490 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente.cpp
 	<iostream>
 	<string>
 	<cstring>
 	"../include/Docente.h"
 	"../utils/utils.h"
 
-1719969587 c:\users\maxi-casa\documents\github\labo-ii\include\docente.h
+1720135490 c:\users\maxi-casa\documents\github\labo-ii\include\docente.h
 	"persona.h"
 	<string>
 	"../utils/IRegistros.h"
@@ -86,7 +86,8 @@
 	<iostream>
 	"../include/Fecha.h"
 
-1718313526 source:c:\users\maxi-casa\documents\github\labo-ii\src\main.cpp
+1720132521 source:c:\users\maxi-casa\documents\github\labo-ii\src\main.cpp
+	<clocale>
 	<iostream>
 	<string>
 	<stdexcept>
@@ -377,7 +378,7 @@
 	"../utils/ArchivoManager.h"
 	"../include/Asignatura.h"
 
-1720118411 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
+1720130925 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
 	<cstring>
 	<cstdio>
 	<stdexcept>
@@ -387,7 +388,7 @@
 	"../include/Asignatura.h"
 	"../include/Estudiante.h"
 
-1720035895 source:c:\users\maxi-casa\documents\github\labo-ii\src\curso_archivo.cpp
+1720131301 source:c:\users\maxi-casa\documents\github\labo-ii\src\curso_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Curso.h"
@@ -402,7 +403,7 @@
 	"../include/UserId.h"
 	"../utils/Menus.h"
 
-1720112355 c:\users\maxi-casa\documents\github\labo-ii\utils\menus.h
+1720131301 c:\users\maxi-casa\documents\github\labo-ii\utils\menus.h
 	"ArchivoManager.h"
 	"../include/Admin.h"
 	"../include/Director.h"
@@ -439,7 +440,7 @@
 1718321110 source:c:\users\maxi-casa\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 
-1720121354 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
+1720138889 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../utils/IRegistros.h"
 	"../include/Director.h"
@@ -788,12 +789,12 @@
 
 1719848374 source:c:\users\lenovo_m\documents\github\labo-ii\src\notas_archivo.cpp
 
-1720111296 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
+1720136818 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Notas.h"
 
-1720039469 c:\users\maxi-casa\documents\github\labo-ii\include\notas.h
+1720135490 c:\users\maxi-casa\documents\github\labo-ii\include\notas.h
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Nivel.h"
@@ -801,4 +802,5 @@
 	"../include/Asignatura.h"
 	"../include/Docente.h"
 	"../include/Estudiante.h"
+	"../utils/Menus.h"
 

@@ -25,8 +25,12 @@ struct MenuItem {
 };
 
 class Menus {
+private:
+    static int login_code;
+    static int _idUser;
+    static void mostrarMenu(const std::vector<MenuItem>& items);
 public:
-    Notas notas;
+
     static void Login();
     static void menuAdmin();
     static void menuDirector();
@@ -40,10 +44,9 @@ public:
     static void menuVarios(IRegistro& registro, void (*menuAnterior)());
     static void setLoginCode(int login);
     static int getLoginCode();
+    static void setIdUser(int idUser);
+    static int getIdUser();
 
-private:
-    static int login_code;
-    static void mostrarMenu(const std::vector<MenuItem>& items);
 
 
 };

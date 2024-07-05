@@ -36,6 +36,19 @@ void Asignatura::Mostrar()
         std::cout << "Nombre: " << getNombreAsignatura() << std::endl;
     }
 }
+void Asignatura::MostrarNombre(int id){
+    Asignatura asignatura;
+    ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
+    int cant = archivoAsignatura.cantidadRegistros();
+
+    for(int i=0; i<cant; i++){
+      asignatura = archivoAsignatura.leerRegistro(asignatura, i);
+      if(asignatura.getId() == id && asignatura.getEstado()){
+         std::cout << asignatura.getNombreAsignatura() << std::endl;
+      }
+    }
+}
+
 int Asignatura::getNuevoId(){
     Asignatura asignatura;
     ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");

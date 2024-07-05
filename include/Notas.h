@@ -6,6 +6,7 @@
 #include "../include/Asignatura.h"
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
+#include "../utils/Menus.h"
 
 class Notas {
 private:
@@ -16,12 +17,14 @@ private:
    int _idDocente;
    int _idEstudiante;
    float _nota;
+
 public:
    Nivel nivel;
    Curso curso;
    Asignatura asignatura;
    Docente docente;
    Estudiante estudiante;
+
 
    void setIdTrimestre(int idTri);
    void setIdNivel(int idNivel);
@@ -40,6 +43,7 @@ public:
    float getNota();
 
    void CargarNotas(int dni);
+   void GuardarNotas(int dni);
 
 
 
