@@ -3,12 +3,18 @@
 #include "../include/Asignatura.h"
 #include "../utils/utils.h"
 #include "../utils/ArchivoManager.h"
+#include "../include/Nivel.h"
 
 Asignatura::Asignatura() {}
 
 void Asignatura::setId(int id) { _idAsignatura = id; }
 
 int Asignatura::getId() { return _idAsignatura; }
+
+void Asignatura::setIdNivel(int id) { _idNivel = id; }
+
+int Asignatura::getIdNivel() { return _idNivel; }
+
 
 void Asignatura::setNombreAsignatura(std::string nombreAsignatura) { strcpy(_nombreAsignatura, nombreAsignatura.c_str()); }
 
@@ -20,8 +26,12 @@ bool Asignatura::getEstado() { return _estado; }
 
 void Asignatura::Cargar()
 {
+    Nivel nivel;
     std::cout << "Id Asignatura: " << getNuevoId() << std::endl;
     setId(getNuevoId());
+    std::cout << "Selecione el Nivel: " << std::endl;
+    nivel.MostrarNombres();
+    std::cin >> _idNivel;
     std::cout << "Nombre Asignatura: ";
     cargarCadena(_nombreAsignatura, 30);
     setEstado(true);
@@ -47,6 +57,20 @@ void Asignatura::MostrarNombre(int id){
          std::cout << asignatura.getNombreAsignatura() << std::endl;
       }
     }
+}
+void Asignatura::MostrarNombresPorNivel(int id){
+    Asignatura asignatura;
+    ArchivoManager<Asignatura> archivoAsignatura("asignaturas.dat");
+    int cant = archivoAsignatura.cantidadRegistros();
+
+    for(int i=0; i<=cant; i++){
+      asignatura = archivoAsignatura.leerRegistro(asignatura, i);
+      if(asignatura.getIdNivel() == id){
+         cout << asignatura.getIdNivel() << ": " << asignatura.getNombreAsignatura() << " | ";
+      }
+    }
+    cout << ": ";
+
 }
 
 int Asignatura::getNuevoId(){

@@ -3,6 +3,8 @@
 #include <cstring>
 #include "../include/Docente.h"
 #include "../utils/utils.h"
+#include "../include/Nivel.h"
+#include "../include/Curso.h"
 
 Docente::Docente() {}
 Docente::~Docente() {}
@@ -37,15 +39,20 @@ void Docente::setTurno(std::string turno){ strcpy(_turno, turno.c_str()); }
 
 void Docente::Cargar()
 {
+   Nivel nivel;
+   Curso curso;
+   Asignatura asignatura;
     _id = getNuevoId();
     std::cout << "Rol: " << rol.MostrarNombre(getIdRol()) << std::endl;
     Persona::Cargar();
-    std::cout<<"Nivel: ";
+    std::cout<<"Selecione el Nivel: " << std::endl;
+    nivel.MostrarNombres();
     std::cin >> _idNivel;
-    ///_asignatura.Cargar();
-    std::cout<< "Curso: ";
+    std::cout<< "Selecione Curso: " << std::endl;
+    curso.MostrarNombresPorNivel(getIdNivel());
     std::cin >> _idCurso;
-    std::cout<< "Asignatura: ";
+    std::cout<< "Asignatura: " << std::endl;
+    asignatura.MostrarNombresPorNivel(getIdNivel());
     std::cin >> _idAsignatura;
     std::cout << "Turno: ";
     cargarCadena(_turno, 10);
@@ -54,6 +61,9 @@ void Docente::Cargar()
 
 void Docente::Mostrar()
 {
+   Nivel nivel;
+   Curso curso;
+   Asignatura asignatura;
    //rlutil::locate(10,1);
     std::cout << "Id: " << getId() << std::endl;
     std::cout << "Nombre: " << getNombre() << std::endl;
@@ -64,9 +74,13 @@ void Docente::Mostrar()
     std::cout << "Email: " << getEmail() << std::endl;
     std::cout << "Direccion: " << getDireccion() << std::endl;
     std::cout << "Telefono: " << getTelefono() << std::endl;
-    std::cout << "Nivel: "<<getIdNivel()<<std::endl;
-    std::cout << "Curso: " <<getIdCurso()<<std::endl;
+    std::cout << "Nivel: ";
+    nivel.MostrarNombre(getIdNivel());
+    std::cout << "Curso: ";
+    curso.MostrarNombre(getIdCurso());
+    std::cout << "Asignatura: ";
+    asignatura.MostrarNombre(getIdAsignatura());
     std::cout << "Turno: " << getTurno() << std::endl;
-    ///_asignatura.Mostrar();
+
     std::cout << "-------------------" << std::endl;
 }

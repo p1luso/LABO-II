@@ -83,6 +83,20 @@ void Curso::MostrarNombres(){
     cout << endl;
 
 }
+void Curso::MostrarNombresPorNivel(int id){
+    Curso curso;
+    ArchivoManager<Curso> archivoCurso("cursos.dat");
+    int cant = archivoCurso.cantidadRegistros();
+
+    for(int i=0; i<=cant; i++){
+      curso = archivoCurso.leerRegistro(curso, i);
+      if(curso.getIdNivel() == id){
+         cout << curso.getId() << ": " << curso.getNombrCurso() << " | ";
+      }
+    }
+    cout << ": ";
+
+}
 
 void Curso::MostrarNombre(int id){
     Curso curso;

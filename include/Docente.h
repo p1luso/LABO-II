@@ -5,6 +5,7 @@
 #include "../utils/funciones.h"
 #include "Asignatura.h"
 #include "../include/Rol.h"
+
 class Docente : public Persona, public IRegistro
 {
 private:

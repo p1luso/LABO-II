@@ -34,7 +34,6 @@ void Curso::Cargar()
     setId(getNuevoId());
     std::cout << "Selecione el Nivel: " << std::endl;
     nivel.MostrarNombres();
-    std::cout << ": ";
     std::cin >> _idNivel;
     std::cout << "Nombre Curso: ";
     cargarCadena(_nombreCurso, 50);

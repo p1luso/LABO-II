@@ -52,9 +52,9 @@ void Nivel::MostrarNombres(){
 
     for(int i=0; i<cant; i++){
       nivel = archivoNivel.leerRegistro(nivel, i);
-      cout << nivel.getId() << ": " << nivel.getNombreNivel() << " | ";
+      cout << nivel.getId() << "- " << nivel.getNombreNivel() << " | ";
     }
-    cout << endl;
+    cout << ": ";
 
 }
 

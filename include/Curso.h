@@ -34,6 +34,7 @@ public:
    void Mostrar();
    void MostrarNombres();
    void MostrarNombre(int id);
+   void MostrarNombresPorNivel(int id);
 
    void alta();
 

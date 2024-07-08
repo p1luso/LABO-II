@@ -9,6 +9,7 @@ class Asignatura : public IRegistro
 private:
    int _idAsignatura;
    char _nombreAsignatura[30];
+   int _idNivel;
    bool _estado;
 
 public:
@@ -17,6 +18,8 @@ public:
 
    void setId(int id);
    int getId();
+   void setIdNivel(int id);
+   int getIdNivel();
    void setNombreAsignatura(std::string nombreAsignatura);
    std::string getNombreAsignatura();
    void setEstado(bool estado);
@@ -27,6 +30,7 @@ public:
    void Cargar();
    void Mostrar();
    void MostrarNombre(int id);
+   void MostrarNombresPorNivel(int id);
 
    void alta();
 

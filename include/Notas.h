@@ -42,14 +42,13 @@ public:
    int getIdEstudiante();
    float getNota();
 
+   void listar();
    void CargarNotas(int dni);
-   void GuardarNotas(int dni);
+   void Mostrar();
 
 
 
 };
 
 
-///std::vector<Nota> _notas; // Nueva propiedad para almacenar notas
 
-///void agregarNota(std::string asignatura, float valor); // Nuevo método para agregar notas

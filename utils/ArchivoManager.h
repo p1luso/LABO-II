@@ -21,6 +21,7 @@ public:
 
     bool guardarRegistro(T obj);
     void listarRegistro(T obj);
+    void listarNotas(T obj);
     void listarNombres(T obj);
     int buscarRegistro(T obj, int id);
     T buscarRegistroPorIdUser(T obj, int id);
@@ -319,5 +320,22 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
     return asignatura;
 }
 
+template <class T>
+void ArchivoManager<T>::listarNotas(T obj)
+{
+    std::string ruta = "files/";
+    ruta.append(nombreArchivo);
+    FILE *f = fopen(ruta.c_str(), "rb");
+    if (f == NULL)
+    {
+        std::cerr << "Error: No se pudo abrir el archivo " << nombreArchivo << std::endl;
+        return;
+    }
 
+    while (fread(&obj, sizeof(T), 1, f) == 1)
+    {
+         obj.Mostrar();
+    }
+    fclose(f);
+}
 
