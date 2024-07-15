@@ -12,10 +12,8 @@ int UserId::getIdUser(){
    return _userId;
 }
 
-void UserId::setIdRol(int idRol){_userIdRol = idRol;}
-int UserId::getIdRol(){
-   return _userIdRol;
-}
+void UserId::setNombreRol(std::string nombreRol) { strcpy(_nombreRol, nombreRol.c_str()); }
+std::string UserId::getNombreRol() { return _nombreRol; }
 
 void UserId::setDni(int dni){_userDni = dni;}
 int UserId::getDni(){
@@ -25,10 +23,10 @@ int UserId::getDni(){
 void UserId::setEstado(bool estado) { _userEstado = estado; }
 bool UserId::getEstado() { return _userEstado; }
 
-void UserId::Cargar(int id, int dni, int idRol, bool estado){
+void UserId::Cargar(int id, int dni, std::string nombreRol, bool estado){
   setId(id);
   setDni(dni);
-  setIdRol(idRol);
+  setNombreRol(nombreRol);
   setEstado(estado);
 }
 
@@ -54,13 +52,22 @@ int UserId::VerificadorUsuario(int code){
         user = archivoUsuario.leerRegistro(user, i);
 
         if(code == user.getDni()){
-             idRol = user.getIdRol();
+            if(user.getNombreRol()=="Administrador"){
+               return 1;
+            }
+            if(user.getNombreRol()=="Director"){
+               return 2;
+            }
+            if(user.getNombreRol()=="Docente"){
+               return 3;
+            }
+            if(user.getNombreRol()=="Estudiante"){
+               return 4;
+            }
         }
         pos++;
     }
-    if(idRol > 0){
-      return idRol;
-    }
+
     return -1;
 }
 

@@ -5,15 +5,15 @@ class UserId{
 private:
    int _userId;
    int _userDni;
-   int _userIdRol;
+   char _nombreRol[20];
    bool _userEstado;
 
 public:
    void setId(int id);
    int getIdUser();
 
-   void setIdRol(int idRol);
-   int getIdRol();
+   void setNombreRol(std::string nombre);
+   std::string getNombreRol();
 
    void setDni(int dni);
    int getDni();
@@ -24,7 +24,7 @@ public:
 
    void Guardar();
    void Mostrar();
-   void Cargar(int id, int dni, int idRol, bool estado);
+   void Cargar(int id, int dni, std::string nombreRol, bool estado);
 
    UserId ObtenerUserConDni(int dni);
    int VerificadorUsuario(int code);

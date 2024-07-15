@@ -6,7 +6,6 @@ using namespace std;
 #include "../include/persona.h"
 #include "../utils/utils.h"
 #include "../include/UserId.h"
-#include "../include/Rol.h"
 
 // constructor
 Persona::Persona() {}
@@ -60,7 +59,6 @@ bool Persona::getEstado() { return _estado; }
 
 void Persona::Cargar()
 {
-    Rol rol;
     cout << "UserId: " << getNuevoId() << endl;
     _idUser = getNuevoId();
     cout << "DNI: ";
@@ -69,9 +67,9 @@ void Persona::Cargar()
     cargarCadena(_nombre, 50);
     cout << "Apellido: ";
     cargarCadena(_apellido, 50);
-    cout << "Fecha de nacimiento: " << endl;
+    cout << "Fecha de nacimiento (DD/MM/AAAA): " << endl;
     _fechaNacimiento.Cargar();
-    cout << "Sexo: ";
+    cout << "Sexo (M-masculino ; F-femenino ; O-otro: ";
     cargarCadena(_sexo, 10);
     cout << "Email: ";
     cargarCadena(_email, 50);

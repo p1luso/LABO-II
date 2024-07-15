@@ -2,20 +2,16 @@
 #include "../include/persona.h"
 #include "../utils/IRegistros.h"
 #include "../utils/funciones.h"
-#include "../include/Rol.h"
 
 class Admin : public Persona, public IRegistro
 {
 private:
    int _idAdmin;
-   int _idRol=1;
+   char _nombreRol[20] = "Administrador";
 public:
-
-   Rol rol;
-
    void setId(int idAdmin);
    int getId();
-   int getIdRol();
+   std::string getNombreRol();
 
    void Cargar();
    void Mostrar();

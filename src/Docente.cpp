@@ -19,11 +19,7 @@ void Docente::setId(int idDocente)
     _id = idDocente;
 }
 
-int Docente::getIdRol(){
-   return _idRol;
-}
-
-
+std::string Docente::getNombreRol(){ return _nombreRol; }
 
 int Docente::getIdNivel(){ return _idNivel; }
 int Docente::getIdCurso(){ return _idCurso; }
@@ -36,14 +32,13 @@ void Docente::setIdCurso(int idCurso){ _idCurso = idCurso; }
 void Docente::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
 void Docente::setTurno(std::string turno){ strcpy(_turno, turno.c_str()); }
 
-
 void Docente::Cargar()
 {
    Nivel nivel;
    Curso curso;
    Asignatura asignatura;
     _id = getNuevoId();
-    std::cout << "Rol: " << rol.MostrarNombre(getIdRol()) << std::endl;
+    std::cout << "Rol: " << getNombreRol() << std::endl;
     Persona::Cargar();
     std::cout<<"Selecione el Nivel: " << std::endl;
     nivel.MostrarNombres();
@@ -65,6 +60,8 @@ void Docente::Mostrar()
    Curso curso;
    Asignatura asignatura;
    //rlutil::locate(10,1);
+   if (getEstado() == true){
+    std::cout << "---------------------------" << std::endl;
     std::cout << "Id: " << getId() << std::endl;
     std::cout << "Nombre: " << getNombre() << std::endl;
     std::cout << "Apellido: " << getApellido() << std::endl;
@@ -81,6 +78,6 @@ void Docente::Mostrar()
     std::cout << "Asignatura: ";
     asignatura.MostrarNombre(getIdAsignatura());
     std::cout << "Turno: " << getTurno() << std::endl;
-
-    std::cout << "-------------------" << std::endl;
+    std::cout << "---------------------------" << std::endl;
+   }
 }

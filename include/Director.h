@@ -2,22 +2,22 @@
 #include "../include/persona.h"
 #include "../utils/IRegistros.h"
 #include "../utils/funciones.h"
-#include "../include/Rol.h"
 
 class Director : public Persona, public IRegistro
 {
 private:
    int _idDirector;
-   int _idRol = 2;
+   char _nombreRol[10] = "Director";
+   int _idNivel;
 public:
    Director();
    ~Director();
 
-   Rol rol;
-
    void setId(int idDirector);
+   void setIdNivel(int idNivel);
    int getId();
-   int getIdRol();
+   std::string getNombreRol();
+   int getIdNivel();
 
    void Cargar();
    void Mostrar();

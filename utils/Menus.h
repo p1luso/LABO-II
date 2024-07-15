@@ -10,7 +10,6 @@
 #include "../include/Nivel.h"
 #include "../include/Curso.h"
 #include "../include/Asignatura.h"
-#include "../include/Rol.h"
 #include "../include/UserId.h"
 #include "../include/Notas.h"
 #include "rlutil.h"

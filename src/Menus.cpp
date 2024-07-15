@@ -110,7 +110,7 @@
      if(cod < 0){
       rlutil::locate(textoX-8,altoRecuadro/2+10);
       //rlutil::setColor(15);
-      std::cout<<"Usuario no encontrado! vuelva a ingresar la clave.";
+      std::cout<<"Usuario no encontrado! vuelva a ingresar el usuario.";
       rlutil::locate(textoX-4 , altoRecuadro/2 + 12);
       system("pause");
      }
@@ -145,8 +145,8 @@
 
  void Menus::menuAdmin() {
      std::vector<MenuItem> items = {
-         {"1. CONFIGURACION PERSONAL   ", []() { Menus::menuAdmPers(); }},
-         {"2. CONFIGURACION DE COLEGIO ", []() { Menus::menuAdmColeg(); }},
+         {"1. CONFIGURACION DE COLEGIO ", []() { Menus::menuAdmColeg(); }},
+         {"2. CONFIGURACION PERSONAL   ", []() { Menus::menuAdmPers(); }},
          {"3. CERRAR SESION            ", []() { Menus::Login(); }},
          {"4. SALIR                    ", []() {
             rlutil::locate(15,27);
@@ -213,13 +213,11 @@
      Nivel nivel;
      Curso curso;
      Asignatura asignatura;
-     Rol rol;
      std::vector<MenuItem> items = {
          {"1. NIVEL              ", [&nivel]() {Menus::menuVarios(nivel, Menus::menuAdmColeg); }},
          {"2. CURSO              ", [&curso]() { Menus::menuVarios(curso, Menus::menuAdmColeg); }},
          {"3. ASIGNATURA         ", [&asignatura]() { Menus::menuVarios(asignatura, Menus::menuAdmColeg); }},
-         {"4. ROLES              ", [&rol]() { Menus::menuVarios(rol, Menus::menuAdmColeg); }},
-         {"5. ATRAS              ", []() { Menus::menuAdmin(); }}
+         {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }

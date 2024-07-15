@@ -68,9 +68,9 @@ void Docente::alta()
     archivoDocente.leerRegistro(docente, cant);
     int id = docente.getIdUser();
     int dni = docente.getDni();
-    int idRol = docente.getIdRol();
+    std::string nombreRol = docente.getNombreRol();
     bool estado = docente.getEstado();
-    user.Cargar(id, dni, idRol, estado);
+    user.Cargar(id, dni, nombreRol, estado);
 
     archivoUser.guardarRegistro(user);
     system("pause");

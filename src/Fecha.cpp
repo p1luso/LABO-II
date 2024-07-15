@@ -31,12 +31,19 @@ void Fecha::setAnio(int anio) { _anio = anio; }
 
 void Fecha::Cargar()
 {
+   int cont = 0;
+   do{
+   if(cont > 0){
+      std::cout << "Fecha incorrecta, vuelva a ingresarla." << std::endl;
+   }
    std::cout << "Dia: ";
    std::cin >> _dia;
    std::cout << "Mes: ";
    std::cin >> _mes;
    std::cout << "Anio: ";
    std::cin >> _anio;
+   cont ++;
+   }while(!(_dia>0 && _dia<=31 && _mes>0 &&_mes<=12 && _anio>=1930 && _anio<= 3000));
 }
 
 std::string Fecha::toString()

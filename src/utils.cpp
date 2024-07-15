@@ -13,7 +13,6 @@ using namespace std;
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
 #include "../include/Nivel.h"
-#include "../include/Rol.h"
 #include "../utils/Menus.h"
 
 // testeo de la clase Director con herencia de Persona

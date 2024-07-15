@@ -2,7 +2,6 @@
 #define ESTUDIANTE_H
 
 #include "persona.h"
-#include "../include/Rol.h"
 #include "../include/Curso.h"
 #include <vector>
 #include <string>
@@ -12,7 +11,7 @@
 class Estudiante : public Persona, public IRegistro {
 private:
     int _idEstudiante;
-    int _idRol = 4;
+    char _nombreRol[15] = "Estudiante";
     int _idNivel;
     int _idCurso;
     int _idAsignatura;
@@ -24,10 +23,9 @@ public:
     Estudiante();
     ~Estudiante();
 
-    Rol rol;
     Curso curso;
     int getId();
-    int getIdRol();
+    std::string getNombreRol();
     int getIdAsignatura();
     int getIdNivel();
     int getIdCurso();

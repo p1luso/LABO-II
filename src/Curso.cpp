@@ -48,9 +48,11 @@ void Curso::Mostrar()
     }
     else
     {
-        std::cout << "Nivel: " << getIdNivel() << std::endl;
         std::cout << "ID: " << getId() << std::endl;
+        std::cout << "Nivel: ";
+        nivel.MostrarNombre(getIdNivel());
         std::cout << "Nombre: " << getNombrCurso() << std::endl;
+        std::cout << "******************** " << std::endl;
 
     }
 }

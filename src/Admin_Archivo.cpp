@@ -30,9 +30,9 @@ void Admin::alta()
     archivoAdmin.leerRegistro(admin, cant);
     int id = admin.getIdUser();
     int dni = admin.getDni();
-    int idRol = admin.getIdRol();
+    std::string nombreRol = admin.getNombreRol();
     bool estado = admin.getEstado();
-    user.Cargar(id, dni, idRol, estado);
+    user.Cargar(id, dni, nombreRol, estado);
 
     archivoUser.guardarRegistro(user);
     system("pause");

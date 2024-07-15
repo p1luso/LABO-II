@@ -80,9 +80,9 @@ void Director::alta()
     archivoDirector.leerRegistro(director, cant);
     int id = director.getIdUser();
     int dni = director.getDni();
-    int idRol = director.getIdRol();
+    std::string nombreRol = director.getNombreRol();
     bool estado = director.getEstado();
-    user.Cargar(id, dni, idRol, estado);
+    user.Cargar(id, dni, nombreRol, estado);
 
     archivoUser.guardarRegistro(user);
     system("pause");
@@ -95,12 +95,12 @@ void Director::listar()
     Director director;
     ArchivoManager<Director> archivoDirector("directores.dat");
     archivoDirector.listarRegistro(director);
-    //system("pause");
-    std::cout << "------------------------------------ " << std::endl;
-    UserId user;
-    ArchivoManager<UserId> archivoUser("users.dat");
-    archivoUser.listarRegistro(user);
     system("pause");
+//    std::cout << "------------------------------------ " << std::endl;
+//    UserId user;
+//    ArchivoManager<UserId> archivoUser("users.dat");
+//    archivoUser.listarRegistro(user);
+//    system("pause");
 }
 
 void Director::baja()

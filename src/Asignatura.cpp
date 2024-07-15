@@ -13,6 +13,7 @@ int Asignatura::getId() { return _idAsignatura; }
 
 void Asignatura::setIdNivel(int id) { _idNivel = id; }
 
+
 int Asignatura::getIdNivel() { return _idNivel; }
 
 
@@ -40,10 +41,14 @@ void Asignatura::Cargar()
 
 void Asignatura::Mostrar()
 {
+   Nivel nivel;
     if (getEstado() == true)
     {
         std::cout<< "ID: " << getId() << std::endl;
+        std::cout<< "Nivel: ";
+        nivel.MostrarNombre(getIdNivel());
         std::cout << "Nombre: " << getNombreAsignatura() << std::endl;
+        std::cout << "*********************** " << std::endl;
     }
 }
 void Asignatura::MostrarNombre(int id){
@@ -66,7 +71,7 @@ void Asignatura::MostrarNombresPorNivel(int id){
     for(int i=0; i<=cant; i++){
       asignatura = archivoAsignatura.leerRegistro(asignatura, i);
       if(asignatura.getIdNivel() == id){
-         cout << asignatura.getIdNivel() << ": " << asignatura.getNombreAsignatura() << " | ";
+         cout << asignatura.getId() << ": " << asignatura.getNombreAsignatura() << " | ";
       }
     }
     cout << ": ";

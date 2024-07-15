@@ -24,9 +24,9 @@ void Estudiante::alta()
     archivoEstudiante.leerRegistro(estudiante, cant);
     int id = estudiante.getIdUser();
     int dni = estudiante.getDni();
-    int idRol = estudiante.getIdRol();
+    std::string nombreRol = estudiante.getNombreRol();
     bool estado = estudiante.getEstado();
-    user.Cargar(id, dni, idRol, estado);
+    user.Cargar(id, dni, nombreRol, estado);
 
     archivoUser.guardarRegistro(user);
     system("pause");

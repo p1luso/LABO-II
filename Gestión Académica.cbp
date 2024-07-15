@@ -32,12 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="files/Roles.dat" />
 		<Unit filename="files/admin.dat" />
+		<Unit filename="files/cursos.dat" />
 		<Unit filename="files/directores.dat" />
-		<Unit filename="files/docentes.dat" />
-		<Unit filename="files/estudiantes.dat" />
-		<Unit filename="files/notas.dat" />
+		<Unit filename="files/niveles.dat" />
 		<Unit filename="files/users.dat" />
 		<Unit filename="include/Admin.h" />
 		<Unit filename="include/Asignatura.h" />
@@ -48,7 +46,6 @@
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Nivel.h" />
 		<Unit filename="include/Notas.h" />
-		<Unit filename="include/Rol.h" />
 		<Unit filename="include/UserId.h" />
 		<Unit filename="include/persona.h" />
 		<Unit filename="src/Admin.cpp" />
@@ -68,8 +65,6 @@
 		<Unit filename="src/Nivel.cpp" />
 		<Unit filename="src/Nivel_archivo.cpp" />
 		<Unit filename="src/Notas_Archivo.cpp" />
-		<Unit filename="src/Rol.cpp" />
-		<Unit filename="src/Rol_Archivo.cpp" />
 		<Unit filename="src/UserId.cpp" />
 		<Unit filename="src/UserId_Archivo.cpp" />
 		<Unit filename="src/funciones.cpp" />

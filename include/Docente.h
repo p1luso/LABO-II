@@ -4,13 +4,12 @@
 #include "../utils/IRegistros.h"
 #include "../utils/funciones.h"
 #include "Asignatura.h"
-#include "../include/Rol.h"
 
 class Docente : public Persona, public IRegistro
 {
 private:
     int _id;
-    int _idRol = 3;
+    char _nombreRol[10] = "Docente";
     int _idNivel;
     int _idCurso;
     int _idAsignatura;
@@ -18,16 +17,15 @@ private:
 public:
     Docente();
     ~Docente();
-    Rol rol;
     int getId();
-    int getIdRol();
-    ///Asignatura getIdAsignatura();
+    std::string getNombreRol();
+
     int getIdNivel();
     int getIdCurso();
     int getIdAsignatura();
     std::string getTurno();
     void setId(int idDocente);
-    ///void setIdAsignatura(Asignatura asignatura);
+
     void setIdNivel(int idNivel);
     void setIdCurso(int idCurso);
     void setIdAsignatura(int idAsignatura);
