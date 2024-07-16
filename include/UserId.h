@@ -10,7 +10,7 @@ private:
 
 public:
    void setId(int id);
-   int getIdUser();
+   int getId();
 
    void setNombreRol(std::string nombre);
    std::string getNombreRol();

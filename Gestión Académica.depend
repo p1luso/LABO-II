@@ -125,7 +125,7 @@
 	"../utils/funciones.h"
 	"../include/Docente.h"
 
-1720637042 source:c:\users\maxi-casa\documents\github\labo-ii\src\persona.cpp
+1721135121 source:c:\users\maxi-casa\documents\github\labo-ii\src\persona.cpp
 	<iostream>
 	<string>
 	<cstring>
@@ -380,7 +380,7 @@
 	"../utils/ArchivoManager.h"
 	"../include/Asignatura.h"
 
-1720450043 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
+1721135135 c:\users\maxi-casa\documents\github\labo-ii\utils\archivomanager.h
 	<cstring>
 	<cstdio>
 	<stdexcept>
@@ -422,7 +422,7 @@
 	<functional>
 	"IRegistros.h"
 
-1720632350 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente_archivo.cpp
+1721145241 source:c:\users\maxi-casa\documents\github\labo-ii\src\docente_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/persona.h"
@@ -441,7 +441,7 @@
 1718321110 source:c:\users\maxi-casa\documents\github\labo-ii\src\funciones.cpp
 	"../utils/funciones.h"
 
-1720637027 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
+1721135121 source:c:\users\maxi-casa\documents\github\labo-ii\src\menus.cpp
 	"../utils/Menus.h"
 	"../utils/IRegistros.h"
 	"../include/Director.h"
@@ -476,7 +476,7 @@
 
 1719583361 source:c:\users\maxi-casa\documents\github\labo-ii\src\persona_archivo.cpp
 
-1720634253 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
+1721145192 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid.cpp
 	<iostream>
 	<string>
 	<cstring>
@@ -484,7 +484,7 @@
 	"../utils/ArchivoManager.h"
 	"../utils/Menus.h"
 
-1720634490 c:\users\maxi-casa\documents\github\labo-ii\include\userid.h
+1721134889 c:\users\maxi-casa\documents\github\labo-ii\include\userid.h
 
 1719776269 source:c:\users\maxi-casa\documents\github\labo-ii\src\userid_archivo.cpp
 	<iostream>
@@ -788,12 +788,12 @@
 
 1719848374 source:c:\users\lenovo_m\documents\github\labo-ii\src\notas_archivo.cpp
 
-1720460062 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
+1721072044 source:c:\users\maxi-casa\documents\github\labo-ii\src\notas_archivo.cpp
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Notas.h"
 
-1720449693 c:\users\maxi-casa\documents\github\labo-ii\include\notas.h
+1721071240 c:\users\maxi-casa\documents\github\labo-ii\include\notas.h
 	<iostream>
 	"../utils/ArchivoManager.h"
 	"../include/Nivel.h"

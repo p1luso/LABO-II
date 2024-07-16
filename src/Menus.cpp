@@ -103,7 +103,7 @@
 
      UserId user;
      user = user.ObtenerUserConDni(code);
-     int user_Id = user.getIdUser();
+     int user_Id = user.getId();
      Menus::setIdUser(user_Id);
      cod = user.VerificadorUsuario(code);
 
@@ -293,7 +293,7 @@
             notas.CargarNotas(Menus::getIdUser());    }},
          {"2. LISTAR NOTAS ", []() {
             Notas notas;
-            notas.listar();                           }},
+            notas.listar(Menus::getIdUser());                           }},
          {"3. MODIFICAR NOTAS            ", []() {    }},
          {"4. BORRAR NOTAS               ", []() {    }},
          {"5. ATRAS                      ", []() { Menus:menuDocente(); }}

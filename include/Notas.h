@@ -42,7 +42,7 @@ public:
    int getIdEstudiante();
    float getNota();
 
-   void listar();
+   void listar(int id);
    void CargarNotas(int dni);
    void Mostrar();
 

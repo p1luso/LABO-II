@@ -89,7 +89,9 @@ void Docente::listar()
 void Docente::baja()
 {
     Docente docente;
+    UserId user;
     ArchivoManager<Docente> archivoDocente("docentes.dat");
+    ArchivoManager<UserId> archivoUser("users.dat");
     int id;
     cout << "Ingrese el id de la Docente a eliminar: ";
     cin >> id;
@@ -103,6 +105,15 @@ void Docente::baja()
 
     docente = archivoDocente.leerRegistro(docente, idPos);
 
+    int idPos2 = archivoUser.buscarRegistro(user, docente.getIdUser());
+    if (idPos == -1)
+    {
+        cout << "No se encontro el Docente" << endl;
+        return;
+    }
+
+    user = archivoUser.leerRegistro(user, idPos2);
+
     if (docente.getEstado() == true)
     {
         int posY = 2; // Definir la posición inicial Y
@@ -114,6 +125,9 @@ void Docente::baja()
         {
             docente.setEstado(false);
             archivoDocente.modificarRegistro(docente, idPos);
+            user.setEstado(false);
+            archivoUser.modificarRegistro(user, idPos2);
+
             cout << "Docente eliminado " << endl;
         }
     }

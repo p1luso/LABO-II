@@ -8,7 +8,7 @@
 
 
 void UserId::setId(int id){_userId = id;}
-int UserId::getIdUser(){
+int UserId::getId(){
    return _userId;
 }
 
@@ -34,9 +34,9 @@ void UserId::Mostrar()
 {
     if (getEstado() == true)
     {
-        std::cout << "ID: " << getIdUser() << std::endl;
+        std::cout << "ID: " << getId() << std::endl;
         std::cout << "Dni: " << getDni() << std::endl;
-
+        std::cout << "Estado: " << getEstado() << std::endl;
     }
 }
 int UserId::VerificadorUsuario(int code){

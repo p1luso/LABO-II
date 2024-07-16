@@ -91,7 +91,7 @@ int Persona::getNuevoId(){
     if(cant > 0){
 
       user = archivoUser.leerRegistro(user, cant-1);
-      return user.getIdUser()+1;
+      return user.getId()+1;
     }
     else{
       return 1;

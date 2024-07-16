@@ -21,7 +21,7 @@ public:
 
     bool guardarRegistro(T obj);
     void listarRegistro(T obj);
-    void listarNotas(T obj);
+    void listarNotas(T obj, int id);
     void listarNombres(T obj);
     int buscarRegistro(T obj, int id);
     T buscarRegistroPorIdUser(T obj, int id);
@@ -126,7 +126,7 @@ T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int id)
 
     while (fread(&obj, sizeof obj, 1, f) == 1)
     {
-        if (obj.getIdUser() == id)
+        if (obj.getId() == id)
         {
             fclose(f);
             return obj;
@@ -321,7 +321,7 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
 }
 
 template <class T>
-void ArchivoManager<T>::listarNotas(T obj)
+void ArchivoManager<T>::listarNotas(T obj, int id)
 {
     std::string ruta = "files/";
     ruta.append(nombreArchivo);
@@ -334,7 +334,9 @@ void ArchivoManager<T>::listarNotas(T obj)
 
     while (fread(&obj, sizeof(T), 1, f) == 1)
     {
-         obj.Mostrar();
+         if(obj.getIdAsignatura() == id){
+            obj.Mostrar();
+         }
     }
     fclose(f);
 }
