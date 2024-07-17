@@ -1,5 +1,6 @@
  #include "../utils/Menus.h"
  #include "../utils/IRegistros.h"
+ #include "../include/Trimestre.h"
  #include "../include/Director.h"
  #include "../include/Notas.h"
  #include "../include/UserId.h"
@@ -210,14 +211,16 @@
  }
 
  void Menus::menuAdmColeg() {
+     Trimestre trimestre;
      Nivel nivel;
      Curso curso;
      Asignatura asignatura;
      std::vector<MenuItem> items = {
-         {"1. NIVEL              ", [&nivel]() {Menus::menuVarios(nivel, Menus::menuAdmColeg); }},
-         {"2. CURSO              ", [&curso]() { Menus::menuVarios(curso, Menus::menuAdmColeg); }},
-         {"3. ASIGNATURA         ", [&asignatura]() { Menus::menuVarios(asignatura, Menus::menuAdmColeg); }},
-         {"4. ATRAS              ", []() { Menus::menuAdmin(); }}
+         {"1. CONFIGURAR TRIMESTRES", [&trimestre]() {Menus::menuVarios(trimestre, Menus::menuAdmColeg); }},
+         {"2. NIVEL                ", [&nivel]() {Menus::menuVarios(nivel, Menus::menuAdmColeg); }},
+         {"3. CURSO                ", [&curso]() { Menus::menuVarios(curso, Menus::menuAdmColeg); }},
+         {"4. ASIGNATURA           ", [&asignatura]() { Menus::menuVarios(asignatura, Menus::menuAdmColeg); }},
+         {"5. ATRAS                ", []() { Menus::menuAdmin(); }}
      };
      mostrarMenu(items);
  }

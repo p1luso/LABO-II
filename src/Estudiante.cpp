@@ -74,7 +74,7 @@ void Estudiante::Mostrar() {
         std::cout << "Curso: ";
         curso.MostrarNombre(getIdCurso());
         std::cout << "Turno: "<<getTurno()<<std::endl;
-        std::cout << "Turno: "<<getEstado()<<std::endl;
+        std::cout << "Estado: "<<getEstado()<<std::endl;
         std::cout << "-----------------------------" << std::endl;
     }
 }

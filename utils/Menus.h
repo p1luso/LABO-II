@@ -7,6 +7,7 @@
 #include "../include/Director.h"
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
+#include "../include/Trimestre.h"
 #include "../include/Nivel.h"
 #include "../include/Curso.h"
 #include "../include/Asignatura.h"

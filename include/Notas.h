@@ -6,6 +6,7 @@
 #include "../include/Asignatura.h"
 #include "../include/Docente.h"
 #include "../include/Estudiante.h"
+#include "../include/Trimestre.h"
 #include "../utils/Menus.h"
 
 class Notas {
@@ -43,7 +44,7 @@ public:
    float getNota();
 
    void listar(int id);
-   void CargarNotas(int dni);
+   void CargarNotas(int id);
    void Mostrar();
 
 

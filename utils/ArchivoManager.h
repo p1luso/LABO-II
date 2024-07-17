@@ -126,7 +126,7 @@ T ArchivoManager<T>::buscarRegistroPorIdUser(T obj, int id)
 
     while (fread(&obj, sizeof obj, 1, f) == 1)
     {
-        if (obj.getId() == id)
+        if (obj.getIdUser() == id)
         {
             fclose(f);
             return obj;

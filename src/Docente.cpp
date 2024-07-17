@@ -37,6 +37,7 @@ void Docente::Cargar()
    Nivel nivel;
    Curso curso;
    Asignatura asignatura;
+
     _id = getNuevoId();
     std::cout << "Rol: " << getNombreRol() << std::endl;
     Persona::Cargar();

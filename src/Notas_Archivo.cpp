@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <ctime>
 #include "../utils/ArchivoManager.h"
 #include "../include/Notas.h"
 
@@ -27,15 +27,34 @@ void Notas::CargarNotas(int id){
    Docente docente;
    Estudiante estudiante;
    Notas notas;
+   Notas notas2;
+   Trimestre trimestre;
    ArchivoManager<Docente> archivoDocente("docentes.dat");
    ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
    ArchivoManager<Notas> archivoNotas("notas.dat");
+   ArchivoManager<Trimestre> archivoTrimestre("trimestres.dat");
 
    docente = archivoDocente.buscarRegistroPorIdUser(docente, id);
 
    int cantidad = archivoEstudiante.cantidadRegistros();
-      std::cout << "Ingrese Trimestre: 1-2-3: " << std::endl;
-      std::cin >> notas._idTrimestre;
+   int cant = archivoNotas.cantidadRegistros();
+   int cant2 = archivoTrimestre.cantidadRegistros();
+
+   time_t t = time(NULL);
+   struct tm *f = localtime(&t);
+   int dia = (*f).tm_mday; // Indirecciona f y accede a tm_mday
+   int mes = f->tm_mon + 1; // Indirecciona f y accede a tm_mon
+   int anio = f->tm_year + 1900;
+
+      std::cout << "Trimestre: ";
+      for(int i=0;i<cant2;i++){
+         trimestre = archivoTrimestre.leerRegistro(trimestre, i);
+         if(mes>=trimestre.getFechaInicio().getMes() && mes<=trimestre.getFechaFinal().getMes()){
+               std::cout << trimestre.getTrimestre() << std::endl;
+               notas._idTrimestre = trimestre.getTrimestre();
+         }
+      }
+
       std::cout << "Nivel: ";
       nivel.MostrarNombre(docente.getIdNivel());
       notas.setIdNivel(docente.getIdNivel());
@@ -45,26 +64,56 @@ void Notas::CargarNotas(int id){
       std::cout << "Asignatura: ";
       asignatura.MostrarNombre(docente.getIdAsignatura());
       notas.setIdAsignatura(docente.getIdAsignatura());
-   for (int i = 0; i < cantidad; i++){
-      estudiante = archivoEstudiante.leerRegistro(estudiante, i);
       notas.setIdDocente(docente.getId());
 
+   for (int i = 0; i < cantidad; i++){
+      estudiante = archivoEstudiante.leerRegistro(estudiante, i);
+      bool aux = false;
       if(docente.getIdNivel() == estudiante.getIdNivel() && docente.getIdCurso() == estudiante.getIdCurso() && estudiante.getEstado()){
          std::cout << "Estudiante: ";
          std::cout << estudiante.getApellido() << ", "<< estudiante.getNombre() << endl;
          notas.setIdEstudiante(estudiante.getId());
-         std::cout << "Nota: ";
-         std::cin >> notas._nota;
-         if(!archivoNotas.guardarRegistro(notas)){
-            cout << "No se pudo guardar!" << endl;
-            system ("pause");
-         }else{
-            cout << "Se guardo con exito! " << endl;
-            system ("pause");
+         if(cant<0){
+            std::cout << "Nota: ";
+            std::cin >> _nota;
+            notas.setNota(_nota);
+            if(!archivoNotas.guardarRegistro(notas)){
+               cout << "No se pudo guardar!" << endl;
+               cout << "------------------" << endl;
+               system ("pause");
+            }
+            else{
+               cout << "Se guardo con exito! " << endl;
+               system ("pause");
+            }
+         }
+         else if(cant>0){
+            for(int j=0;j<cant;j++){
+               notas2 = archivoNotas.leerRegistro(notas2, j);
+               if(notas2.getIdEstudiante() == estudiante.getId() && notas2.getNota()>0){
+                  std::cout << "El Estudiante ya tiene Nota en este trimestre: " << std::endl;
+                  std::cout << estudiante.getApellido() << estudiante.getNombre() << std::endl;
+                  std::cout << notas2.getNota() << std::endl;
+                  aux = true;
+                  system ("pause");
+               }
+            }
+         }
+         if(!aux){
+            std::cout << "Nota: ";
+            std::cin >> _nota;
+            notas.setNota(_nota);
+            if(!archivoNotas.guardarRegistro(notas)){
+               cout << "No se pudo guardar!" << endl;
+               cout << "------------------" << endl;
+               system ("pause");
+            }else{
+               cout << "Se guardo con exito! " << endl;
+               system ("pause");
+            }
          }
       }
-    }
-
+   }
    system ("pause");
    system ("cls");
    menus.subMenuDoc();
@@ -77,17 +126,18 @@ void Notas::Mostrar(){
       ArchivoManager<Docente> archivoDocente("docentes.dat");
       ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
 
-      int idDocente = archivoDocente.buscarRegistro(docente, getIdDocente());
+      int idDocente = archivoDocente.buscarRegistro(docente, Notas::getIdDocente());
       int idEstu = archivoEstudiante.buscarRegistro(estudiante, getIdEstudiante());
       docente = archivoDocente.leerRegistro(docente, idDocente);
       estudiante = archivoEstudiante.leerRegistro(estudiante, idEstu);
+
       std::cout << "TRIMESTRE: " << getIdTrimestre() << std::endl;
       std::cout << "Nivel: ";
-      nivel.MostrarNombre(docente.getIdNivel());
+      nivel.MostrarNombre(getIdNivel());
       std::cout << "Curso: ";
-      curso.MostrarNombre(docente.getIdCurso());
+      curso.MostrarNombre(getIdCurso());
       std::cout << "Asignatura: ";
-      asignatura.MostrarNombre(docente.getIdAsignatura());
+      asignatura.MostrarNombre(getIdAsignatura());
       std::cout << "Docente: " << docente.getApellido() << " " << docente.getNombre() << std::endl;
       std::cout << "Estudiante: " << estudiante.getApellido() << " " << estudiante.getNombre() << std::endl;
       std::cout << "Nota: " << getNota() << std::endl;
