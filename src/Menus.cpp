@@ -4,6 +4,7 @@
  #include "../include/Director.h"
  #include "../include/Notas.h"
  #include "../include/UserId.h"
+ #include "../include/Estudiante.h"
 
 
  int Menus::login_code = 0;
@@ -185,7 +186,9 @@
 
  void Menus::menuEstudiante() {
      std::vector<MenuItem> items = {
-         {"1. VER NOTAS          ", []() { /* Acci�n para ver notas */ }},
+         {"1. VER NOTAS          ", []() {
+            Estudiante estudiante;
+            estudiante.listarNotasEstudiantes(Menus::getIdUser());  }},
          {"2. VER MATERIAS       ", []() { /* Acci�n para ver materias */ }},
          {"3. CERRAR SESION      ", []() { Menus::Login(); }},
          {"4. SALIR              ", []() {
@@ -243,27 +246,7 @@
      };
      mostrarMenu(items);
  }
-/*
- void Menus::menuDocente() {
-    Docente docente;
-    std::vector<MenuItem> items = {
-         {"1. CARGAR NOTAS          ", [&docente]() {   }},
-         {"2. LISTAR NOTA           ", []() {
-            Docente docente;
-            }},
-         {"3. MODIFICAR NOTAS       ", []() {
-         Docente docente;
-            }},
-         {"4. BORRAR NOTAS          ", []() {
-         Docente docente;
-            }},
-         {"5. ATRAS                 ", []() { Menus::menuDirector(); }}
-     };
-     mostrarMenu(items);
 
-
- }
-*/
  void Menus::menuDirEstu() {
 
      std::vector<MenuItem> items = {
@@ -294,10 +277,12 @@
          {"1. CARGAR NOTAS ", []() {
             Notas notas;
             notas.CargarNotas(Menus::getIdUser());    }},
-         {"2. LISTAR NOTAS ", []() {
+         {"2. LISTAR NOTAS ",               []() {
             Notas notas;
-            notas.listar(Menus::getIdUser());                           }},
-         {"3. MODIFICAR NOTAS            ", []() {    }},
+            notas.listar(Menus::getIdUser());         }},
+         {"3. MODIFICAR NOTAS            ", []() {
+            Notas notas;
+            notas.modificar();                        }},
          {"4. BORRAR NOTAS               ", []() {    }},
          {"5. ATRAS                      ", []() { Menus:menuDocente(); }}
      };

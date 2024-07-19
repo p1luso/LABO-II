@@ -46,6 +46,10 @@ void Notas::CargarNotas(int id){
    int mes = f->tm_mon + 1; // Indirecciona f y accede a tm_mon
    int anio = f->tm_year + 1900;
 
+//int dia = 3;
+//int mes = 4;
+//int anio = 2024;
+
       std::cout << "Trimestre: ";
       for(int i=0;i<cant2;i++){
          trimestre = archivoTrimestre.leerRegistro(trimestre, i);
@@ -65,6 +69,7 @@ void Notas::CargarNotas(int id){
       asignatura.MostrarNombre(docente.getIdAsignatura());
       notas.setIdAsignatura(docente.getIdAsignatura());
       notas.setIdDocente(docente.getId());
+      std::cout << "------------------------------------------------" << std::endl;
 
    for (int i = 0; i < cantidad; i++){
       estudiante = archivoEstudiante.leerRegistro(estudiante, i);
@@ -90,12 +95,12 @@ void Notas::CargarNotas(int id){
          else if(cant>0){
             for(int j=0;j<cant;j++){
                notas2 = archivoNotas.leerRegistro(notas2, j);
-               if(notas2.getIdEstudiante() == estudiante.getId() && notas2.getNota()>0){
+               if(notas2.getIdEstudiante() == estudiante.getId() && notas2.getNota()>0 && docente.getIdAsignatura() == notas2.getIdAsignatura() && notas2.getIdTrimestre() == trimestre.getTrimestre()){
                   std::cout << "El Estudiante ya tiene Nota en este trimestre: " << std::endl;
-                  std::cout << estudiante.getApellido() << estudiante.getNombre() << std::endl;
-                  std::cout << notas2.getNota() << std::endl;
+                  std::cout << "Nota: " <<notas2.getNota() << std::endl;
                   aux = true;
                   system ("pause");
+                  std::cout << "------------------------------------------------" << std::endl;
                }
             }
          }
@@ -131,16 +136,20 @@ void Notas::Mostrar(){
       docente = archivoDocente.leerRegistro(docente, idDocente);
       estudiante = archivoEstudiante.leerRegistro(estudiante, idEstu);
 
-      std::cout << "TRIMESTRE: " << getIdTrimestre() << std::endl;
-      std::cout << "Nivel: ";
+      std::cout << std::endl;
+      std::cout << "TRIMESTRE:      " << getIdTrimestre() << std::endl;
+      std::cout << std::endl;
+      std::cout << "Id Estudiante:  " << getIdEstudiante() << std::endl;
+      std::cout << "Estudiante:     " << estudiante.getApellido() << " " << estudiante.getNombre() << std::endl;
+      std::cout << "Nivel:          ";
       nivel.MostrarNombre(getIdNivel());
-      std::cout << "Curso: ";
+      std::cout << "Curso:          ";
       curso.MostrarNombre(getIdCurso());
-      std::cout << "Asignatura: ";
+      std::cout << "Asignatura:     ";
       asignatura.MostrarNombre(getIdAsignatura());
-      std::cout << "Docente: " << docente.getApellido() << " " << docente.getNombre() << std::endl;
-      std::cout << "Estudiante: " << estudiante.getApellido() << " " << estudiante.getNombre() << std::endl;
-      std::cout << "Nota: " << getNota() << std::endl;
+      std::cout << "Docente:        " << docente.getApellido() << " " << docente.getNombre() << std::endl;
+      std::cout << "Nota:           " << getNota() << std::endl;
+      std::cout << std::endl;
       std::cout << "******************" << std::endl;
 }
 
@@ -156,6 +165,41 @@ void Notas::listar(int id){
     system("pause");
     system ("cls");
     menus.subMenuDoc();
+}
+
+void Notas::modificar(){
+   int idEstu;
+   float nota;
+   int pos;
+   Menus menus;
+   Notas notas;
+   ArchivoManager<Notas> archivoNotas("notas.dat");
+   int cant = archivoNotas.cantidadRegistros();
+   system ("cls");
+   std::cout << "Ingrese Id del estudiante a modificar la nota: ";
+   std::cin >> idEstu;
+   for(int i=0;i<cant;i++){
+      notas = archivoNotas.leerRegistro(notas, i);
+      if(idEstu == notas.getIdEstudiante()){
+         notas.Mostrar();
+         std::cout << "Ingrese nueva nota: ";
+         std::cin >> nota;
+         std::cout << "Desea modificar la nota? (s/n): " << std::endl;
+         char opcion;
+         std::cin >> opcion;
+         if (opcion == 's' || opcion == 'S')
+         {
+            pos = archivoNotas.buscarNotas(notas, idEstu);
+            notas.setNota(nota);
+            archivoNotas.modificarNotas(notas, nota, pos);
+            std::cout << "Nota modificada " << std::endl;
+            std::cout << notas.getNota() << std::endl;
+         }
+      }
+   }
+   system("pause");
+   system ("cls");
+   menus.subMenuDoc();
 }
 
 

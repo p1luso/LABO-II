@@ -23,6 +23,8 @@ public:
     void listarRegistro(T obj);
     void listarNotas(T obj, int id);
     void listarNombres(T obj);
+    bool modificarNotas(T obj, float nota, int pos);
+    buscarNotas(T obj, int id);
     int buscarRegistro(T obj, int id);
     T buscarRegistroPorIdUser(T obj, int id);
     T leerRegistro(T obj, int pos);
@@ -237,8 +239,8 @@ void ArchivoManager<T>::listarDocentesPorCriterio(const std::string &criterio,co
 template <class T>
 void ArchivoManager<T>::listarEstudiantesPorCriterio(const std::string &criterio, const int &valor)
 {
-    ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
     Estudiante estudiante;
+    ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
 
     std::string ruta = "files/estudiantes.dat";
     FILE *f = fopen(ruta.c_str(), "rb");
@@ -321,6 +323,34 @@ std::string ArchivoManager<T>::obtenerAsignaturaPorId(int id)
 }
 
 template <class T>
+int ArchivoManager<T>::buscarNotas(T obj, int id)
+{
+    std::string ruta = "files/";
+    ruta.append(nombreArchivo);
+    FILE *f = fopen(ruta.c_str(), "rb");
+    int pos = 0;
+
+    if (f == NULL)
+    {
+        cout << "Error: No se pudo acceder al archivo" << endl;
+        fclose(f);
+        exit(-1);
+    }
+
+    while (fread(&obj, sizeof obj, 1, f) == 1)
+    {
+        if (obj.getIdEstudiante() == id)
+        {
+            fclose(f);
+            return pos;
+        }
+        pos++;
+    }
+    fclose(f);
+    return -2;
+}
+
+template <class T>
 void ArchivoManager<T>::listarNotas(T obj, int id)
 {
     std::string ruta = "files/";
@@ -341,3 +371,21 @@ void ArchivoManager<T>::listarNotas(T obj, int id)
     fclose(f);
 }
 
+template <class T>
+bool ArchivoManager<T>::modificarNotas(T obj, float nota, int pos)
+{
+   std::string ruta = "files/";
+    ruta.append(nombreArchivo);
+    FILE *f = fopen(ruta.c_str(), "rb+");
+    if (f == NULL)
+    {
+        return false;
+    }
+
+    fseek(f, pos * sizeof(T), SEEK_SET);
+    obj.setNota(nota);
+    bool escrito = fwrite(&obj, sizeof(T), 1, f) == 1;
+
+    fclose(f);
+    return escrito;
+}

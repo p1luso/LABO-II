@@ -45,9 +45,8 @@ public:
 
    void listar(int id);
    void CargarNotas(int id);
+   void modificar();
    void Mostrar();
-
-
 
 };
 

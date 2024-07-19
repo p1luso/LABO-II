@@ -5,6 +5,8 @@
 #include "../utils/utils.h"
 #include "../include/Nivel.h"
 #include "../include/Curso.h"
+#include "../include/Trimestre.h"
+#include "../include/Notas.h"
 
 Estudiante::Estudiante() {}
 
@@ -24,18 +26,7 @@ void Estudiante::setIdCurso(int idCurso) { _idCurso = idCurso; }
 void Estudiante::setIdNivel(int  idNivel) { _idNivel = idNivel; }
 void Estudiante::setIdAsignatura(int idAsignatura){ _idAsignatura = idAsignatura; }
 void Estudiante::setTurno(std::string turno) { strcpy(_turno, turno.c_str()); }
-/*
-void Estudiante::agregarNota(std::string asignatura, float valor) {
-    _notas.push_back(Nota(asignatura, valor));
-}
 
-void Estudiante::listarNotas() {
-    std::cout << "Notas del estudiante " << getNombre() << " " << getApellido() << ":" << std::endl;
-    for (const auto& nota : _notas) {
-        std::cout << "Asignatura: " << nota.asignatura << ", Nota: " << nota.valor << std::endl;
-    }
-}
-*/
 void Estudiante::Cargar() {
     Nivel nivel;
     Curso curso;
@@ -51,6 +42,43 @@ void Estudiante::Cargar() {
     std::cout <<"Turno M - Mañana | T - Tarde: ";
     cargarCadena(_turno, 30);
     setEstado(true);
+}
+
+void Estudiante::listarNotasEstudiantes(int id){
+   system("cls");
+   Menus menus;
+   Curso curso;
+   Asignatura asignatura;
+   Trimestre trimestre;
+   Notas notas;
+   Estudiante estudiante;
+   ArchivoManager<Notas> archivoNotas("notas.dat");
+   ArchivoManager<Estudiante> archivoEstudiante("estudiantes.dat");
+
+   estudiante = archivoEstudiante.buscarRegistroPorIdUser(estudiante, id);
+
+   int cant = archivoNotas.cantidadRegistros();
+   for(int i=0;i<cant;i++){
+      notas = archivoNotas.leerRegistro(notas, i);
+      if(estudiante.getId() == notas.getIdEstudiante()){
+         for(int j=1;j<=3;j++){
+            if(notas.getIdTrimestre() == j){
+               std::cout<< "------------------------------"  << std::endl;
+               std::cout<< "Trimestre:    " << notas.getIdTrimestre() << std::endl;
+               std::cout<< "Curso:        " ;
+               curso.MostrarNombre(notas.getIdCurso());
+               std::cout<< "Asignatura:   ";
+               asignatura.MostrarNombre(notas.getIdAsignatura());
+               std::cout<< "Nota:         " << notas.getNota() << std::endl;
+               std::cout<< "------------------------------"  << std::endl;
+
+            }
+         }
+      }
+   }
+   system ("pause");
+   system ("cls");
+   menus.menuEstudiante();
 }
 
 void Estudiante::Mostrar() {
@@ -78,5 +106,9 @@ void Estudiante::Mostrar() {
         std::cout << "-----------------------------" << std::endl;
     }
 }
+
+
+
+
 
 

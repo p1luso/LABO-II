@@ -38,7 +38,7 @@ public:
     void setIdAsignatura(int idAsignatura);
     void setTurno(std::string turno);
 
-
+    void listarNotasEstudiantes(int id);
     void listarNotas(); // Nuevo método para listar notas
 
     int getNuevoId();
